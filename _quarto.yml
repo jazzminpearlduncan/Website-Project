@@ -24,7 +24,7 @@ website:
            
       - text: "other works"
         menu:
-          - text: "non-fiction writing"
+          - text: "Non-Fiction Writing"
             href: nonfiction.qmd
           - text: "poems & creative writing (under construction)"
           - text: "photography (under construction)"
