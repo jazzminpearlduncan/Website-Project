@@ -19,7 +19,7 @@ about:
 
 thank you for visiting!
 
-you can find all kinds of information about me here! my past projects, essays, interests, and more can be found by clicking through the navigation bar above. The *Data Viz* section is for my Data Science homework, so ignore that unless you're just really curious!
+this site works best on desktops or laptops; if you're using a mobile device, some embedded documents may not render. you can find all kinds of information about me here! my past projects, essays, interests, and more can be found by clicking through the navigation bar above. The *Data Viz* section is for my Data Science homework, so ignore that unless you're just really curious!
 
 there are different songs <span style="color: red;">(WARNING: some are explicit; pay attention to the E symbol on the track)</span> littered throughout the site, all of which are in constant rotation on my playlist (updated regularly). i hope you enjoy whatever you find here; whether it be project inspo or a new favorite song!
 
