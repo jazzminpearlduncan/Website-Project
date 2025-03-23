@@ -1,14 +1,25 @@
 ---
-title: "Essays"
+title: "Non-Fiction Writing"
+description: This is a collection of highlights from my analytical writing - both from class and extracurricular activities. See the essays ore articles sections for further information.
 format: html
 ---
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2webt5TTKJiCuxd2khD2JA?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 
-*These are a few essays from my classwork. Each essay has been excerpted and linked with a short description of it's topic and a general date that it was written. Each of them were written for classwork, and are research papers generally centering around themes of race, politics, and digital worlds.*
+## Essays
 
+*Each essay has been linked with a short description of it's topic and a general date that it was written. Each of them are research papers generally centering around themes of law, media, politics, and digital worlds.*
 
+<br><br>
+[AI, Music, and the Evolution of IP Frameworks (In Progress)](https://www.instagram.com/claremontjlpp/?hl=en)
 
+This is an essay investigating the legal implications of AI in the Entertainment Industry. I follow the development of Intellectual Property and Entertainment Law, using key cases regarding music sampling to argue for conscientious use of AI, especially in content creation, and highlight emerging blind spots in media regulation. This is actively being written, and has been in progress for a few months. Click the link above to see more from the Claremont Journal of law and Public Policy.
+
+Writing for: Claremont Journal of Law and Public Policy
+
+For: Claremont Journal of Law and Public Policy
+
+<br><br>
 [Prejudicial Posthumanism: A Racialized Reframing of Artificial Life Narratives](https://drive.google.com/file/d/1fT7zhOf9CH2nU6f8SnbkJ9_DfPmWZemg/view?usp=drive_link){target="_blank"}
 
 This essay explores the intersection of posthumanism, AI, and societal biases, particularly in Western culture. It argues that narratives surrounding artificial life, from ancient myths to modern science fiction, reflect and perpetuate deeply ingrained prejudices. As AI develops, these biases may be amplified, shaping how we understand and interact with AI technologies. The essay critically examines how films like Blade Runner and Ex Machina mirror fears of subjugation, servitude, and racial oppression, projecting these anxieties onto AI. It emphasizes the need to reconsider AI narratives to avoid replicating historical injustices, calling for a future where AI promotes ethical coexistence and mutual growth.
@@ -28,8 +39,6 @@ Written in: Spring 2024
 
 For: Socially-Engaged Software - Scripps College
 
-
-
 <br><br>
 [The Internet: A Reframing of the Bridge Between the Real and the Fake](https://drive.google.com/file/d/1_iD7_O4GCbyMWFvxQa818CSkZ9ekhAhP/view?usp=drive_link){target="_blank"}
 
@@ -38,6 +47,29 @@ This essay explores how social media bridges digital and physical activism, coun
 Written in: Fall 2023
 
 For: Political Dialogue and Resistance - Pomona College
+
+## Articles
+
+### The Feedbacker (Founding Editor & Writer - Current)
+*The Feedbacker is the only music publication in Claremont; startted by a group of editors including myself. I pitch, write, and revise articles along with a rotating team of writers -- each artlce is published to [our website](https://feedbacker.blog/) using WordPress.*
+
+### The Knight Times Newspaper (Staff Writer & Opinions Editor 2019-2022)
+*For my high school's newspaper, I wrote and edited articles (largely centered around pop culture, politics, and local events), and designed pages for each month's distribution. Below are links to the digital copies of a few of our papers; you can see a couple of articles I wrote and pages I designed during my senior year, or flip through the rest of the paper*
+
+[Jan 2022 Issue](https://issuu.com/ehshouston/docs/issue_6_combined)
+
+[Sep 2021 Issue](https://issuu.com/ehshouston/docs/issue_2_combined?fr=sNzMwZjQ1MDA5NTg)
+
+[Aug 2021 Issue](https://issuu.com/ehshouston/docs/august_2021_issue_1?fr=sOWFjMTQ1MDA5NTg)
+
+<br><br>
+
+### The Post Newspaper of Galveston County (Guest Writer 2021)
+*Below are links to the articles I wrote as a Guest at the Post Newspaper of Galveston County, with the guidance of an editor.*
+
+[Ill Communication: Generations Speak Out on Being Heard](https://thepostnewspaper.net/2021/08/03/ill-communication-generations-speak-out-on-being-heard/)
+
+[Life, Altered: Covid & its impact on teenagers](https://thepostnewspaper.net/2021/03/23/life-altered-covid-its-impact-on-teenagers/)
 
 
 
