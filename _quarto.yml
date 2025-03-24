@@ -28,6 +28,7 @@ website:
             href: nonfiction.qmd
           - text: "poems & creative writing (under construction)"
           - text: "photography (under construction)"
+          - text: "music (under construction)"
 
       - text: "Data Viz"
         menu:
