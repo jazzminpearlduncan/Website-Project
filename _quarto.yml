@@ -38,6 +38,8 @@ website:
             href: Database2.qmd
           - text: "String Analysis"
             href: StringAnalysis.qmd
+          - text: "Project 3"
+            href: Project3.qmd
             
       - text: "contact me!"
         href: contact.qmd

@@ -138,5 +138,33 @@
     "title": "Runtime through The Years",
     "section": "",
     "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nRows: 905 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (6): tconst, title_type, primary_title, original_title, genres, simple_t...\ndbl (4): year, runtime_minutes, average_rating, num_votes\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n# A tibble: 843 × 3\n   years runtime_minutes average_rating\n   &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;\n 1  1946             102            6.1\n 2  1946             150            7.5\n 3  1947              88            5.8\n 4  1948              93            5.7\n 5  1949             102            7.1\n 6  1951              87            5.7\n 7  1950             108            7.1\n 8  1951             125            8.1\n 9  1951             103            6.8\n10  1951              96            7.5\n# ℹ 833 more rows\n\n\n\n\n\n\n\n\n\n\n\n [1] \"tconst\"          \"title_type\"      \"primary_title\"   \"original_title\" \n [5] \"year\"            \"runtime_minutes\" \"genres\"          \"simple_title\"   \n [9] \"average_rating\"  \"num_votes\"      \n\n\nTidyTuesday dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-30\nData origins: The Internet Movie Database collected this data; it contains a list of movies with the name “Summer” in the title."
+  },
+  {
+    "objectID": "Project3.html",
+    "href": "Project3.html",
+    "title": "Project 3",
+    "section": "",
+    "text": "start by describing what you plan to do (3-4 sentences).\n\nFor Project 3 I will conduct a small simulation study which does the following task:\nconducts a permutation test by simulating behavior under the null hypothesis (you will need to find a dataset and develop a related research question). Please include the full context of the problem. That is, what are the variables and why is testing them interesting? Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.\n\nend with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.\n\n\n\n\n\ninclude the source of the data.\nInclude both where you got the data (e.g., the TidyTuesday URL)\nand also the original provenance of the information.\nwhat are the variables and why is testing them interesting?\nInclude a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.\n\n\n\n\nenter null hypothesis\n\n\n\n\n\nenter researchquestions (1-2)"
+  },
+  {
+    "objectID": "Project3.html#description",
+    "href": "Project3.html#description",
+    "title": "Project 3",
+    "section": "",
+    "text": "start by describing what you plan to do (3-4 sentences). end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.\n\n\nif you used data, include the source of the data. Include both where you got the data (e.g., the TidyTuesday URL) and also the original provenance of the information."
+  },
+  {
+    "objectID": "Project3.html#simulation-study",
+    "href": "Project3.html#simulation-study",
+    "title": "Project 3",
+    "section": "Simulation Study",
+    "text": "Simulation Study\n\nFunction\n\nat least 1 function you’ve written\n\nplease include all your code used in the analysis (but feel free to use code folding1).\n\ninclude a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.\n\n\n\nmap()\n\nat least 1 map() variant\n\nplease include all your code used in the analysis (but feel free to use code folding1).\ninclude a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.\n\n\n\n\nPlot\n\nat least 1 illustrative, well-labeled plot\n\nplease include all your code used in the analysis (but feel free to use code folding1).\nmake sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).\n\na description of what insights can be gained from your plot(s)\ninclude a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.\n\ndo not include error or warning messages (see HW YAML for code)."
+  },
+  {
+    "objectID": "Project3.html#introduction",
+    "href": "Project3.html#introduction",
+    "title": "Project 3",
+    "section": "",
+    "text": "start by describing what you plan to do (3-4 sentences).\n\nFor Project 3 I will conduct a small simulation study which does the following task:\nconducts a permutation test by simulating behavior under the null hypothesis (you will need to find a dataset and develop a related research question). Please include the full context of the problem. That is, what are the variables and why is testing them interesting? Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.\n\nend with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.\n\n\n\n\n\ninclude the source of the data.\nInclude both where you got the data (e.g., the TidyTuesday URL)\nand also the original provenance of the information.\nwhat are the variables and why is testing them interesting?\nInclude a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.\n\n\n\n\nenter null hypothesis\n\n\n\n\n\nenter researchquestions (1-2)"
   }
 ]

@@ -1,0 +1,55 @@
+---
+title: "Project 3"
+description: "a simulation study"
+format: html
+---
+
+
+## Introduction
+
+### Description 
+
+- start by describing what you plan to do (3-4 sentences). 
+
+For Project 3 I will conduct a small simulation study which does the following task:
+
+*conducts a permutation test by simulating behavior under the null hypothesis (you will need to find a dataset and develop a related research question). Please include the full context of the problem. That is, what are the variables and why is testing them interesting? Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.*
+
+- end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.
+
+### Data 
+
+- include the source of the data. 
+- Include both where you got the data (e.g., the TidyTuesday URL) 
+- and also the original provenance of the information.
+- what are the variables and why is testing them interesting?
+- Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.
+
+#### null Hypothesis 
+- enter null hypothesis
+
+#### Research Questions
+- enter researchquestions (1-2)
+
+## Simulation Study
+
+### Function
+- at least 1 function you’ve written
+  - please include all your code used in the analysis (but feel free to use code folding1).
+- include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+
+
+### map()
+- at least 1 map() variant
+  - please include all your code used in the analysis (but feel free to use code folding1).
+  - include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+
+### Plot
+- at least 1 illustrative, well-labeled plot
+  - please include all your code used in the analysis (but feel free to use code folding1).
+  - make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).
+- a description of what insights can be gained from your plot(s)
+- include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+
+
+do not include error or warning messages (see HW YAML for code).
