@@ -22,7 +22,7 @@ The short will feature clipped performances from Cab Calloway, the Nicholas Brot
 
   <div style="text-align: center;">
     <video width="640" height="360" controls>
-      <source src="CabCalloway1.mp4" type="video/mp4">
+      <source src="projects/CabCalloway1.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
