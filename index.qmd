@@ -27,5 +27,7 @@ please contact me if you have any questions or inquiries!
 
 (website made manually using GitHub Pages and RStudio)
 
+[Click here for GitHub Repository](https://github.com/jazzminpearlduncan/Website-Project){.btn .btn-dark .btn-sm}
+
 
 

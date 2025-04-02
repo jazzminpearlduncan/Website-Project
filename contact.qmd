@@ -13,6 +13,7 @@ format: html
 
 [Personal Instagram: jazzmiinpearll](https://www.instagram.com/jazzmiinpearll/){.btn .btn-dark .btn-sm}
 
+[Click here for GitHub Repository](https://github.com/jazzminpearlduncan/Website-Project){.btn .btn-success .btn-sm}
 
 
 ## surprise! i made you playlist!
