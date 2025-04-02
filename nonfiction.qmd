@@ -6,7 +6,7 @@ format: html
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2webt5TTKJiCuxd2khD2JA?utm_source=generator&theme=0" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 
-## Essays
+## Essays and Classwork
 
 *Each essay has been linked with a short description of it's topic and a general date that it was written. Each of them are research papers generally centering around themes of law, media, politics, and digital worlds.*
 
@@ -17,7 +17,7 @@ This is an essay investigating the legal implications of AI in the Entertainment
 
 Writing for: Claremont Journal of Law and Public Policy
 
-For: Claremont Journal of Law and Public Policy
+Started In: Fall 2024
 
 <br><br>
 [Prejudicial Posthumanism: A Racialized Reframing of Artificial Life Narratives](https://drive.google.com/file/d/1fT7zhOf9CH2nU6f8SnbkJ9_DfPmWZemg/view?usp=drive_link){target="_blank"}
@@ -28,16 +28,7 @@ Written in: Spring 2024
 
 For: Cinema and AI - Pomona College
 
-*^Also published in The Loop*
-
-<br><br>
-[Crafting Virtual Worlds: The Art, Impact, and Implications of Video Game Modding](https://drive.google.com/file/d/1igrVCOuhWqQR1OfucNFupQ5tIMp2iTLI/view?usp=drive_link){target="_blank"}
-
-This essay explores video game modding as an example of *Socially-Engaged Software* -- software meant to respond to the desires of communities rather than individuals. Defined by mutual aid and recursive digital support, modding communities have both stood at odds and peacefully coexisted with video game production companies. In this essay, I explore this illusive relationship, as well as the act of modding itself as online political resistance, self-expression, and an affirmation of digital liberty.
-
-Written in: Spring 2024
-
-For: Socially-Engaged Software - Scripps College
+*^Also published in [The Loop](https://jazzminpearlduncan.github.io/Website-Project/TheLoop.html)*
 
 <br><br>
 [The Internet: A Reframing of the Bridge Between the Real and the Fake](https://drive.google.com/file/d/1_iD7_O4GCbyMWFvxQa818CSkZ9ekhAhP/view?usp=drive_link){target="_blank"}
@@ -48,10 +39,12 @@ Written in: Fall 2023
 
 For: Political Dialogue and Resistance - Pomona College
 
-## Articles
+## Articles and Journalism
+
+*My work as a journalist has centered around community engagement through education and documentation. I am incredibly passionate about platforming, explaining, or organizing ideas related to culture in various formats with an investigative, journalistic mindset.*
 
 ### The Feedbacker (Founding Editor & Writer - Current)
-*The Feedbacker is the only music publication in Claremont; startted by a group of editors including myself. I pitch, write, and revise articles along with a rotating team of writers -- each artlce is published to [our website](https://feedbacker.blog/) using WordPress.*
+*The Feedbacker is the only music publication in Claremont; started by a group of editors, including myself. I pitch, write, and revise articles along with a rotating team of writers -- each artilce is published to [our website](https://feedbacker.blog/) using WordPress. I specialize in local artist news and music history reporting. Many of my articles have not been published yet since my work has largely been centered around editing/managing other writers; but you can browse the current website at feedbacker.blog. I have multiple student/local LA new artist profiles/interviews and opinion pieces in the works, so be on the lookout for those in the coming weeks!*
 
 ### The Knight Times Newspaper (Staff Writer & Opinions Editor 2019-2022)
 *For my high school's newspaper, I wrote and edited articles (largely centered around pop culture, politics, and local events), and designed pages for each month's distribution. Below are links to the digital copies of a few of our papers; you can see a couple of articles I wrote and pages I designed during my senior year, or flip through the rest of the paper*
@@ -62,8 +55,6 @@ For: Political Dialogue and Resistance - Pomona College
 
 [Aug 2021 Issue](https://issuu.com/ehshouston/docs/august_2021_issue_1?fr=sOWFjMTQ1MDA5NTg)
 
-<br><br>
-
 ### The Post Newspaper of Galveston County (Guest Writer 2021)
 *Below are links to the articles I wrote as a Guest at the Post Newspaper of Galveston County, with the guidance of an editor.*
 
@@ -71,5 +62,16 @@ For: Political Dialogue and Resistance - Pomona College
 
 [Life, Altered: Covid & its impact on teenagers](https://thepostnewspaper.net/2021/03/23/life-altered-covid-its-impact-on-teenagers/)
 
+## Honorable Mentions
 
+### [CCTV Revival](https://www.youtube.com/user/ClaremontCollegesTV)
 
+CCTV is an inactive broadcast journalism organization on campus at the 5C's. I am currently working to revive the organization and broaden its scope as an on-campus video production hub. The link is to their YouTube channel; a newer version is coming soon (likely in the Fall)!
+
+### [Halloweekend in Claremont](https://jazzminpearlduncan.github.io/Website-Project/Halloweekend.html)
+
+This is a short documentary that I made in Fall 2024 as a class project that covered the party promotion culture at the 5C's, particularly thoughout Halloween weekend. It features interviews from students and alumni, academic analysis, and general coverage regarding the party culture(s) in Claremont.
+
+### [Tech Accountability Archive (TAA)](https://jazzminpearlduncan.github.io/Website-Project/TAA.html)
+
+This is another class project from Fall 2024. This project focused on documenting information about major tech companies, and creating a centralized archive containing vital information -- including Labor Practices, Data Ethics, and more.
