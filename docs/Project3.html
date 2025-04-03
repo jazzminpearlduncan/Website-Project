@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -180,11 +214,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
   <li><a href="#description" id="toc-description" class="nav-link" data-scroll-target="#description">Description</a></li>
-  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  <li><a href="#data-and-libraries" id="toc-data-and-libraries" class="nav-link" data-scroll-target="#data-and-libraries">Data and Libraries</a>
+  <ul class="collapse">
+  <li><a href="#hypothesising" id="toc-hypothesising" class="nav-link" data-scroll-target="#hypothesising">Hypothesising</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#simulation-study" id="toc-simulation-study" class="nav-link" data-scroll-target="#simulation-study">Simulation Study</a>
   <ul class="collapse">
-  <li><a href="#function" id="toc-function" class="nav-link" data-scroll-target="#function">Function</a></li>
+  <li><a href="#cleaning" id="toc-cleaning" class="nav-link" data-scroll-target="#cleaning">Cleaning</a></li>
   <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map">map()</a></li>
   <li><a href="#plot" id="toc-plot" class="nav-link" data-scroll-target="#plot">Plot</a></li>
   </ul></li>
@@ -218,75 +255,278 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<section id="description" class="level3">
-<h3 class="anchored" data-anchor-id="description">Description</h3>
-<ul>
-<li>start by describing what you plan to do (3-4 sentences).</li>
-</ul>
-<p>For Project 3 I will conduct a small simulation study which does the following task:</p>
-<p><em>conducts a permutation test by simulating behavior under the null hypothesis (you will need to find a dataset and develop a related research question). Please include the full context of the problem. That is, what are the variables and why is testing them interesting? Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.</em></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<section id="description" class="level2">
+<h2 class="anchored" data-anchor-id="description">Description</h2>
+<p>I will conduct a permutation test by simulating behavior under the null hypothesis using the Netflix dataset. This study will explore whether Netflix favors certain genres more than others in its acquisitions. Understanding the patterns in Netflix’s content distribution can provide insights into the platform’s strategic decisions and how they align with viewer preferences and industry trends.</p>
+<p>Overview of Process: - I cleaned the data by filtering out missing values, converting dates, and selecting relevant columns - I created a function to calculate the trend in adult-oriented content over time - I used map() to perform a permutation test that shuffles years to determine if the observed trend could happen by chance - I created 3 plots, described below: - Plot 1 - shows the null distribution from the permutation test - Plot 2 - shows the proportion of adult content by year and content type - Plot 3 - shows rating distributions across different time periods</p>
+<p>From these tests, we can see different trends over time in the various ratings of content that Netflix provides.</p>
 <ul>
 <li>end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.</li>
 </ul>
 </section>
-<section id="data" class="level3">
-<h3 class="anchored" data-anchor-id="data">Data</h3>
+<section id="data-and-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-libraries">Data and Libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>netflix <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'projects/netflix.csv'</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'dplyr'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:stats':
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'lubridate'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:base':
+
+    date, intersect, setdiff, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>netflix</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 8,807 × 12
+   show_id type    title   director cast  country date_added release_year rating
+   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt; 
+ 1 s1      Movie   Dick J… Kirsten… &lt;NA&gt;  United… September…         2020 PG-13 
+ 2 s2      TV Show Blood … &lt;NA&gt;     Ama … South … September…         2021 TV-MA 
+ 3 s3      TV Show Gangla… Julien … Sami… &lt;NA&gt;    September…         2021 TV-MA 
+ 4 s4      TV Show Jailbi… &lt;NA&gt;     &lt;NA&gt;  &lt;NA&gt;    September…         2021 TV-MA 
+ 5 s5      TV Show Kota F… &lt;NA&gt;     Mayu… India   September…         2021 TV-MA 
+ 6 s6      TV Show Midnig… Mike Fl… Kate… &lt;NA&gt;    September…         2021 TV-MA 
+ 7 s7      Movie   My Lit… Robert … Vane… &lt;NA&gt;    September…         2021 PG    
+ 8 s8      Movie   Sankofa Haile G… Kofi… United… September…         1993 TV-MA 
+ 9 s9      TV Show The Gr… Andy De… Mel … United… September…         2021 TV-14 
+10 s10     Movie   The St… Theodor… Meli… United… September…         2021 PG-13 
+# ℹ 8,797 more rows
+# ℹ 3 more variables: duration &lt;chr&gt;, listed_in &lt;chr&gt;, description &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p><a href="https://www.kaggle.com/datasets/paramvir705/netflix-dataset/data">This</a> dataset was originally posted on Kaggle by <span class="citation" data-cites="paramvir_705">@paramvir_705</span>, and is updated monthly; it was originally collected from Netflix. The page doesn’t directly indicate further details, so this is assumedly a random chunk of Netflixs’ catalogs, neglecting country lines/firewalls (according to IPVanish, Netflix owns the rights to over 13, 000 titles when accounting for all coutries where they’re active). This is an important caveat to using this dataset, as it will be difficult to draw conclusions about Netflix’s overall behavior.</p>
+<p>The dataset contains about 8,800 rows – each a different TV show or movie in Netflix’s catalog – and 12 columns (show_id, type, title, director, cast, country, date_added, release year, rating, duration, listed_in (basically genre)). Testing these varibles lets us look for patterns in Netflix’s acquisitions, viewer preferences, and reactions to industry trends.</p>
+<section id="hypothesising" class="level3">
+<h3 class="anchored" data-anchor-id="hypothesising">Hypothesising</h3>
+<section id="research-question-are-ratings-correlated-with-the-date-content-was-added-to-netflix-that-is-can-we-see-changes-in-netflixs-acquisition-decisionskey-audience-based-on-changes-in-the-ratings-e.g.-pg-tv-ma-etc.-over-added-content-over-time." class="level4">
+<h4 class="anchored" data-anchor-id="research-question-are-ratings-correlated-with-the-date-content-was-added-to-netflix-that-is-can-we-see-changes-in-netflixs-acquisition-decisionskey-audience-based-on-changes-in-the-ratings-e.g.-pg-tv-ma-etc.-over-added-content-over-time.">Research Question: Are ratings correlated with the date content was added to Netflix? That is, can we see changes in Netflix’s acquisition decisions/key audience based on changes in the ratings (e.g.&nbsp;PG, TV-MA, etc.) over added content over time.</h4>
 <ul>
-<li>include the source of the data.</li>
-<li>Include both where you got the data (e.g., the TidyTuesday URL)</li>
-<li>and also the original provenance of the information.</li>
-<li>what are the variables and why is testing them interesting?</li>
-<li>Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.</li>
+<li>null (H0): There is no correlation between a show’s rating and its date added to Netflix. As in, the ratings are consistent over time.</li>
+<li>alt (H1): There is a correlation between a show’s rating and its date added to Netflix. As in, the ratings get better or worse over time.</li>
 </ul>
-<section id="null-hypothesis" class="level4">
-<h4 class="anchored" data-anchor-id="null-hypothesis">null Hypothesis</h4>
-<ul>
-<li>enter null hypothesis</li>
-</ul>
-</section>
-<section id="research-questions" class="level4">
-<h4 class="anchored" data-anchor-id="research-questions">Research Questions</h4>
-<ul>
-<li>enter researchquestions (1-2)</li>
-</ul>
 </section>
 </section>
 </section>
-<section id="simulation-study" class="level2">
-<h2 class="anchored" data-anchor-id="simulation-study">Simulation Study</h2>
-<section id="function" class="level3">
-<h3 class="anchored" data-anchor-id="function">Function</h3>
-<ul>
-<li>at least 1 function you’ve written
-<ul>
-<li>please include all your code used in the analysis (but feel free to use code folding1).</li>
-</ul></li>
-<li>include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.</li>
-</ul>
 </section>
-<section id="map" class="level3">
-<h3 class="anchored" data-anchor-id="map">map()</h3>
-<ul>
-<li>at least 1 map() variant
-<ul>
-<li>please include all your code used in the analysis (but feel free to use code folding1).</li>
-<li>include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.</li>
-</ul></li>
-</ul>
+<section id="simulation-study" class="level1">
+<h1>Simulation Study</h1>
+<section id="cleaning" class="level2">
+<h2 class="anchored" data-anchor-id="cleaning">Cleaning</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>netflix_clean <span class="ot">&lt;-</span> netflix <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(date_added) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(rating)) <span class="sc">|&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date_Netflix =</span> <span class="fu">mdy</span>(date_added)) <span class="sc">|&gt;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">year_Netflix =</span> <span class="fu">year</span>(date_Netflix)) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(type, rating, year_Netflix)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(netflix_clean)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  type    rating year_Netflix
+  &lt;chr&gt;   &lt;chr&gt;         &lt;dbl&gt;
+1 Movie   PG-13          2021
+2 TV Show TV-MA          2021
+3 TV Show TV-MA          2021
+4 TV Show TV-MA          2021
+5 TV Show TV-MA          2021
+6 TV Show TV-MA          2021</code></pre>
+</div>
+</div>
+<p>This table is just a sneak peek at the cleaned data that I’ll be passing through thr rest of the code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(netflix_clean<span class="sc">$</span>rating)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+  66 min   74 min   84 min        G    NC-17       NR       PG    PG-13 
+       1        1        1       41        3       79      287      490 
+       R    TV-14     TV-G    TV-MA    TV-PG     TV-Y    TV-Y7 TV-Y7-FV 
+     799     2157      220     3205      861      306      333        6 
+      UR 
+       3 </code></pre>
+</div>
+</div>
+<p>And here is a peak at the distribution across ratings ## Function - at least 1 function you’ve written - please include all your code used in the analysis (but feel free to use code folding1).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>calculate_rating_trend <span class="ot">&lt;-</span> <span class="cf">function</span>(data, <span class="at">adult_ratings =</span> <span class="fu">c</span>(<span class="st">"TV-MA"</span>, <span class="st">"R"</span>, <span class="st">"NC-17"</span>)) {</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate proportion of adult content by year</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  yearly_proportions <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">is_adult =</span> rating <span class="sc">%in%</span> adult_ratings) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(year_Netflix) <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarize</span>(</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">adult_prop =</span> <span class="fu">mean</span>(is_adult),</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">n =</span> <span class="fu">n</span>(),</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">"drop"</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">10</span>)  <span class="co"># Only include years with sufficient data</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate slope of the trend line (our test statistic)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">nrow</span>(yearly_proportions) <span class="sc">&lt;</span> <span class="dv">2</span>) {</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="cn">NA</span>)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  model <span class="ot">&lt;-</span> <span class="fu">lm</span>(adult_prop <span class="sc">~</span> year_Netflix, <span class="at">data =</span> yearly_proportions, <span class="at">weights =</span> n)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">coef</span>(model)[<span class="dv">2</span>])  <span class="co"># Return the slope coefficient</span></span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate observed statistic</span></span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>observed_stat <span class="ot">&lt;-</span> <span class="fu">calculate_rating_trend</span>(netflix_clean)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>observed_stat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>year_Netflix 
+ 0.006055784 </code></pre>
+</div>
+</div>
+<p>The function I’ve created calculates the trend in adult-oriented content over time. It first identifies which titles have “adult” ratings (TV-MA, R, NC-17), then calculates the proportion of these ratings for each year. Finally, it fits a weighted linear regression model to determine if there’s a trend over time. The slope coefficient serves as our test statistic - a positive value indicates an increasing trend in adult content, while a negative value suggests a decreasing trend.</p>
 </section>
-<section id="plot" class="level3">
-<h3 class="anchored" data-anchor-id="plot">Plot</h3>
-<ul>
-<li>at least 1 illustrative, well-labeled plot
+<section id="map" class="level2">
+<h2 class="anchored" data-anchor-id="map">map()</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of permutations</span></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>n_permutations <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Permutation test using map</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>permutation_results <span class="ot">&lt;-</span> <span class="fu">map_dbl</span>(<span class="dv">1</span><span class="sc">:</span>n_permutations, <span class="cf">function</span>(i) {</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create permuted dataset with shuffled years</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  permuted_data <span class="ot">&lt;-</span> netflix_clean <span class="sc">%&gt;%</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">year_Netflix =</span> <span class="fu">sample</span>(year_Netflix))</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate trend statistic for permuted data</span></span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate_rating_trend</span>(permuted_data)</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate p-value (two-sided test)</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>p_value <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">abs</span>(permutation_results) <span class="sc">&gt;=</span> <span class="fu">abs</span>(observed_stat), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.063</code></pre>
+</div>
+</div>
+<p>This code block performs a permutation test by repeatedly shuffling the years in our dataset and recalculating our test statistic. This creates a null distribution of what we might expect to see if there truly was no relationship between ratings and year added. The p-value represents how often we observe a trend as strong as our actual data purely by chance. A low p-value suggests that the observed trend is unlikely to be due to random chance.</p>
+</section>
+<section id="plot" class="level2">
+<h2 class="anchored" data-anchor-id="plot">Plot</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 1: Adult content proportion by year, faceted by type</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>graphflix <span class="ot">&lt;-</span> netflix_clean <span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">adult_ratings =</span> rating <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"TV-MA"</span>, <span class="st">"R"</span>, <span class="st">"NC-17"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year_Netflix, type) <span class="sc">|&gt;</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">adult_mean_prop =</span> <span class="fu">mean</span>(adult_ratings), <span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'year_Netflix'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>graphflix <span class="sc">|&gt;</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> year_Netflix, <span class="at">y =</span> adult_mean_prop, <span class="at">fill =</span> type)) <span class="sc">+</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>) <span class="sc">+</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type) <span class="sc">+</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Proportion of Adult-Rated Content on Netflix (TV and Movies) Over Time"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Adult ratings include TV-MA, R, and NC-17"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Year Added to Netflix"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proportion of Adult Content"</span>) <span class="sc">+</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project3_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 2: Rating distribution over time periods, faceted by type</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>graphflix_2 <span class="ot">&lt;-</span> netflix_clean <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_Period =</span> <span class="fu">case_when</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    year_Netflix <span class="sc">&lt;</span> <span class="dv">2010</span> <span class="sc">~</span> <span class="st">"Early (before 2010)"</span>,</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    year_Netflix <span class="sc">&lt;</span> <span class="dv">2015</span> <span class="sc">~</span> <span class="st">"Middle (2010-2015)"</span>,</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Recent (2018+)"</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  )) <span class="sc">|&gt;</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type, time_Period, rating) <span class="sc">|&gt;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type, time_Period) <span class="sc">|&gt;</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">proportion =</span> count <span class="sc">/</span> <span class="fu">sum</span>(count)) <span class="sc">|&gt;</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(proportion <span class="sc">&gt;=</span> <span class="fl">0.01</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'type', 'time_Period'. You can override
+using the `.groups` argument.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>graphflix_2 <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">reorder</span>(rating, <span class="sc">-</span>proportion), <span class="at">y =</span> proportion, <span class="at">fill =</span> time_Period)) <span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> type) <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Netflix Content Rating Distribution by Time Period and Type"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Content Rating"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Proportion"</span>,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Time Period"</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot 3: Null distribution from permutation test</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data.frame</span>(<span class="at">slope =</span> permutation_results) <span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> slope)) <span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">30</span>, <span class="at">fill =</span> <span class="st">"green"</span>, <span class="at">color =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Null Distribution of Trend Slopes"</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Slope Coefficient"</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency"</span></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Project3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <ul>
 <li>please include all your code used in the analysis (but feel free to use code folding1).</li>
 <li>make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).</li>
-</ul></li>
 <li>a description of what insights can be gained from your plot(s)</li>
 <li>include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.</li>
+<li>Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.</li>
 </ul>
+<p>generate a (null) sampling distribution to describe the variability of the statistic that was calculated along the way visualize the distribution of the statistics under the null model get p-value to measure the consistency of the observed statistic and the possible values of the statistic under the null model make a conclusion using words that describe the research setting</p>
 <p>do not include error or warning messages (see HW YAML for code).</p>
 
 

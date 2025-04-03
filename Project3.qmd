@@ -5,51 +5,220 @@ format: html
 ---
 
 
-## Introduction
+# Introduction
 
-### Description 
+## Description 
 
-- start by describing what you plan to do (3-4 sentences). 
 
-For Project 3 I will conduct a small simulation study which does the following task:
+I will conduct a permutation test by simulating behavior under the null hypothesis using the Netflix dataset. This study will explore whether Netflix favors certain genres more than others in its acquisitions. Understanding the patterns in Netflix's content distribution can provide insights into the platform's strategic decisions and how they align with viewer preferences and industry trends.
 
-*conducts a permutation test by simulating behavior under the null hypothesis (you will need to find a dataset and develop a related research question). Please include the full context of the problem. That is, what are the variables and why is testing them interesting? Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.*
+Overview of Process: 
+- I cleaned the data by filtering out missing values, converting dates, and selecting relevant columns
+- I created a function to calculate the trend in adult-oriented content over time 
+- I used map() to perform a permutation test that shuffles years to determine if the observed trend could happen by chance 
+- I created 3 plots, described below: 
+  - Plot 1 - shows the null distribution from the permutation test
+  - Plot 2 - shows the proportion of adult content by year and content type 
+  - Plot 3 - shows rating distributions across different time periods 
+
+From these tests, we can see different trends over time in the various ratings of content that Netflix provides. 
 
 - end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.
 
-### Data 
+## Data and Libraries
+```{r}
+netflix <- readr::read_csv('projects/netflix.csv', show_col_types = FALSE)
 
-- include the source of the data. 
-- Include both where you got the data (e.g., the TidyTuesday URL) 
-- and also the original provenance of the information.
-- what are the variables and why is testing them interesting?
-- Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.
+library(readr)
+library(stringr)
+library(dplyr)
+library(ggplot2)
+library(purrr)
+library(lubridate)
+library(tidyr)
 
-#### null Hypothesis 
-- enter null hypothesis
+netflix
 
-#### Research Questions
-- enter researchquestions (1-2)
+```
+[This](https://www.kaggle.com/datasets/paramvir705/netflix-dataset/data) dataset was originally posted on Kaggle by @paramvir_705, and is updated monthly; it was originally collected from Netflix. The page doesn't directly indicate further details, so this is assumedly a random chunk of Netflixs' catalogs, neglecting country lines/firewalls (according to IPVanish, Netflix owns the rights to over 13, 000 titles when accounting for all coutries where they're active). This is an important caveat to using this dataset, as it will be difficult to draw conclusions about Netflix's overall behavior.
 
-## Simulation Study
+The dataset contains about 8,800 rows -- each a different TV show or movie in Netflix's catalog -- and 12 columns (show_id, type, title, director, cast, country, date_added, release year, rating, duration, listed_in (basically genre)). Testing these varibles lets us look for patterns in Netflix's acquisitions, viewer preferences, and reactions to industry trends. 
 
-### Function
+
+
+### Hypothesising 
+#### Research Question: Are ratings correlated with the date content was added to Netflix? That is, can we see changes in Netflix's acquisition decisions/key audience based on changes in the ratings (e.g. PG, TV-MA, etc.) over added content over time.
+  - null (H0): There is no correlation between a show's rating and its date added to Netflix. As in, the ratings are consistent over time.
+  - alt (H1): There is a correlation between a show's rating and its date added to Netflix. As in, the ratings get better or worse over time.
+
+# Simulation Study
+
+## Cleaning 
+
+```{r}
+
+netflix_clean <- netflix |>
+  filter(!is.na(date_added) & !is.na(rating)) |>
+  mutate(date_Netflix = mdy(date_added)) |>
+  mutate(year_Netflix = year(date_Netflix)) |>
+  select(type, rating, year_Netflix)
+
+head(netflix_clean)
+
+```
+
+This table is just a sneak peek at the cleaned data that I'll be passing through thr rest of the code.
+
+```{r}
+
+table(netflix_clean$rating)
+
+```
+And here is a peak at the distribution across ratings
+## Function
 - at least 1 function you’ve written
   - please include all your code used in the analysis (but feel free to use code folding1).
-- include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+  
+```{r}
+
+calculate_rating_trend <- function(data, adult_ratings = c("TV-MA", "R", "NC-17")) {
+  # Calculate proportion of adult content by year
+  yearly_proportions <- data %>%
+    mutate(is_adult = rating %in% adult_ratings) %>%
+    group_by(year_Netflix) %>%
+    summarize(
+      adult_prop = mean(is_adult),
+      n = n(),
+      .groups = "drop"
+    ) %>%
+    filter(n >= 10)  # Only include years with sufficient data
+  
+  # Calculate slope of the trend line (our test statistic)
+  if(nrow(yearly_proportions) < 2) {
+    return(NA)
+  }
+  
+  model <- lm(adult_prop ~ year_Netflix, data = yearly_proportions, weights = n)
+  return(coef(model)[2])  # Return the slope coefficient
+}
+
+# Calculate observed statistic
+observed_stat <- calculate_rating_trend(netflix_clean)
+observed_stat
 
 
-### map()
-- at least 1 map() variant
-  - please include all your code used in the analysis (but feel free to use code folding1).
-  - include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+```
+The function I've created calculates the trend in adult-oriented content over time. It first identifies which titles have "adult" ratings (TV-MA, R, NC-17), then calculates the proportion of these ratings for each year. Finally, it fits a weighted linear regression model to determine if there's a trend over time. The slope coefficient serves as our test statistic - a positive value indicates an increasing trend in adult content, while a negative value suggests a decreasing trend.
 
-### Plot
-- at least 1 illustrative, well-labeled plot
+
+## map()
+
+  
+```{r}
+
+set.seed(123)
+
+# Number of permutations
+n_permutations <- 1000
+
+# Permutation test using map
+permutation_results <- map_dbl(1:n_permutations, function(i) {
+  # Create permuted dataset with shuffled years
+  permuted_data <- netflix_clean %>%
+    mutate(year_Netflix = sample(year_Netflix))
+  
+  # Calculate trend statistic for permuted data
+  calculate_rating_trend(permuted_data)
+})
+
+# Calculate p-value (two-sided test)
+p_value <- mean(abs(permutation_results) >= abs(observed_stat), na.rm = TRUE)
+p_value
+
+
+```
+This code block performs a permutation test by repeatedly shuffling the years in our dataset and recalculating our test statistic. This creates a null distribution of what we might expect to see if there truly was no relationship between ratings and year added. The p-value represents how often we observe a trend as strong as our actual data purely by chance. A low p-value suggests that the observed trend is unlikely to be due to random chance.
+
+
+## Plot
+
+
+```{r}
+
+# Plot 1: Adult content proportion by year, faceted by type
+graphflix <- netflix_clean |>
+  mutate(adult_ratings = rating %in% c("TV-MA", "R", "NC-17")) |>
+  group_by(year_Netflix, type) |>
+  summarize(adult_mean_prop = mean(adult_ratings), n = n()) |>
+  filter(n >= 5) 
+
+graphflix |>
+  ggplot(aes(x = year_Netflix, y = adult_mean_prop, fill = type)) +
+  geom_bar(stat = "identity") +
+  facet_wrap(~ type) +
+  labs(
+    title = "Proportion of Adult-Rated Content on Netflix (TV and Movies) Over Time",
+    subtitle = "Adult ratings include TV-MA, R, and NC-17",
+    x = "Year Added to Netflix",
+    y = "Proportion of Adult Content") +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+
+
+```{r}
+# Plot 2: Rating distribution over time periods, faceted by type
+graphflix_2 <- netflix_clean |>
+  mutate(time_Period = case_when(
+    year_Netflix < 2010 ~ "Early (before 2010)",
+    year_Netflix < 2015 ~ "Middle (2010-2015)",
+    TRUE ~ "Recent (2018+)"
+  )) |>
+  group_by(type, time_Period, rating) |>
+  summarize(count = n()) |>
+  group_by(type, time_Period) |>
+  mutate(proportion = count / sum(count)) |>
+  filter(proportion >= 0.01) 
+
+graphflix_2 |>
+  ggplot(aes(x = reorder(rating, -proportion), y = proportion, fill = time_Period)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ type) +
+  labs(
+    title = "Netflix Content Rating Distribution by Time Period and Type",
+    x = "Content Rating",
+    y = "Proportion",
+    fill = "Time Period"
+  ) +
+  theme(axis.text.x = element_text(angle = 45))
+
+```
+
+```{r}
+
+# Plot 3: Null distribution from permutation test
+data.frame(slope = permutation_results) |>
+  ggplot(aes(x = slope)) +
+  geom_histogram(bins = 30, fill = "green", color = "black") +
+  labs(
+    title = "Null Distribution of Trend Slopes",
+    x = "Slope Coefficient",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+```
+
+
   - please include all your code used in the analysis (but feel free to use code folding1).
   - make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).
 - a description of what insights can be gained from your plot(s)
 - include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
+- Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.
 
+generate a (null) sampling distribution to describe the variability of the statistic that was calculated along the way
+visualize the distribution of the statistics under the null model
+get p-value to measure the consistency of the observed statistic and the possible values of the statistic under the null model
+make a conclusion using words that describe the research setting
 
 do not include error or warning messages (see HW YAML for code).
