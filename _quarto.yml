@@ -17,8 +17,8 @@ website:
            href: TheLoop.qmd
          - text: "Halloweekend in Claremont (Documentary)"
            href: Halloweekend.qmd
-         - text: "Cowboy Poker Shoot (Amateur Film)"
-           href: poker.qmd
+        # - text: "Cowboy Poker Shoot (Amateur Film)"
+         #  href: poker.qmd
          - text: "Tech Accountability Archive (Abandoned)"
            href: TAA.qmd
            
