@@ -2,6 +2,9 @@
 title: "Project 3"
 description: "a simulation study"
 format: html
+execute: 
+  warning: false
+  message: false
 ---
 
 
@@ -13,6 +16,7 @@ format: html
 I will conduct a permutation test by simulating behavior under the null hypothesis using the Netflix dataset. This study will explore whether Netflix favors certain genres more than others in its acquisitions. Understanding the patterns in Netflix's content distribution can provide insights into the platform's strategic decisions and how they align with viewer preferences and industry trends.
 
 Overview of Process: 
+
 - I cleaned the data by filtering out missing values, converting dates, and selecting relevant columns
 - I created a function to calculate the trend in adult-oriented content over time 
 - I used map() to perform a permutation test that shuffles years to determine if the observed trend could happen by chance 
@@ -23,12 +27,14 @@ Overview of Process:
 
 From these tests, we can see different trends over time in the various ratings of content that Netflix provides. 
 
-- end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.
-
 ## Data and Libraries
+
 ```{r}
+
+# Loading it in...
 netflix <- readr::read_csv('projects/netflix.csv', show_col_types = FALSE)
 
+# Libraries...
 library(readr)
 library(stringr)
 library(dplyr)
@@ -37,17 +43,14 @@ library(purrr)
 library(lubridate)
 library(tidyr)
 
-netflix
-
 ```
-[This](https://www.kaggle.com/datasets/paramvir705/netflix-dataset/data) dataset was originally posted on Kaggle by @paramvir_705, and is updated monthly; it was originally collected from Netflix. The page doesn't directly indicate further details, so this is assumedly a random chunk of Netflixs' catalogs, neglecting country lines/firewalls (according to IPVanish, Netflix owns the rights to over 13, 000 titles when accounting for all coutries where they're active). This is an important caveat to using this dataset, as it will be difficult to draw conclusions about Netflix's overall behavior.
+[This](https://www.kaggle.com/datasets/paramvir705/netflix-dataset/data) dataset was originally posted on Kaggle by @paramvir_705, and is updated monthly; it was originally collected from Netflix. The page doesn't directly indicate further details, so this is assumedly a random chunk of Netflixs' catalogs, neglecting country lines/firewalls (according to [IPVanish](https://www.ipvanish.com/blog/netflix-by-country/), Netflix owns the rights to over 13, 000 titles when accounting for all coutries where they're active). This is an important caveat to using this dataset, as it will be difficult to draw conclusions about Netflix's overall behavior.
 
-The dataset contains about 8,800 rows -- each a different TV show or movie in Netflix's catalog -- and 12 columns (show_id, type, title, director, cast, country, date_added, release year, rating, duration, listed_in (basically genre)). Testing these varibles lets us look for patterns in Netflix's acquisitions, viewer preferences, and reactions to industry trends. 
-
+The dataset contains about 8,800 rows -- each a different TV show or movie in Netflix's catalog -- and 12 columns (show_id, type, title, director, cast, country, date_added, release year, rating, duration, listed_in (basically genre)). Testing these variables lets us look for patterns in Netflix's acquisitions, viewer preferences, and reactions to industry trends. 
 
 
 ### Hypothesising 
-#### Research Question: Are ratings correlated with the date content was added to Netflix? That is, can we see changes in Netflix's acquisition decisions/key audience based on changes in the ratings (e.g. PG, TV-MA, etc.) over added content over time.
+#### Are ratings correlated with the date content was added to Netflix? That is, can we see changes in Netflix's acquisition decisions/key audience based on changes in the ratings (e.g. PG, TV-MA, etc.) over added content over time.
   - null (H0): There is no correlation between a show's rating and its date added to Netflix. As in, the ratings are consistent over time.
   - alt (H1): There is a correlation between a show's rating and its date added to Netflix. As in, the ratings get better or worse over time.
 
@@ -75,41 +78,33 @@ table(netflix_clean$rating)
 
 ```
 And here is a peak at the distribution across ratings
+
 ## Function
-- at least 1 function you’ve written
-  - please include all your code used in the analysis (but feel free to use code folding1).
-  
+
 ```{r}
 
-calculate_rating_trend <- function(data, adult_ratings = c("TV-MA", "R", "NC-17")) {
-  # Calculate proportion of adult content by year
-  yearly_proportions <- data %>%
-    mutate(is_adult = rating %in% adult_ratings) %>%
-    group_by(year_Netflix) %>%
-    summarize(
-      adult_prop = mean(is_adult),
-      n = n(),
-      .groups = "drop"
-    ) %>%
-    filter(n >= 10)  # Only include years with sufficient data
-  
-  # Calculate slope of the trend line (our test statistic)
+rating_trend <- function(data, adult_ratings = c("TV-MA", "R", "NC-17")) {
+  yearly_proportions <- data |>
+    mutate(adult_rated = rating %in% adult_ratings) |>
+    group_by(year_Netflix) |>
+    summarize(adult_prop = mean(adult_rated), n = n()) |>
+    filter(n >= 10) 
   if(nrow(yearly_proportions) < 2) {
     return(NA)
   }
   
   model <- lm(adult_prop ~ year_Netflix, data = yearly_proportions, weights = n)
-  return(coef(model)[2])  # Return the slope coefficient
+  return(coef(model)[2])  
 }
 
-# Calculate observed statistic
-observed_stat <- calculate_rating_trend(netflix_clean)
+observed_stat <- rating_trend(netflix_clean)
 observed_stat
 
 
 ```
-The function I've created calculates the trend in adult-oriented content over time. It first identifies which titles have "adult" ratings (TV-MA, R, NC-17), then calculates the proportion of these ratings for each year. Finally, it fits a weighted linear regression model to determine if there's a trend over time. The slope coefficient serves as our test statistic - a positive value indicates an increasing trend in adult content, while a negative value suggests a decreasing trend.
+The function rating_trend calculates the trend in adult-oriented content on Netflix over time (at least across what is included in the dataset). It first identifies which titles have "adult" ratings (TV-MA, R, NC-17), then calculates the proportion of these ratings for each year -- only considering years with enough data (>10 titles). 
 
+It then fits a weighted linear regression model to determine if there's a trend over time; the proportion of adult content is the dependent variable and the year is the independent variable, with weights based on the number of titles per year. It returns the slope coefficient (0.006055784) from the regression model, which indicates that the yearly change in adult content proportion is positive. The slope coefficient suggests that the proportion of adult-rated content on Netflix has increased by approximately 0.006 (or 0.6%) per year. This means that, on average, each year Netflix adds a slightly higher proportion of adult-rated content compared to the previous year. However, whether this increase is statistically significant depends on the permutation test results (see next chunk)!
 
 ## map()
 
@@ -117,35 +112,47 @@ The function I've created calculates the trend in adult-oriented content over ti
 ```{r}
 
 set.seed(123)
-
-# Number of permutations
 n_permutations <- 1000
 
-# Permutation test using map
 permutation_results <- map_dbl(1:n_permutations, function(i) {
-  # Create permuted dataset with shuffled years
-  permuted_data <- netflix_clean %>%
+  permuted_data <- netflix_clean |>
     mutate(year_Netflix = sample(year_Netflix))
-  
-  # Calculate trend statistic for permuted data
-  calculate_rating_trend(permuted_data)
+    rating_trend(permuted_data)
 })
 
-# Calculate p-value (two-sided test)
 p_value <- mean(abs(permutation_results) >= abs(observed_stat), na.rm = TRUE)
 p_value
 
 
 ```
-This code block performs a permutation test by repeatedly shuffling the years in our dataset and recalculating our test statistic. This creates a null distribution of what we might expect to see if there truly was no relationship between ratings and year added. The p-value represents how often we observe a trend as strong as our actual data purely by chance. A low p-value suggests that the observed trend is unlikely to be due to random chance.
+This chunk does a permutation test to see the significance of an observed statistic related to Netflix ratings over time. I set a random seed (set.seed(123)) to ensure reproducibility and defined n_permutations = 1000 so that the test will generate 1,000 random shuffles.
 
+In each iteration, the year_Netflix column is randomly shuffled (sample(year_Netflix)) to prevent any connection between time and ratings. I then use the function calculate_rating_trend(permuted_data) on the shuffled data to calculate a new statistic for each permutation; the results are stored in permutation_results. 
+
+The p_value (0.063) is calculated as the proportion of permuted statistics that are at least as extreme as the observed statistic (observed_stat), providing a measure of whether the observed trend in ratings is statistically significant. Since 0.063 is slightly above the common significance threshold of 0.05 this suggests that the observed trend (+ 0.06%) is not incredibly statistically significant at the 5% level but is still somewhat insightful. This means there is some evidence of a relationship between year_Netflix and ratings, but it is not strong enough to confidently reject the null hypothesis (which assumes no real trend exists). 
 
 ## Plot
 
+```{r}
+
+# Plot 1: Null distribution from permutation test
+data.frame(slope = permutation_results) |>
+  ggplot(aes(x = slope)) +
+  geom_histogram(bins = 30, fill = "green", color = "black") +
+  labs(
+    title = "Null Distribution of Trend Slopes",
+    x = "Slope Coefficient",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+```
+
+This is simply a plot of the null distribution of trend slopes. There is a reletively normal distribution/bell curve, with a few jagged edges; this indicates some variance, with general adhereance to expectations (normal distribution).
 
 ```{r}
 
-# Plot 1: Adult content proportion by year, faceted by type
+# Plot 2: Adult content proportion by year, faceted by type
 graphflix <- netflix_clean |>
   mutate(adult_ratings = rating %in% c("TV-MA", "R", "NC-17")) |>
   group_by(year_Netflix, type) |>
@@ -165,9 +172,10 @@ graphflix |>
   theme(legend.position = "bottom")
 ```
 
+This graph displays the proportion of adult content in TV Shows and Movies over the years. For movies, we can see that the proportion of adult content added per year isreletively consistent post-2013. Before then, it seems that there was far less adult content, potentially indicating a younger general adience. For TV Shows, there is more variance, especially 2014-2017. There is a dip, potentially indiating a similar change/differnece in audience, or the expiration of deal with a company that produces mature content.
 
 ```{r}
-# Plot 2: Rating distribution over time periods, faceted by type
+# Plot 3: Rating distribution over time periods, faceted by type
 graphflix_2 <- netflix_clean |>
   mutate(time_Period = case_when(
     year_Netflix < 2010 ~ "Early (before 2010)",
@@ -194,31 +202,15 @@ graphflix_2 |>
 
 ```
 
-```{r}
+This graph shows the distribution of proportion of ratings of content over time; that is, each rating is divided into 3 time periods, and the proportion is calculated for each of these periods. This allows us to compare what netflix has attained over time by ratings. 
 
-# Plot 3: Null distribution from permutation test
-data.frame(slope = permutation_results) |>
-  ggplot(aes(x = slope)) +
-  geom_histogram(bins = 30, fill = "green", color = "black") +
-  labs(
-    title = "Null Distribution of Trend Slopes",
-    x = "Slope Coefficient",
-    y = "Frequency"
-  ) +
-  theme_minimal()
-
-```
+It is clear that before 2010, Netflix likely had a much more mature audience,as they only acquired TV-MA content. They likely diversified their selection as the platform gained popularity in the early 2010s. It is also interesting to see that in TV Shows, Netflix has not aqcuired any PG, PG-13, or R rated content; maybe because of a lack of a demand for television content in these ratings? I think this will likely change soon, given the increasing popularity of knarly and graphic young adult television (see *Euphoria*).
 
 
-  - please include all your code used in the analysis (but feel free to use code folding1).
-  - make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).
-- a description of what insights can be gained from your plot(s)
-- include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
-- Include a visualization of the original data / variables of interest so that the reader can sense the extent of difference in the original relationship.
+#### Conclusion
 
-generate a (null) sampling distribution to describe the variability of the statistic that was calculated along the way
-visualize the distribution of the statistics under the null model
-get p-value to measure the consistency of the observed statistic and the possible values of the statistic under the null model
-make a conclusion using words that describe the research setting
+Through this simulation study, I examined whether Netflix’s acquisition patterns reflect a significant trend in the proportion of adult-rated content over time. Using a permutation test, I compared the observed trend to a null distribution of randomly shuffled data, finding a slight increase in adult-rated content per year (~0.6%). With a p-value of 0.063, this trend slightly exceeds the conventional 0.05 significance threshold, suggesting that while there may still be a weak trend, just not strong enough to confidently reject the null hypothesis.
 
-do not include error or warning messages (see HW YAML for code).
+The visualization of adult content proportions over time highlights interesting temporal trends, such as a relatively stable proportion of adult-rated movies post-2013 and notable fluctuations in TV shows between 2014-2017. These shifts may reflect changes in audience demographics, licensing agreements, or strategic content investments by Netflix. Additionally, the content rating distributions across different time periods suggest an evolution in Netflix’s offerings, catering to a heavily mature audience pre-2010 and attaining a more diverse content catalog in subsequent years.
+
+Overall, while this study provides insight into Netflix's content acquisition trends, limitations in dataset representativeness must be acknowledged. Additionally, applying more sophisticated statistical models, such as time series forecasting or causal inference techniques, could further clarify the extent and drivers of observed rating trends.
