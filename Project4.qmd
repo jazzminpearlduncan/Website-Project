@@ -5,29 +5,26 @@ date: April 14, 2025
 format: html
 ---
 
-
 # Dilemma
 
-First, find an ethical dilemma with a data science component. 
+*Find an ethical dilemma with a data science component.*
 
-- Privacy
-- Labour
-- Environment 
+  Describe the example / scenario as if to someone who is not at all familiar with the setting. In particular, it should be clear both what is the data science component and what is the ethical dilemma.
 
-Describe the example / scenario as if to someone who is not at all familiar with the setting. In particular, it should be clear both what is the data science component and what is the ethical dilemma.
 
+-   Privacy
+-   Labour
+-   Environment
 
 *There are many examples below, and within each example you should:*
 
-- start with the reference provided
-- find at least one more article (possibly from another angle?) to expand your understanding of the topic. 
-  - It should be clear from your report what information came from which article.
-
+-   start with the reference provided
+-   find at least one more article (possibly from another angle?) to expand your understanding of the topic.
+    -   It should be clear from your report what information came from which article.
 
 # Questions
-Respond to at least 4 of the items below (from the list of questions or the Data Values and Principles Manifesto). 
-- Four separate paragraphs that explain both the issue (e.g., consent) and how the issue played out in the data science example. Note: totally fine if there are items that were done well in your example.
 
+Respond to at least 4 of the items below (from the list of questions or the Data Values and Principles Manifesto). - Four separate paragraphs that explain both the issue (e.g., consent) and how the issue played out in the data science example. Note: totally fine if there are items that were done well in your example.
 
 ### What is the permission structure for using the data? Was it followed?
 
@@ -50,19 +47,29 @@ Respond to at least 4 of the items below (from the list of questions or the Data
 ### Data Values and Principles manifesto
 
 #### Use data to improve life for our users, customers, organizations, and communities.
+
 #### Create reproducible and extensible work.
+
 #### Build teams with diverse ideas, backgrounds, and strengths.
+
 #### Prioritize the continuous collection and availability of discussions and metadata.
+
 #### Clearly identify the questions and objectives that drive each project and use to guide both planning and refinement.
+
 #### Be open to changing our methods and conclusions in response to new knowledge.
+
 #### Recognize and mitigate bias in ourselves and in the data we use.
+
 #### Present our work in ways that empower others to make better-informed decisions.
+
 #### Consider carefully the ethical implications of choices we make when using data, and the impacts of our work on individuals and society.
+
 #### Respect and invite fair criticism while promoting the identification and open discussion of errors, risks, and unintended consequences of our work.
+
 #### Protect the privacy and security of individuals represented in our data.
+
 #### Help others to understand the most useful and appropriate applications of data to solve real-world problems.
 
-
 # Logistics
-include the full citations for your references (of which there should be at least two). If you do not know how to create or format a citation, as me or chatGPT.
-make it clear which information came from which resource.
+
+include the full citations for your references (of which there should be at least two). If you do not know how to create or format a citation, as me or chatGPT. make it clear which information came from which resource.
