@@ -1,0 +1,59 @@
+---
+title: "Project 4 - Data Ethics"
+author: "Jazzmin Duncan"
+date: April 14, 2025
+format: html
+---
+
+
+# Dilemma
+
+First, find an ethical dilemma with a data science component. 
+
+
+There are many examples below, and within each example you should start with the reference provided and find at least one more article (possibly from another angle?) to expand your understanding of the topic. It should be clear from your report what information came from which article.
+Describe the example / scenario as if to someone who is not at all familiar with the setting. In particular, it should be clear both what is the data science component and what is the ethical dilemma.
+
+
+# Questions
+Respond to at least 4 of the items below (from the list of questions or the Data Values and Principles Manifesto). 
+- Four separate paragraphs that explain both the issue (e.g., consent) and how the issue played out in the data science example. Note: totally fine if there are items that were done well in your example.
+
+
+### What is the permission structure for using the data? Was it followed?
+
+### What was the consent structure for recruiting participants? Were the participants aware of the ways their data would be used for research? Was informed consent possible? Can you provide informed consent for applications that are yet foreseen?
+
+### What was the data collection process? Were the observations collected ethically? Are there missing observations?
+
+### Were the data made publicly available?
+
+### Is the data identifiable? All of it? Some of it? In what way? Are the data sufficiently anonymized or old to be free of ethical concerns? Is anonymity guaranteed?
+
+### How were the variables collected? Were they accurately recorded? Is there any missing data?
+
+### Who was measured? Are those individuals representative of the people to whom we’d like to generalize / apply the algorithm? Should we analyze data if we do not know how the data were collected?
+
+### Is the data being used in unintended ways to the original study?
+
+### Should race be used as a variable? Is it a proxy for something else (e.g., amount of melanin in the skin, stress of navigating microaggressions, zip-code, etc.)? What about gender?
+
+### Data Values and Principles manifesto
+
+#### Use data to improve life for our users, customers, organizations, and communities.
+#### Create reproducible and extensible work.
+#### Build teams with diverse ideas, backgrounds, and strengths.
+#### Prioritize the continuous collection and availability of discussions and metadata.
+#### Clearly identify the questions and objectives that drive each project and use to guide both planning and refinement.
+#### Be open to changing our methods and conclusions in response to new knowledge.
+#### Recognize and mitigate bias in ourselves and in the data we use.
+#### Present our work in ways that empower others to make better-informed decisions.
+#### Consider carefully the ethical implications of choices we make when using data, and the impacts of our work on individuals and society.
+#### Respect and invite fair criticism while promoting the identification and open discussion of errors, risks, and unintended consequences of our work.
+#### Protect the privacy and security of individuals represented in our data.
+#### Help others to understand the most useful and appropriate applications of data to solve real-world problems.
+
+
+# Logistics
+include the full citations for your references (of which there should be at least two). If you do not know how to create or format a citation, as me or chatGPT.
+make it clear which information came from which resource.

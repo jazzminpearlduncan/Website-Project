@@ -30,19 +30,21 @@ website:
 
       - text: "Data Viz"
         menu:
-          - text: "Dataset 1"
-            href: Database1.qmd
-          - text: "Dataset 2"
-            href: Database2.qmd
-          - text: "String Analysis"
-            href: StringAnalysis.qmd
+          - text: "Proejct 1 - Part 1"
+            href: Project1-1.qmd
+          - text: "Project 1 - Part 2"
+            href: Project1-2.qmd
+          - text: "Proejct 2"
+            href: Project2.qmd
           - text: "Project 3"
             href: Project3.qmd
+          - text: "Project 4"
+            href: Project4.qmd
             
       - text: "contact me!"
         href: contact.qmd
         
-        
+    
   page-footer: 
     left: "Jazzmin (jazz) Pearl Duncan"
 

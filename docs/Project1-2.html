@@ -8,9 +8,9 @@
 
 <meta name="author" content="Jazzmin Duncan">
 <meta name="dcterms.date" content="2025-02-17">
-<meta name="description" content="Scatterplot analysis of cheese origins over nations">
+<meta name="description" content="Bar graph analysis of movie runtime over time">
 
-<title>Cheese over Space and Animals – - jazz :)</title>
+<title>Runtime through The Years – - jazz :)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -138,16 +138,16 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-data-viz">    
         <li>
-    <a class="dropdown-item" href="./Database1.html">
- <span class="dropdown-text">Dataset 1</span></a>
+    <a class="dropdown-item" href="./Project1-1.html">
+ <span class="dropdown-text">Proejct 1 - Part 1</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./Database2.html">
- <span class="dropdown-text">Dataset 2</span></a>
+    <a class="dropdown-item" href="./Project1-2.html">
+ <span class="dropdown-text">Project 1 - Part 2</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./StringAnalysis.html">
- <span class="dropdown-text">String Analysis</span></a>
+    <a class="dropdown-item" href="./Project2.html">
+ <span class="dropdown-text">Proejct 2</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="./Project3.html">
@@ -182,12 +182,12 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Cheese over Space and Animals</h1>
+<h1 class="title">Runtime through The Years</h1>
 </div>
 
 <div>
   <div class="description">
-    Scatterplot analysis of cheese origins over nations
+    Bar graph analysis of movie runtime over time
   </div>
 </div>
 
@@ -232,28 +232,48 @@ Attaching package: 'dplyr'</code></pre>
     intersect, setdiff, setequal, union</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Rows: 1187 Columns: 19
+<pre><code>Rows: 905 Columns: 10
 ── Column specification ────────────────────────────────────────────────────────
 Delimiter: ","
-chr (17): cheese, url, milk, country, region, family, type, fat_content, cal...
-lgl  (2): vegetarian, vegan
+chr (6): tconst, title_type, primary_title, original_title, genres, simple_t...
+dbl (4): year, runtime_minutes, average_rating, num_votes
 
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 843 × 3
+   years runtime_minutes average_rating
+   &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;
+ 1  1946             102            6.1
+ 2  1946             150            7.5
+ 3  1947              88            5.8
+ 4  1948              93            5.7
+ 5  1949             102            7.1
+ 6  1951              87            5.7
+ 7  1950             108            7.1
+ 8  1951             125            8.1
+ 9  1951             103            6.8
+10  1951              96            7.5
+# ℹ 833 more rows</code></pre>
 </div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Database1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="Project1-2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "tconst"          "title_type"      "primary_title"   "original_title" 
+ [5] "year"            "runtime_minutes" "genres"          "simple_title"   
+ [9] "average_rating"  "num_votes"      </code></pre>
 </div>
-<p>This is a faceted bar chart demonstrating different eating habits across nations as it pertains to cheese. We can see that cows are substantially more centered in the dairy industry, while other milks, like water buffalo, go relatively unnoticed. You can also see countries in multiple different groups demonstrating both the breadth and nicheness of their cheeses, Italy being particularly noticible in this regard.</p>
-<p>TidyTusedy dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-06-04</p>
-<p>Data origins: cheese.com, a blog and resource for cheese lovers, collected this data.</p>
+</div>
+<p>TidyTuesday dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-30</p>
+<p>Data origins: The Internet Movie Database collected this data; it contains a list of movies with the name “Summer” in the title.</p>
 
 
 
