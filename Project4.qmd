@@ -24,7 +24,9 @@ format: html
 
 # Questions
 
-Respond to at least 4 of the items below (from the list of questions or the Data Values and Principles Manifesto). - Four separate paragraphs that explain both the issue (e.g., consent) and how the issue played out in the data science example. Note: totally fine if there are items that were done well in your example.
+Respond to at least 4 of the items below (from the list of questions or the Data Values and Principles Manifesto). 
+
+- Four separate paragraphs that explain both the issue (e.g., consent) and how the issue played out in the data science example. Note: totally fine if there are items that were done well in your example.
 
 ### What is the permission structure for using the data? Was it followed?
 
