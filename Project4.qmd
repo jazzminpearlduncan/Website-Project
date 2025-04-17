@@ -12,21 +12,22 @@ format: html
 
 # Breakdown of the Ethical Dilemma
 
-[References]()
-*Key themes: Find an ethical dilemma with a data science component.*
+Click [here](https://jazzminpearlduncan.github.io/Website-Project/Project4.html#references) to view References.
 
-The key ethical dilemma is how to develop and deploy data-driven technologies in ways that promote social justice rather than perpetuating existing inequalities, while acknowledging that data science inherently involves political choices rather than neutral technical decisions. 
-      
-*Story/context: Describe the example / scenario as if to someone who is not at all familiar with the setting. In particular, it should be clear both what is the data science component and what is the ethical dilemma.*
+### The Persistent Socio-Political Dimensions of "Data-Driven" Classification Systems
 
-The sources present three distinct but related contexts where data science intersects with ethics and social justice:
-The first source, "Data Science as Political Action," establishes a theoretical framework challenging the notion that data scientists can work as neutral technical actors. It argues that all data science work inherently involves political choices and value judgments about how society should function, even when practitioners don't recognize this dimension of their work.
+A persistent question in the study of Data Science, particularly in more recent years, has been: how to develop and implent data-driven strategies or technologies in ways that promote social justice rather than impeding its progress or perpetuating existing inequalities -- while acknowledging that data science inherently involves political choices rather than neutral technical decisions. 
 
-The second source examines a historical precedent in "Criminal Anthropometry Identification" from 1902, where physical measurements were used to classify and identify "criminal classes." This early form of data-driven classification attempted to use statistics and measurements to differentiate criminals from the general population, raising questions about using data to categorize people.
+Bearing historical context that is based specifically in social "science", eugenics, and predictive algorithms -- systems that classify individuals based on physical traits or their material environment must be informed by the potential strengths (as sen in [reference 2]()) and proven weaknesses (as seen in [reference 1]() and [reference 3]()) of predictive classification systems -- regardless of intent.  
 
-The third source, "Machine Bias" by ProPublica, provides a contemporary case study of these issues through an investigation of the COMPAS algorithm, a risk assessment tool used in the criminal justice system. ProPublica found that the algorithm incorrectly labeled Black defendants as higher risk for future crimes at nearly twice the rate of white defendants, despite claiming to be objective and fair.
+It is essential that we challenge the notion that data scientists can work as neutral technical actors, and begin to recognize them as key political actors engaged in normative constructions of society (privacy, media, space, etc.) to evaluate their work according to its downstream impacts on people’s lives. As done by Ben Green in "Data Science as Political Action," establishing a guiding theoretical framework is a key next step in beginning to understand the past and potential impacts of scientific conclusions or variance tests. 
 
-The data science component across these sources involves collecting, analyzing, and making predictions based on data about people - whether through physical measurements in the early 20th century or complex algorithms today. The ethical dilemma emerges when these seemingly objective technical processes reproduce or amplify existing social inequalities and biases, particularly when they impact vulnerable populations through criminal justice systems, social services, or other consequential domains. The challenge becomes how to develop data science practices that actively work toward justice rather than maintaining an impossible neutrality that often preserves the status quo.
+Green argues that all data science work inherently involves political choices and value judgments about how society should function, even when practitioners don't recognize this dimension of their work. "ON CRIMINAL ANTHROPOMETRY AND THE
+IDENTIFICATION OF CRIMINALS," an experiment conducted by W. R. MacDonnell in 1902 as part of *Biometrika*, laregely used skull measurements to classify and identify potential "criminal classes" or genetic (and environmental) predispositions to crime.  This early form of data-driven classification attempted to use statistics and measurements to differentiate criminals from the general population, demonstrating an early application of using data to categorize people -- and to police them in particular.
+
+"Machine Bias" by ProPublica provides a much more contemporary case study of these issues through an investigation of the COMPAS algorithm, a risk assessment tool used in the criminal justice system. ProPublica found that the algorithm incorrectly labeled Black defendants as higher risk for future crimes at nearly twice the rate of white defendants, despite claiming to be objective and fair.
+
+The data science component across these sources involves collecting, analyzing, and making predictions based on data about people - whether through physical measurements in the early 20th century or complex algorithms (sometimes involving physical characteristics) today. The ethical dilemma emerges when these seemingly objective technical processes reproduce or amplify existing social inequalities and biases, particularly when they impact vulnerable populations through criminal justice systems or social services. The challenge becomes how to develop data science practices that actively work toward justice rather than maintaining an impossible neutrality that often preserves the status quo and echoes the oversights of past conclusions.
 
 # Questions
 
@@ -36,46 +37,8 @@ The data science component across these sources involves collecting, analyzing, 
 
 ### What was the data collection process? Were the observations collected ethically? Are there missing observations?
 
-- the issue (e.g., consent) 
-- how the issue played out in the data science example
+Reviewing Propublika's analysis of COMPA and W. R. MacDonnell's findings, there's a troubling pattern of ethical issues that have persisted from the early anthropometric criminal identification systems to modern algorithmic risk assessment tools. In the 1902 criminal anthropometry work, data was collected through physical measurements of individuals presumably without informed consent, with implicit biases in categorizing "criminal classes" versus "normal" populations. 
 
-The data collection processes across the sources reveal a troubling pattern of ethical issues that have persisted from the early anthropometric criminal identification systems to modern algorithmic risk assessment tools. In the 1902 criminal anthropometry work, data was collected through physical measurements of individuals presumably without informed consent, with implicit biases in categorizing "criminal classes" versus "normal" populations. 
-
-The COMPAS risk assessment algorithm investigated by ProPublica similarly raises ethical concerns, as it relies on historical crime data that reflects decades of discriminatory policing practices and biased arrests, while defendants are often required to answer invasive questionnaires without understanding how their responses will be used against them. 
-
-The "Data Science as Political Action" paper frames these issues theoretically, highlighting how data collection processes claiming objectivity often lack democratic participation from affected communities and fail to acknowledge missing observations from marginalized groups. Across all sources, we see a common theme of data collection that lacks transparency, proper consent, and representation of impacted populations, resulting in systems that reproduce historical patterns of discrimination while claiming scientific neutrality - whether through early 20th century anthropometric measurements or contemporary algorithmic decision-making tools.
-
-### What was the permission structure for using the data? Was it followed?
-
-- the issue (e.g., consent) 
-- how the issue played out in the data science example
-
-Across the three sources, the permission structures for data usage reveal problematic patterns that have evolved but remain ethically questionable. In the 1902 criminal anthropometry study, there appears to be no meaningful consent process documented for those measured and categorized, reflecting an era when ethical standards for research on human subjects were minimal, particularly for prisoners or those deemed "criminal classes." The contemporary COMPAS algorithm examined by ProPublica represents a modern variant of this problem, where risk assessments are mandatory in many jurisdictions, with defendants having no option to opt out despite the profound consequences these assessments have on their lives. Northpointe (the company behind COMPAS) claims proprietary protection over its algorithm, preventing transparency while collecting sensitive personal data from individuals with little choice in the matter. The "Data Science as Political Action" paper contextualizes these permission issues theoretically, arguing that the fundamental problem is the lack of democratic consent and participation - data subjects remain objects of analysis rather than participants with agency in how their data is used. All three sources demonstrate a consistent theme of power imbalance in data collection and usage, where those with the least power have their data collected and analyzed with minimal consent, transparency, or recourse.
-
-
-### Who was measured? Are those individuals representative of the people to whom we’d like to generalize / apply the algorithm?
-
-- the issue (e.g., consent) 
-- how the issue played out in the data science example
-
-Across all three sources, there's a troubling pattern in who becomes subject to measurement and classification, raising fundamental questions about representativeness and generalizability. The 1902 criminal anthropometry study explicitly targeted individuals already labeled as "criminals," creating a circular logic where physical measurements were used to identify a "criminal class" based on data from those already in the system, making generalizations inherently biased. Similarly, the COMPAS algorithm investigated by ProPublica was trained on historical criminal justice data reflecting decades of discriminatory policing practices, disproportionately measuring Black defendants while claiming to predict recidivism fairly across populations. This pattern connects directly to the theoretical framework presented in "Data Science as Political Action," which critiques how data science often measures marginalized populations who become subjects of surveillance and control, while those with power remain unmeasured and unscrutinized. The consistent theme across historical and contemporary examples is that measurement tends to focus on already disadvantaged groups, creating systems that claim objective generalizability while actually reproducing and reinforcing existing social hierarchies and biases—the very people subjected to these measurements are rarely representative of the general population, yet the resulting algorithms are applied broadly as though they capture universal patterns of human behavior.
-
-
-### Should race be used as a variable? Is it a proxy for something else?
-
-- the issue (e.g., consent) 
-- how the issue played out in the data science example
-
-A central tension across all three sources involves the use of race as a variable in data systems, revealing how historical prejudices persist in modern algorithms. The 1902 criminal anthropometry study, while not explicitly mentioning race, used physical measurements that often served as proxies for racial categorization during an era steeped in scientific racism, creating taxonomies of "criminal types" that reinforced racial stereotypes. The COMPAS algorithm examined by ProPublica demonstrates the contemporary manifestation of this problem—while it doesn't directly use race as a variable, it incorporates factors like criminal history, neighborhood, and family background that serve as proxies for race in a society shaped by systemic inequality, resulting in Black defendants being falsely labeled high-risk at nearly twice the rate of white defendants. The "Data Science as Political Action" paper provides theoretical context for this pattern, arguing that seemingly "neutral" variables often encode racial bias, and that treating race as merely a technical variable overlooks how data systems participate in constructing and reproducing racial categories with real social consequences. Across centuries, these sources illustrate how data systems—whether using calipers or computers—continue to use direct or proxy measurements that entrench racial hierarchies while claiming scientific objectivity, suggesting that addressing bias requires looking beyond technical fixes to the broader social contexts in which these systems operate.
-
-
-# Conclusion
-
-The evolution of data-driven systems from early 20th century anthropometric measurements to modern algorithmic risk assessment tools reveals persistent ethical challenges that transcend technological advancement. Despite the increasing sophistication of data science methodologies, fundamental issues remain unresolved: problematic data collection processes that lack meaningful consent; permission structures that disempower those being measured; measurement practices that disproportionately target marginalized populations; and the continued use of race or its proxies in ways that perpetuate historical inequities.
-
-These sources collectively demonstrate that the ethical dilemmas in data science cannot be resolved through technical solutions alone. The "Data Science as Political Action" framework offers a crucial perspective—that data scientists must recognize themselves as political actors whose work inevitably shapes social outcomes. Whether in criminal anthropometry of 1902 or risk assessment algorithms of today, data-driven systems have never been neutral technical tools but rather powerful mechanisms that can either challenge or reinforce existing power structures.
-
-Moving forward requires more than ethical guidelines or algorithmic adjustments. It demands a fundamental reimagining of data science practice that centers justice, incorporates democratic participation from affected communities, and acknowledges the inherently political nature of classifying and predicting human behavior. Without this shift in approach, even the most advanced data science technologies risk perpetuating the same patterns of exclusion and discrimination that have characterized their historical predecessors.
 
 # References
 
