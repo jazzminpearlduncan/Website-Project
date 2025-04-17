@@ -9,28 +9,29 @@ website:
       - text: "(!about me!)"
         href: about.qmd
            
-      - text: "projects"
+      - text: "mutli-media projects"
         menu:
-         - text: "Hi-De-Ho (Media History Edit)"
+         - text: "Arbistrology Generator"
+           href: Arbistrology.qmd
+         - text: "Hi-De-Ho Animation"
            href: Hi-De-Ho.qmd
-         - text: "The Loop (Publishing)"
+         - text: "The Loop Zine"
            href: TheLoop.qmd
-         - text: "Halloweekend in Claremont (Documentary)"
+         - text: "Halloweekend in Claremont Documentary"
            href: Halloweekend.qmd
-         - text: "Tech Accountability Archive (Abandoned)"
-           href: TAA.qmd
-           
-      - text: "other works"
-        menu:
-          - text: "Non-Fiction Writing"
-            href: nonfiction.qmd
-          - text: "poems & creative writing (under construction)"
-          - text: "photography (under construction)"
-          - text: "music (under construction)"
+         - text: "music (under construction)"
 
-      - text: "Data Viz"
+           
+      - text: "writing and photography"
         menu:
-          - text: "Proejct 1 - Part 1"
+          - text: "journalism & non-fiction"
+            href: nonfiction.qmd
+          - text: "poetry & creative writing (under construction)"
+          - text: "photography (under construction)"
+
+      - text: "data viz"
+        menu:
+          - text: "Project 1 - Part 1"
             href: Project1-1.qmd
           - text: "Project 1 - Part 2"
             href: Project1-2.qmd
