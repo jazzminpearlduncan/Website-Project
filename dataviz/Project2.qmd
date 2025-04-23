@@ -1,0 +1,124 @@
+---
+title: "Project 2"
+description: String Analysis
+author: Jazzmin Duncan
+date: March 5, 2025
+format: html
+execute: 
+  warning: false
+  message: false
+---
+
+*Loading in data...*
+
+```{r}
+spotify_songs <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-01-21/spotify_songs.csv')
+```
+
+*Context for the data*
+
+[This](https://github.com/rfordatascience/tidytuesday/blob/main/data/2020/2020-01-21/readme.md) dataset was used for TidyTuesday in January of 2020; it was originally collected by Spotify, and made accessible via the [spotifyr](https://www.rcharlie.com/spotifyr/) package. It contains about 32, 000 rows -- each a different song -- and 26 columns (track_id, track_name, track_artist, track_popularity, track_album_id, track_album_name, track_album_release_date, playlist_name, playlist_id, playlist_genre, playlist_subgenre, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, and duration_ms). About 5000 songs were collected from each of 6 major genres -- R&B, Rock, Rap, Latin, Pop, and EDM.
+
+
+*PLOT 1*
+
+```{r}
+
+library(dplyr)
+library(stringr)
+library(ggplot2)
+
+# str_detect and 1 reg. exp.
+my_set <- spotify_songs |> 
+  filter(str_detect(playlist_genre, "r."), !is.na(track_artist)) |>
+  select(track_artist, playlist_genre) |>
+  group_by(track_artist, playlist_genre) |>
+  summarise(popularity = n()) |>
+  arrange(playlist_genre, desc(popularity)) 
+
+top_10_artists <- my_set |>
+  group_by(playlist_genre) |>
+  slice_max(order_by = popularity, n = 10)
+
+# plot 1
+ggplot(top_10_artists, aes(x = reorder(track_artist, popularity), y = popularity, fill = playlist_genre)) +
+  geom_bar(stat = "identity") +
+  labs(
+    x = "Artist Names",
+    y = "Occurences in Dataset",
+    title = "Top 30 Most Mentioned Artists in Rock, Rap, and R&B"
+  ) +
+  theme(
+    axis.text.x = element_text(size = 6, angle = 45))
+
+```
+
+This plot displays the top 10 most mentioned artists from each of the Rap, Rock, and R&B genres, including a count of how many mentions and colors to indicate genre. I've chosen these genres because they are my personal most played genres (specifically when DJing), and I was curious as to how one of my sets may compare to the tastes demonstrated through the data artist-wise. The name that doesn't appear on the plot is 'オメガトライブ', which I'm not sure how to make visible. 
+
+We can see that Queen and Guns n Roses are the most recurrent, Queen being an outlier with 134 entries. It would appear that Rock is the most popular genre of the 3, with Rap being the least popular. It's also interesting to see Drake's bar, as he is the only artist with multiple genres listed (33 R&B, 36 Rap), which isn't surprising considering the sheer amount of mingling with genres he does. 
+
+*PLOT 2*
+
+```{r}
+library(tidyr)
+
+# lookaround, str_detect, and 2 reg exp
+
+girl_songs <- spotify_songs |> 
+  select(track_name, playlist_genre) |>
+  filter(str_detect(track_name, "(?<=girl)(?! boy)")) |>
+  mutate(gender = "Girl Mentions") |>
+  group_by(playlist_genre, gender) |>
+  count(name = "girl_count")
+
+boy_songs <- spotify_songs|>
+  select(track_name, playlist_genre) |>
+  filter(str_detect(track_name, "(?<=boy)(?! girl)")) |>
+  mutate(gender = "Boy")|>
+  group_by(playlist_genre, gender) |>
+  count(name = "boy_count")
+
+# rearranging data
+gendered_songs <- left_join(girl_songs, boy_songs, by = "playlist_genre") |>
+  select(playlist_genre, girl_count, boy_count) 
+
+gendered_songs_long <- gendered_songs |>
+  pivot_longer(cols = c(girl_count, boy_count),
+               names_to = "gender", values_to = "count") |>
+  mutate(gender = recode(gender, girl_count = "'Girl' Mentions", boy_count = "'Boy' Mentions"))
+
+# plot 2
+ggplot(gendered_songs_long, aes(x = playlist_genre, y = count, fill = gender)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    x = "Genre",
+    y = "Count of Mentions by Gender",
+    fill = "Gender"
+  )
+```
+This plot displays the difference between mentions of the words 'girl' and 'boy' in their titles by genre, with the counts for either gender and colors to idicate genderas well. I chose to do this pplot because I was curious about how and where either sex was mentioned; however, without a context variable (sounds very messy), it doesn't provide much insight into the genres. 
+
+We can see that rap music has the most mentions of the word "boy", and R&B has the most mentions of the word "girl". Generally, other than in R&B, the word "boy" tends to be mentioned more often in titles than "girl". 
+
+
+*Additional Work*
+```{r}
+#str_subset
+
+jazz_songs <- str_subset(spotify_songs$track_name, "Jazz|jazz")
+jazz_albums <- str_subset(spotify_songs$track_album_name, "Jazz|jazz")
+
+```
+I wanted to see how many songs or albums may be related to Jazz, 1) because I am named after it, and 2) because I was surprise that it wasn't even a genre subcategory. There are 9 songs that mention 'jazz', case insensitive. There were 22 albums with Jazz in the title.
+
+```{r}
+
+#str_extract
+
+spelled_jazz_songs <- str_extract(spotify_songs$track_album_name, "(?i)(?=.*[j])(?=.*[a])(?=.*[z]).*")
+spelled_jazz_songs_filtered <- spelled_jazz_songs[!is.na(spelled_jazz_songs)]
+
+```
+Here, I was wondering if I could spell out my name by extracting the letters from song titles; there are 106 songs where this would be possible, if I were doing the phenetic spelling. The second Z is not included in many of these, so I technically couldnt *spell* my name with all of these titles, but I would be able to soound it out.
+
+

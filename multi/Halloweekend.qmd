@@ -1,0 +1,28 @@
+---
+title: Halloweekend in Claremont - A Documentarian Analysis of 5C Party Promo Culture
+description: Editor, Project Team Member, and Research Designer
+date: December 14, 2024
+format: html
+---
+
+This is an amateur documentary that was produced as a group project for my Anthropology of Digital Cultures class. Beginning development in October 2024, 2 of my classmates and I conducted ethnographic research centering the cresting racial, administrative, and political tensions, both internal and external to Pomona College, and their effects on how on-campus parties are promoted, and, more importantly, how the promoters and attendees interact (or don't) with one another. 
+
+This short documentary gives a brief, intimate peek into the parties thrown throughout Halloweekend 2024 (Oct 31 - Nov 2). Examining music, design, communication pipelines, and administrative changes at Pomona since the 90's, we designed this project to include the documentary below and a complementary ethnographic research paper. 
+
+```{=html}
+
+  <div style="text-align: center;">
+    <video width="640" height="360" controls>
+      <source src="projects/Anthro.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+```
+
+
+I edited this in it's entirety using iMovie, designed our interview questions, and filmed about a third of the content; the aesthetics are intentionally unfocused, shaky, and unclear to emulate the chaos and instability reflected both in a night out and emerging political tensions in Claremont at the time. The low quality, however, is for file processing reasons to display on this site (apologies for the 480p!). 
+
+
+
+

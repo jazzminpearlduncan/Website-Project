@@ -1,0 +1,17 @@
+---
+title: "Tech Accountability Archive (TAA)"
+description: Project Team Member and Creative Director
+format: html
+---
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2fB9O7TguaMhizuFrLMXQK?utm_source=generator" width="100%" height="100" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+
+This is a Community-Based Application project for Data, Justice Past and Future - a class at Pitzer College. Me and 3 other group members conducted research on the labor practices, investments, data ethics, and work environment of Microsoft, Meta, Google, and Apple - 4 of the most popular employers for STEM students at the 5C's. 
+
+The archive has since been abandoned as a project; but it is meant to serve as encouragement for students to be conscientious about their decisions post-graduation.
+<br><br>
+
+[Click here to see the TAA](https://sites.google.com/students.pitzer.edu/5countabilityarchive/home){target="_blank"}
+
+*When navigating the site, you must use the dropdown menu in the top right*
