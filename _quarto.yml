@@ -7,7 +7,7 @@ website:
   navbar:
     right:
       - text: "(!about me!)"
-        href: about.qmd
+        href: basics/about.qmd
            
       - text: "mutli-media projects"
         menu:
@@ -25,7 +25,7 @@ website:
       - text: "writing and photography"
         menu:
           - text: "journalism & non-fiction"
-            href: nonfiction.qmd
+            href: writphot/nonfiction.qmd
           - text: "poetry & creative writing (under construction)"
           - text: "photography (under construction)"
 
@@ -43,7 +43,7 @@ website:
             href: dataviz/Project4.qmd
             
       - text: "contact me!"
-        href: contact.qmd
+        href: basics/contact.qmd
         
     
   page-footer: 
