@@ -1,0 +1,19 @@
+---
+title: "Arbistrology"
+format: html
+execute: 
+  warning: false
+  message: false
+  echo: false
+---
+
+```{r}
+library(reticulate)
+
+```
+
+```{python}
+
+
+
+```

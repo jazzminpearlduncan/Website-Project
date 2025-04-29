@@ -1,8 +1,0 @@
----
-title: "Arbistrology"
-format: html
----
-
-```{r}
-
-```
