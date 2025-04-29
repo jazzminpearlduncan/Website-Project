@@ -16,7 +16,7 @@ website:
          - text: "hi-de-ho animation"
            href: multi/Hi-De-Ho.qmd
          - text: "the loop zine"
-           href: multi/TheLoop.qmd
+           href: TheLoop.qmd
          - text: "halloweekend in claremont documentary"
            href: multi/Halloweekend.qmd
          - text: "music (under construction)"
@@ -25,7 +25,7 @@ website:
       - text: "writing and photography"
         menu:
           - text: "journalism & non-fiction"
-            href: writphot/nonfiction.qmd
+            href: nonfiction.qmd
           - text: "poetry & creative writing (under construction)"
           - text: "photography (under construction)"
 
