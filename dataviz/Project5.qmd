@@ -61,7 +61,7 @@ ORDER BY num_stops DESC
     
 
 ## Table 2
-## San Francisco vs. San Antonio: How do arrests compare day-by day?
+### San Francisco vs. San Antonio: How do arrests compare day-by day?
 [see dataset here:](https://openpolicing.stanford.edu/data/)
 
 This table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity. 
