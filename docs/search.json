@@ -77,34 +77,6 @@
     "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\nRows: 905 Columns: 10\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (6): tconst, title_type, primary_title, original_title, genres, simple_t...\ndbl (4): year, runtime_minutes, average_rating, num_votes\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n\n\n# A tibble: 843 × 3\n   years runtime_minutes average_rating\n   &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;\n 1  1946             102            6.1\n 2  1946             150            7.5\n 3  1947              88            5.8\n 4  1948              93            5.7\n 5  1949             102            7.1\n 6  1951              87            5.7\n 7  1950             108            7.1\n 8  1951             125            8.1\n 9  1951             103            6.8\n10  1951              96            7.5\n# ℹ 833 more rows\n\n\n\n\n\n\n\n\n\n\n\n [1] \"tconst\"          \"title_type\"      \"primary_title\"   \"original_title\" \n [5] \"year\"            \"runtime_minutes\" \"genres\"          \"simple_title\"   \n [9] \"average_rating\"  \"num_votes\"      \n\n\nTidyTuesday dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-30\nData origins: The Internet Movie Database collected this data; it contains a list of movies with the name “Summer” in the title."
   },
   {
-    "objectID": "basics/about.html",
-    "href": "basics/about.html",
-    "title": "- jazz :)",
-    "section": "",
-    "text": "about me\nMy name is Jazzmin, or Jazz, and I am currently a Junior at Pomona College studying Media Studies and Data Science, with a concentration in Electronic Media Production. I’ve bounced around several different interest areas – including (but not limited to) AI, Intellectual Property Law, DJing, and News Writing – which I’ve been enabled to engage with through the technical and creative breadth of Data Science and Media Studies combined.\nData transfers, radio signals, news casts, remixed tracks; it’s all information that’s been diced up to appeal to or be understood by different subjects. This concept, that everything we process (including media) is just re-purposed data, is not new; however, it has underpinned my extracurricular and professional pursuits.\nI love to experiment with boundary-stressing avenues of expression through data and culture, particularly through writing, music, and video editing. Chopping and screwing visual, sonic, numerical, textual, and historical data, I aim to broach the worlds of entertainment journalists, marketing professionals, creative directors, and talent managers; bridging my creative ability to craft complex narratives with my passions for arts and entertainment through high-impact, culturally relevant, collaborative projects.\n\n\nabout my work\nI have been writing as a journalist for 6 years; producing audio-visual content (documentary film, infographics, fan-edits, music, etc.) for 3 years; and managing several coinciding cross-disciplinary projects for 2 years. From The Knight Times Newspaper to The Post Newspaper of Galveston County to The Feedbacker, I’ve maintained a pointed interest in pop-culture developments and entertainment news, varying between print and visual media as mediums for storytelling through my reporting. Starting Circuits, Internet, Media, + Software (CIMS), my on-campus production organization, has been my boldest step in embracing this vision of a multi-media, interdisciplinary work environment.\nPublishing The Loop – a Zine collection dedicated to dignifying and platforming student artwork, writing, software, and interactive media projects – under CIMS, as well as maintaining scheduled community engagement and education events, is one of my proudest achievements, skill- and concept-wise; one that I am looking forward to expanding upon professionally. Bringing fandom communities and underground niches to the forefront of the 5C community through DJ sets, social media campaigns, and production projects, I have developed a knack for developing, following, and platforming marginalized voices through my creations.\nEmbracing music, film, and writing as chosen mediums, I am looking to pursue a career in entertainment journalism, design, music A&R, or creative content development where I can continue to hold my hand to the pulse of pop-culture, challenge arbitrary boundaries, advocate for underrepresented voices, platform important conversations, and investigate how people and information interact with one another."
-  },
-  {
-    "objectID": "basics/contact.html",
-    "href": "basics/contact.html",
-    "title": "- jazz :)",
-    "section": "",
-    "text": "Email: jpduncan2022@gmail.com\nLinkedIn Substack\nBook a 30-Minute Meeting!\nPersonal Instagram: jazzmiinpearll\nClick here for GitHub Repository"
-  },
-  {
-    "objectID": "basics/contact.html#contact-me-click-the-buttons-for-direct-links.",
-    "href": "basics/contact.html#contact-me-click-the-buttons-for-direct-links.",
-    "title": "- jazz :)",
-    "section": "",
-    "text": "Email: jpduncan2022@gmail.com\nLinkedIn Substack\nBook a 30-Minute Meeting!\nPersonal Instagram: jazzmiinpearll\nClick here for GitHub Repository"
-  },
-  {
-    "objectID": "basics/contact.html#surprise-i-made-you-playlist",
-    "href": "basics/contact.html#surprise-i-made-you-playlist",
-    "title": "- jazz :)",
-    "section": "surprise! i made you playlist!",
-    "text": "surprise! i made you playlist!\nwarning: some songs are explicit"
-  },
-  {
     "objectID": "dataviz/Project4.html",
     "href": "dataviz/Project4.html",
     "title": "Project 4 - Data Ethics",
@@ -138,6 +110,76 @@
     "title": "Project 4 - Data Ethics",
     "section": "References",
     "text": "References\n\nProvided Reference from Examples\n\nAngwin, J., Larson, J., Mattu, S., & Kirchner, L. (2016, May 23). Machine bias: There’s software used across the country to predict future criminals. And it’s biased against blacks. ProPublica. https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing\n\nAdditional Reference from PZ Data Justice, Past & Future Fall ’24 Syllabus\n\nGreen, B. (2021). Data science as political action: Grounding data science in a politics of justice. Journal of Social Computing, 2(3), 249–265. https://doi.org/10.23919/JSC.2021.0018\n\nAdditional Reference reviewed in PZ Data Justice, Past & Future in Fall ’24\n\nMacdonell, W. R. (1902). On criminal anthropometry and the identification of criminals. Biometrika, 1(2), 177–227. https://doi.org/10.2307/2331487"
+  },
+  {
+    "objectID": "basics/contact.html",
+    "href": "basics/contact.html",
+    "title": "- jazz :)",
+    "section": "",
+    "text": "Email: jpduncan2022@gmail.com\nLinkedIn Substack\nBook a 30-Minute Meeting!\nPersonal Instagram: jazzmiinpearll\nClick here for GitHub Repository"
+  },
+  {
+    "objectID": "basics/contact.html#contact-me-click-the-buttons-for-direct-links.",
+    "href": "basics/contact.html#contact-me-click-the-buttons-for-direct-links.",
+    "title": "- jazz :)",
+    "section": "",
+    "text": "Email: jpduncan2022@gmail.com\nLinkedIn Substack\nBook a 30-Minute Meeting!\nPersonal Instagram: jazzmiinpearll\nClick here for GitHub Repository"
+  },
+  {
+    "objectID": "basics/contact.html#surprise-i-made-you-playlist",
+    "href": "basics/contact.html#surprise-i-made-you-playlist",
+    "title": "- jazz :)",
+    "section": "surprise! i made you playlist!",
+    "text": "surprise! i made you playlist!\nwarning: some songs are explicit"
+  },
+  {
+    "objectID": "basics/about.html",
+    "href": "basics/about.html",
+    "title": "- jazz :)",
+    "section": "",
+    "text": "about me\nMy name is Jazzmin, or Jazz, and I am currently a Junior at Pomona College studying Media Studies and Data Science, with a concentration in Electronic Media Production. I’ve bounced around several different interest areas – including (but not limited to) AI, Intellectual Property Law, DJing, and News Writing – which I’ve been enabled to engage with through the technical and creative breadth of Data Science and Media Studies combined.\nData transfers, radio signals, news casts, remixed tracks; it’s all information that’s been diced up to appeal to or be understood by different subjects. This concept, that everything we process (including media) is just re-purposed data, is not new; however, it has underpinned my extracurricular and professional pursuits.\nI love to experiment with boundary-stressing avenues of expression through data and culture, particularly through writing, music, and video editing. Chopping and screwing visual, sonic, numerical, textual, and historical data, I aim to broach the worlds of entertainment journalists, marketing professionals, creative directors, and talent managers; bridging my creative ability to craft complex narratives with my passions for arts and entertainment through high-impact, culturally relevant, collaborative projects.\n\n\nabout my work\nI have been writing as a journalist for 6 years; producing audio-visual content (documentary film, infographics, fan-edits, music, etc.) for 3 years; and managing several coinciding cross-disciplinary projects for 2 years. From The Knight Times Newspaper to The Post Newspaper of Galveston County to The Feedbacker, I’ve maintained a pointed interest in pop-culture developments and entertainment news, varying between print and visual media as mediums for storytelling through my reporting. Starting Circuits, Internet, Media, + Software (CIMS), my on-campus production organization, has been my boldest step in embracing this vision of a multi-media, interdisciplinary work environment.\nPublishing The Loop – a Zine collection dedicated to dignifying and platforming student artwork, writing, software, and interactive media projects – under CIMS, as well as maintaining scheduled community engagement and education events, is one of my proudest achievements, skill- and concept-wise; one that I am looking forward to expanding upon professionally. Bringing fandom communities and underground niches to the forefront of the 5C community through DJ sets, social media campaigns, and production projects, I have developed a knack for developing, following, and platforming marginalized voices through my creations.\nEmbracing music, film, and writing as chosen mediums, I am looking to pursue a career in entertainment journalism, design, music A&R, or creative content development where I can continue to hold my hand to the pulse of pop-culture, challenge arbitrary boundaries, advocate for underrepresented voices, platform important conversations, and investigate how people and information interact with one another."
+  },
+  {
+    "objectID": "dataviz/Project5.html",
+    "href": "dataviz/Project5.html",
+    "title": "Project 5: SQL",
+    "section": "",
+    "text": "I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I’ll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.\nThe code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.\nIn the San Francisco and San Antonio comparison, we see how often arrests happened on the same calendar dates, offering a way to think about enforcement levels or patterns in each city. This might reflect stricter policies, more dense traffic, or other local factors. On the other hand, similar arrest numbers on the same dates could hint at outside influences like holidays or big events.\nAltogether, these tables help us start asking deeper questions about how place, age, and policy shape people’s (and cities’) relationships with law enforcement.\n\n\n\n\nlibrary(DBI)\nlibrary(RMariaDB)\n\n# connecting to database\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname = \"traffic\",\n  host = Sys.getenv(\"TRAFFIC_HOST\"),\n  user = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)\n\nAll data was collected by an “interdisciplinary team of researchers and journalists at Stanford University” for The Stanford Open Policing Project. “[They] are committed to combining the academic rigor of statistical analysis with the explanatory power of data journalism.” In this project, they’ve collected data from 88 cities throughout America."
+  },
+  {
+    "objectID": "dataviz/Project5.html#project-description",
+    "href": "dataviz/Project5.html#project-description",
+    "title": "Project 5: SQL",
+    "section": "",
+    "text": "I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I’ll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.\nThe code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.\nIn the San Francisco and San Antonio comparison, we see how often arrests happened on the same calendar dates, offering a way to think about enforcement levels or patterns in each city. This might reflect stricter policies, more dense traffic, or other local factors. On the other hand, similar arrest numbers on the same dates could hint at outside influences like holidays or big events.\nAltogether, these tables help us start asking deeper questions about how place, age, and policy shape people’s (and cities’) relationships with law enforcement."
+  },
+  {
+    "objectID": "dataviz/Project5.html#data",
+    "href": "dataviz/Project5.html#data",
+    "title": "Project 5: SQL",
+    "section": "",
+    "text": "library(DBI)\nlibrary(RMariaDB)\n\n# connecting to database\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname = \"traffic\",\n  host = Sys.getenv(\"TRAFFIC_HOST\"),\n  user = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)\n\nAll data was collected by an “interdisciplinary team of researchers and journalists at Stanford University” for The Stanford Open Policing Project. “[They] are committed to combining the academic rigor of statistical analysis with the explanatory power of data journalism.” In this project, they’ve collected data from 88 cities throughout America."
+  },
+  {
+    "objectID": "dataviz/Project5.html#table-1",
+    "href": "dataviz/Project5.html#table-1",
+    "title": "Project 5: SQL",
+    "section": "Table 1",
+    "text": "Table 1\n\nNew Orleans: Stops by Location (with Average Ages)\nsee dataset here:\nThis table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the average age of all those stopped at a particular location are visible, as well as the age of the youngest traffic stop target.\nIt shows the average age of those stopped at each location, as well as the age of the youngest person stopped. It’s striking (and somewhat humorous) to see that different locations along Bourbon Street make up the top three stop locations—likely due to its reputation as a party hub, especially during holidays like Mardi Gras. It is more concerning and interesting to see the youngest_stop column, it’s interesting to see just how young the stops get (minimum was 10 yo.) and it would be interesting to also see the outcomes (citation, warning, arrest, etc.) of the youngest stops in each location.\nWe can see that the table contains ages all throughout the specified age range (10-25), and the average stop age tends to hover between 18-21, which could be useful when considering the lives of young adults in NOLA, whether in the context of police surveillance or individual behavior. Further, this observation could suggest, unsurprisingly, that those that are slightly earlier in adulthood are more likely to encounter the police.\n\n# WHERE, GROUP BY, HAVING, ORDER BY\n\nSELECT \n  location,\n  COUNT(*) AS num_stops,\n  AVG(subject_age) AS avg_age,\n  MIN(subject_age) AS youngest_stop\nFROM la_new_orleans_2020_04_01\nWHERE subject_age BETWEEN 10 AND 25 AND location IS NOT NULL\nGROUP BY location\nHAVING num_stops &gt; 5\nORDER BY num_stops DESC\n\n\nDisplaying records 1 - 10\n\n\nlocation\nnum_stops\navg_age\nyoungest_stop\n\n\n\n\n004XX Bourbon St\n900\n21.0367\n10\n\n\n003XX Bourbon St\n572\n20.7133\n11\n\n\n005XX Bourbon St\n566\n21.2668\n13\n\n\nChef Menteur Hwy & Downman Rd\n493\n21.3164\n13\n\n\n007XX Canal St\n463\n19.9179\n10\n\n\nChef Menteur Hwy & Desire Pkwy\n454\n21.5419\n13\n\n\n002XX Bourbon St\n411\n20.6667\n10\n\n\n060XX Chef Menteur Hwy\n379\n21.2665\n12\n\n\nSaint Charles Ave & Calliope St\n365\n22.4712\n16\n\n\n024XX Sanctuary Dr\n311\n21.9614\n15"
+  },
+  {
+    "objectID": "dataviz/Project5.html#table-2",
+    "href": "dataviz/Project5.html#table-2",
+    "title": "Project 5: SQL",
+    "section": "Table 2",
+    "text": "Table 2"
+  },
+  {
+    "objectID": "dataviz/Project5.html#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day",
+    "href": "dataviz/Project5.html#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day",
+    "title": "Project 5: SQL",
+    "section": "San Francisco vs. San Antonio: How do arrests compare day-by day?",
+    "text": "San Francisco vs. San Antonio: How do arrests compare day-by day?\nsee dataset here:\nThis table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity.\nFor instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.\n\n# JOIN, WHERE, GROUP BY, ORDER BY\n\nSELECT \n  sf.date AS date_of_stop,\n  sf.sf_arrests,\n  sa.sa_arrests\nFROM (\n  SELECT date, COUNT(*) AS sf_arrests\n  FROM ca_san_francisco_2020_04_01\n  WHERE arrest_made = 1\n  GROUP BY date\n) sf\nJOIN (\n  SELECT date, COUNT(*) AS sa_arrests\n  FROM tx_san_antonio_2023_01_26\n  WHERE arrest_made = 1\n  GROUP BY date\n) sa\nON sf.date = sa.date\nORDER BY date_of_stop;\n\n\nDisplaying records 1 - 10\n\n\ndate_of_stop\nsf_arrests\nsa_arrests\n\n\n\n\n2012-01-01\n5\n2\n\n\n2012-01-02\n2\n4\n\n\n2012-01-04\n8\n2\n\n\n2012-01-05\n4\n2\n\n\n2012-01-06\n2\n3\n\n\n2012-01-07\n3\n2\n\n\n2012-01-09\n6\n2\n\n\n2012-01-10\n3\n3\n\n\n2012-01-11\n4\n1\n\n\n2012-01-12\n5\n1"
   },
   {
     "objectID": "dataviz/Project2.html",
@@ -231,6 +273,13 @@
     "text": "–8&lt;– “README.md”"
   },
   {
+    "objectID": "multi/astro/Arbistrology.html",
+    "href": "multi/astro/Arbistrology.html",
+    "title": "Arbistrology",
+    "section": "",
+    "text": "'/Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages',\n /Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages\nlibrary(reticulate)\n\n\nfrom natal import Data, Chart\nfrom IPython.display import HTML\n\n# create chart data object\nmimi = Data(\n    name=\"MiMi\",\n    utc_dt=\"1980-04-20 06:30\",\n    lat=25.0531,\n    lon=121.526,\n)\n\n# return natal chart in SVG string\nChart(mimi, width=600).svg\n\n# create transit data object\ntransit = Data(\n    name=\"Transit\",\n    utc_dt=\"2024-01-01 05:30\",\n    lat=25.0531,\n    lon=121.526,\n)\n\n# create a transit chart\ntransit_chart = Chart(\n    data1=mimi, \n    data2=transit, \n    width=600\n)\n\n# view the composite chart in jupyter notebook\n\nHTML(transit_chart.svg)\n\n123456789101112"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "(: welcome!",
@@ -243,68 +292,5 @@
     "title": "My Resume",
     "section": "",
     "text": "It appears you don't have a PDF plugin for this browser.\n    No biggie... you can click here to\n    download the PDF file."
-  },
-  {
-    "objectID": "multi/astro/Arbistrology.html",
-    "href": "multi/astro/Arbistrology.html",
-    "title": "Arbistrology",
-    "section": "",
-    "text": "'/Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages',\n /Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages\nlibrary(reticulate)\n\n\nfrom natal import Data, Chart\nfrom IPython.display import HTML\n\n# create chart data object\nmimi = Data(\n    name=\"MiMi\",\n    utc_dt=\"1980-04-20 06:30\",\n    lat=25.0531,\n    lon=121.526,\n)\n\n# return natal chart in SVG string\nChart(mimi, width=600).svg\n\n# create transit data object\ntransit = Data(\n    name=\"Transit\",\n    utc_dt=\"2024-01-01 05:30\",\n    lat=25.0531,\n    lon=121.526,\n)\n\n# create a transit chart\ntransit_chart = Chart(\n    data1=mimi, \n    data2=transit, \n    width=600\n)\n\n# view the composite chart in jupyter notebook\n\nHTML(transit_chart.svg)\n\n123456789101112"
-  },
-  {
-    "objectID": "dataviz/Project5.html",
-    "href": "dataviz/Project5.html",
-    "title": "Project 5: SQL",
-    "section": "",
-    "text": "I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I’ll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.\nThe code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.\nIn the San Francisco and San Antonio comparison, we see how often arrests happened on the same calendar dates, offering a way to think about enforcement levels or patterns in each city. This might reflect stricter policies, more dense traffic, or other local factors. On the other hand, similar arrest numbers on the same dates could hint at outside influences like holidays or big events.\nAltogether, these tables help us start asking deeper questions about how place, age, and policy shape people’s (and cities’) relationships with law enforcement.\n\n\n\n\nlibrary(DBI)\nlibrary(RMariaDB)\n\n# connecting to database\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname = \"traffic\",\n  host = Sys.getenv(\"TRAFFIC_HOST\"),\n  user = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)\n\nAll data was collected by an “interdisciplinary team of researchers and journalists at Stanford University” for The Stanford Open Policing Project. “[They] are committed to combining the academic rigor of statistical analysis with the explanatory power of data journalism.” In this project, they’ve collected data from 88 cities throughout America."
-  },
-  {
-    "objectID": "dataviz/Project5.html#table-1",
-    "href": "dataviz/Project5.html#table-1",
-    "title": "Project 5: SQL",
-    "section": "Table 1",
-    "text": "Table 1\n\nNew Orleans: Stops by Location (with Average Ages)\nsee dataset here:\nThis table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the average age of all those stopped at a particular location are visible, as well as the age of the youngest traffic stop target.\nIt shows the average age of those stopped at each location, as well as the age of the youngest person stopped. It’s striking (and somewhat humorous) to see that different locations along Bourbon Street make up the top three stop locations—likely due to its reputation as a party hub, especially during holidays like Mardi Gras. It is more concerning and interesting to see the youngest_stop column, it’s interesting to see just how young the stops get (minimum was 10 yo.) and it would be interesting to also see the outcomes (citation, warning, arrest, etc.) of the youngest stops in each location.\nWe can see that the table contains ages all throughout the specified age range (10-25), and the average stop age tends to hover between 18-21, which could be useful when considering the lives of young adults in NOLA, whether in the context of police surveillance or individual behavior. Further, this observation could suggest, unsurprisingly, that those that are slightly earlier in adulthood are more likely to encounter the police.\n\n# WHERE, GROUP BY, HAVING, ORDER BY\n\nSELECT \n  location,\n  COUNT(*) AS num_stops,\n  AVG(subject_age) AS avg_age,\n  MIN(subject_age) AS youngest_stop\nFROM la_new_orleans_2020_04_01\nWHERE subject_age BETWEEN 10 AND 25 AND location IS NOT NULL\nGROUP BY location\nHAVING num_stops &gt; 5\nORDER BY num_stops DESC\n\n\nDisplaying records 1 - 10\n\n\nlocation\nnum_stops\navg_age\nyoungest_stop\n\n\n\n\n004XX Bourbon St\n900\n21.0367\n10\n\n\n003XX Bourbon St\n572\n20.7133\n11\n\n\n005XX Bourbon St\n566\n21.2668\n13\n\n\nChef Menteur Hwy & Downman Rd\n493\n21.3164\n13\n\n\n007XX Canal St\n463\n19.9179\n10\n\n\nChef Menteur Hwy & Desire Pkwy\n454\n21.5419\n13\n\n\n002XX Bourbon St\n411\n20.6667\n10\n\n\n060XX Chef Menteur Hwy\n379\n21.2665\n12\n\n\nSaint Charles Ave & Calliope St\n365\n22.4712\n16\n\n\n024XX Sanctuary Dr\n311\n21.9614\n15"
-  },
-  {
-    "objectID": "dataviz/Project5.html#table-1-1",
-    "href": "dataviz/Project5.html#table-1-1",
-    "title": "Project5",
-    "section": "Table 1",
-    "text": "Table 1\n\npresent your findings in a figure or table\nYour analysis should have the following elements:\n\nqueries of at least three of the SQL tables\nat least 6 uses of SQL keywords other than SELECT, FROM, and LIMIT.\nat least 2 illustrative, well-labeled plots or tables\na description of what insights can be gained from your plots and tables\na reference / documentation of the data source (see below, make sure to include the citation!)"
-  },
-  {
-    "objectID": "dataviz/Project5.html#table-2",
-    "href": "dataviz/Project5.html#table-2",
-    "title": "Project 5: SQL",
-    "section": "Table 2",
-    "text": "Table 2"
-  },
-  {
-    "objectID": "dataviz/Project5.html#table-3",
-    "href": "dataviz/Project5.html#table-3",
-    "title": "Project5",
-    "section": "Table 3",
-    "text": "Table 3\n\npresent your findings in a figure or table\nYour analysis should have the following elements:\n\nqueries of at least three of the SQL tables\nat least 6 uses of SQL keywords other than SELECT, FROM, and LIMIT.\nat least 2 illustrative, well-labeled plots or tables\na description of what insights can be gained from your plots and tables\na reference / documentation of the data source (see below, make sure to include the citation!) ## Table 3\n\npresent your findings in a figure or table\nYour analysis should have the following elements:\n\nqueries of at least three of the SQL tables\nat least 6 uses of SQL keywords other than SELECT, FROM, and LIMIT.\nat least 2 illustrative, well-labeled plots or tables\na description of what insights can be gained from your plots and tables\na reference / documentation of the data source (see below, make sure to include the citation!)\n\n\nLogistics The information on how to connect to the SQL database was sent to you via email. Please ask if you don’t have the email!\nRecall that the in-class slides on SQL statements provide many SQL queries that give a sense of the datasets.\nThe goal is to use SQL for 100% of the data wrangling. If there is some data wrangling that you need to do and can’t figure it out in SQL, please ask. In your SQL project (due tomorrow), please don’t include any naked tables. That is, if you have output (e.g., maybe you tabulated the number of citations, warnings, and arrests), there should be a corresponding sentence or two All wrangling (i.e., all SQL code) should be written in SQL chunks, not R chunks. In almost every case, you should use the entire table (i.e., no reason to use LIMIT on your final analysis). Please confirm with me in advance if you do need to use LIMIT for some reason. The expectation is that your WHERE clause will filter the data to make it small enough to use in memory. You are unlikely to use a JOIN, but you might want to use a UNION. UNION is similar to rbind() in R, so make sure that the columns of the two tables measure exactly the same thing. work in your website .Rproj, do not start a new R Project. at a minimum, start by describing what you plan to do (3-4 sentences). end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis. please include all your code used in the analysis (but feel free to use code folding2). make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill). do not include error or warning messages (see HW YAML for code). include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk."
-  },
-  {
-    "objectID": "dataviz/Project5.html#project-description",
-    "href": "dataviz/Project5.html#project-description",
-    "title": "Project 5: SQL",
-    "section": "",
-    "text": "I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I’ll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.\nThe code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.\nIn the San Francisco and San Antonio comparison, we see how often arrests happened on the same calendar dates, offering a way to think about enforcement levels or patterns in each city. This might reflect stricter policies, more dense traffic, or other local factors. On the other hand, similar arrest numbers on the same dates could hint at outside influences like holidays or big events.\nAltogether, these tables help us start asking deeper questions about how place, age, and policy shape people’s (and cities’) relationships with law enforcement."
-  },
-  {
-    "objectID": "dataviz/Project5.html#data",
-    "href": "dataviz/Project5.html#data",
-    "title": "Project 5: SQL",
-    "section": "",
-    "text": "library(DBI)\nlibrary(RMariaDB)\n\n# connecting to database\ncon_traffic &lt;- DBI::dbConnect(\n  RMariaDB::MariaDB(),\n  dbname = \"traffic\",\n  host = Sys.getenv(\"TRAFFIC_HOST\"),\n  user = Sys.getenv(\"TRAFFIC_USER\"),\n  password = Sys.getenv(\"TRAFFIC_PWD\")\n)\n\nAll data was collected by an “interdisciplinary team of researchers and journalists at Stanford University” for The Stanford Open Policing Project. “[They] are committed to combining the academic rigor of statistical analysis with the explanatory power of data journalism.” In this project, they’ve collected data from 88 cities throughout America."
-  },
-  {
-    "objectID": "dataviz/Project5.html#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day",
-    "href": "dataviz/Project5.html#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day",
-    "title": "Project 5: SQL",
-    "section": "San Francisco vs. San Antonio: How do arrests compare day-by day?",
-    "text": "San Francisco vs. San Antonio: How do arrests compare day-by day?\nsee dataset here:\nThis table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity.\nFor instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.\n\n# JOIN, WHERE, GROUP BY, ORDER BY\n\nSELECT \n  sf.date AS date_of_stop,\n  sf.sf_arrests,\n  sa.sa_arrests\nFROM (\n  SELECT date, COUNT(*) AS sf_arrests\n  FROM ca_san_francisco_2020_04_01\n  WHERE arrest_made = 1\n  GROUP BY date\n) sf\nJOIN (\n  SELECT date, COUNT(*) AS sa_arrests\n  FROM tx_san_antonio_2023_01_26\n  WHERE arrest_made = 1\n  GROUP BY date\n) sa\nON sf.date = sa.date\nORDER BY date_of_stop;\n\n\nDisplaying records 1 - 10\n\n\ndate_of_stop\nsf_arrests\nsa_arrests\n\n\n\n\n2012-01-01\n5\n2\n\n\n2012-01-02\n2\n4\n\n\n2012-01-04\n8\n2\n\n\n2012-01-05\n4\n2\n\n\n2012-01-06\n2\n3\n\n\n2012-01-07\n3\n2\n\n\n2012-01-09\n6\n2\n\n\n2012-01-10\n3\n3\n\n\n2012-01-11\n4\n1\n\n\n2012-01-12\n5\n1"
   }
 ]
