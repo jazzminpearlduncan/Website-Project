@@ -2,7 +2,9 @@
 
 from datetime import datetime
 from natal.config import Config
-from typing import Iterable
+from typing import TypeVar, Iterable
+
+T = TypeVar("T")
 
 
 def color_hex(name: str, config: Config = Config()) -> str:

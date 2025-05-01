@@ -1,11 +1,17 @@
 ---
 title: "Arbistrology"
 format: html
+jupyter: python3
 execute: 
   warning: false
   message: false
-  echo: false
+  echo: true
+  enabled: true
+  output: true
 ---
+
+    '/Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages',
+     /Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages
 
 ```{r}
 library(reticulate)
@@ -13,7 +19,37 @@ library(reticulate)
 ```
 
 ```{python}
+from natal import Data, Chart
+from IPython.display import HTML
 
+# create chart data object
+mimi = Data(
+    name="MiMi",
+    utc_dt="1980-04-20 06:30",
+    lat=25.0531,
+    lon=121.526,
+)
 
+# return natal chart in SVG string
+Chart(mimi, width=600).svg
+
+# create transit data object
+transit = Data(
+    name="Transit",
+    utc_dt="2024-01-01 05:30",
+    lat=25.0531,
+    lon=121.526,
+)
+
+# create a transit chart
+transit_chart = Chart(
+    data1=mimi, 
+    data2=transit, 
+    width=600
+)
+
+# view the composite chart in jupyter notebook
+
+HTML(transit_chart.svg)
 
 ```

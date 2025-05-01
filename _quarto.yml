@@ -41,6 +41,8 @@ website:
             href: dataviz/Project3.qmd
           - text: "project 4"
             href: dataviz/Project4.qmd
+          - text: "project 5"
+            href: dataviz/Project5.qmd
             
       - text: "contact me!"
         href: basics/contact.qmd

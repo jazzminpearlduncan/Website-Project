@@ -123,3 +123,4 @@ def test_fix_orb_eq_0(data1: Data) -> None:
     _ = chart.svg
     assert chart.aspect_lines_len == 14
     assert org_chart.aspect_lines_len == 24
+

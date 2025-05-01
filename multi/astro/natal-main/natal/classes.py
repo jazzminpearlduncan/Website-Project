@@ -59,7 +59,7 @@ class MovableBody(Body):
         Returns:
             SignMember: The sign member.
         """
-        idx = int(self.degree // 30)
+        idx = int(self.degree // 30) % 12
         return SIGN_MEMBERS[idx]
 
     @property

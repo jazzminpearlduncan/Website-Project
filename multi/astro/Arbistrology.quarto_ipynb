@@ -1,0 +1,83 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {},
+      "source": [
+        "---\n",
+        "title: \"Arbistrology\"\n",
+        "format: html\n",
+        "jupyter: python3\n",
+        "execute: \n",
+        "  warning: false\n",
+        "  message: false\n",
+        "  echo: true\n",
+        "  enabled: true\n",
+        "  output: true\n",
+        "---\n",
+        "\n",
+        "\n",
+        "    '/Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages',\n",
+        "     /Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages\n",
+        "\n",
+        "\n",
+        "```{r}\n",
+        "library(reticulate)\n",
+        "\n",
+        "```"
+      ],
+      "id": "08055609"
+    },
+    {
+      "cell_type": "code",
+      "metadata": {},
+      "source": [
+        "from natal import Data, Chart\n",
+        "from IPython.display import HTML\n",
+        "\n",
+        "# create chart data object\n",
+        "mimi = Data(\n",
+        "    name=\"MiMi\",\n",
+        "    utc_dt=\"1980-04-20 06:30\",\n",
+        "    lat=25.0531,\n",
+        "    lon=121.526,\n",
+        ")\n",
+        "\n",
+        "# return natal chart in SVG string\n",
+        "Chart(mimi, width=600).svg\n",
+        "\n",
+        "# create transit data object\n",
+        "transit = Data(\n",
+        "    name=\"Transit\",\n",
+        "    utc_dt=\"2024-01-01 05:30\",\n",
+        "    lat=25.0531,\n",
+        "    lon=121.526,\n",
+        ")\n",
+        "\n",
+        "# create a transit chart\n",
+        "transit_chart = Chart(\n",
+        "    data1=mimi, \n",
+        "    data2=transit, \n",
+        "    width=600\n",
+        ")\n",
+        "\n",
+        "# view the composite chart in jupyter notebook\n",
+        "\n",
+        "HTML(transit_chart.svg)"
+      ],
+      "id": "89d86554",
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python3",
+      "language": "python",
+      "display_name": "Python 3 (ipykernel)",
+      "path": "/usr/local/share/jupyter/kernels/python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 5
+}
