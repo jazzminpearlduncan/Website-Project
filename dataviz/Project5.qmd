@@ -35,7 +35,7 @@ All data was collected by an "interdisciplinary team of researchers and journali
 # Analysis
 ## Table 1
 ### New Orleans: Stops by Location (with Average Ages)
-[see dataset here:](https://openpolicing.stanford.edu/data/)
+[see dataset here](https://openpolicing.stanford.edu/data/)
 
 This table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the average age of all those stopped at a particular location are visible, as well as the age of the youngest traffic stop target. 
 
@@ -62,7 +62,7 @@ ORDER BY num_stops DESC
 
 ## Table 2
 ### San Francisco vs. San Antonio: How do arrests compare day-by day?
-[see dataset here:](https://openpolicing.stanford.edu/data/)
+[see dataset here](https://openpolicing.stanford.edu/data/)
 
 This table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity. 
 
