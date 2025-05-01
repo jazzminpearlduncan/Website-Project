@@ -49,7 +49,7 @@ We can see that the table contains ages all throughout the specified age range (
 SELECT 
   location,
   COUNT(*) AS num_stops,
-  AVG(subject_age) AS avg_age,
+  AVG(subject_age) AS avg_young_adult_age,
   MIN(subject_age) AS youngest_stop
 FROM la_new_orleans_2020_04_01
 WHERE subject_age BETWEEN 10 AND 25 AND location IS NOT NULL
