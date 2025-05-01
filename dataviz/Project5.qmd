@@ -1,8 +1,19 @@
 ---
-title: "Project5"
+title: "Project 5: SQL"
 format: html
 ---
 
+# Introduction
+## Project Description
+I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I'll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.
+
+The code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.
+
+In the San Francisco and San Antonio comparison, we see how often arrests happened on the same calendar dates, offering a way to think about enforcement levels or patterns in each city.  This might reflect stricter policies, more dense traffic, or other local factors. On the other hand, similar arrest numbers on the same dates could hint at outside influences like holidays or big events.
+
+Altogether, these tables help us start asking deeper questions about how place, age, and policy shape people’s (and cities') relationships with law enforcement.
+
+## Data 
 
 ```{r}
 library(DBI)
@@ -19,7 +30,9 @@ con_traffic <- DBI::dbConnect(
 ```
 
 All data was collected by an "interdisciplinary team of researchers and journalists at Stanford University" for  The [Stanford Open Policing Project](https://openpolicing.stanford.edu/). "[They] are committed to combining the academic rigor of statistical analysis with the explanatory power of data journalism." In this project, they've collected data from 88 cities throughout America.
-  
+
+
+# Analysis
 ## Table 1
 ### New Orleans: Stops by Location (with Average Ages)
 [see dataset here:](https://openpolicing.stanford.edu/data/)
@@ -48,6 +61,7 @@ ORDER BY num_stops DESC
     
 
 ## Table 2
+## San Francisco vs. San Antonio: How do arrests compare day-by day?
 [see dataset here:](https://openpolicing.stanford.edu/data/)
 
 This table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity. 
@@ -55,7 +69,7 @@ This table allows us to compare the number of arrests made on matching stop date
 For instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.
 
 ```{sql, connection=con_traffic}
-# JOIN, GROUP BY, ORDER BY
+# JOIN, WHERE, GROUP BY, ORDER BY
 
 SELECT 
   sf.date AS date_of_stop,
@@ -74,18 +88,9 @@ JOIN (
   GROUP BY date
 ) sa
 ON sf.date = sa.date
-ORDER BY stop_date;
-
+ORDER BY date_of_stop;
 
 
 
 
 ```
-
-  
-
-
-at a minimum, start by describing what you plan to do (3-4 sentences). end with a description of what you did (3-4 sentences). That is, use words to guide the reader through your analysis.
-make sure that all graphs are well-labeled (including x and y axes, title of the graph, and accurate and succinct labels for color and fill).
-do not include error or warning messages (see HW YAML for code).
-include a few sentences describing each of your plots or tables. That is, tell the reader what they see when they look at the plot. Your narrative description should be in the text part of the qmd file, not as a comment in an R chunk.
