@@ -1,55 +1,730 @@
 ---
-title: "Arbistrology"
 format: html
 jupyter: python3
-execute: 
+execute:
   warning: false
   message: false
-  echo: true
+  echo: false
   enabled: true
   output: true
 ---
 
-    '/Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages',
-     /Users/jduncan/.pyenv/versions/3.12.0/lib/python3.12/site-packages
+Thank you for visiting your Space Travel Benefits Portal. It is imperative that you read all information displayed below to make the most informed decisions regarding your next steps (in or out of space)
 
-```{r}
-library(reticulate)
+[Following your recent extinction level event (see news on Universal War 4 Nuclear Fallout), we are offering subsidized space immigration services to Earthian refugees born within the bounds of the United States as support to those still on the planet. It is highly advised that you leave as soon as possible, given the continued escalation of violence against Earth perpetrated by the government of JKPSI-200.]{style="color: red;"}
 
-```
+[Please fill out the rest of your personal information below. Please understand that this is not a binding document, and by filling this out, you confirm that the US Government is not liable for any trauma, injury, or mishaps caused by the decisions you make going forward, intra or extra terrestrially.]{style="color: navy;"}
+
+*Your location has already been collected via GPS Tracking.*
 
 ```{python}
-from natal import Data, Chart
-from IPython.display import HTML
+##Function to generate random phone number
+from IPython.display import display, HTML
 
-# create chart data object
-mimi = Data(
-    name="MiMi",
-    utc_dt="1980-04-20 06:30",
-    lat=25.0531,
-    lon=121.526,
-)
+# Create HTML with embedded JavaScript for interactivity
+html_content = """
+<div id="datetime-selector">
+    <div class="container-layout">
+        <div class="form-container">
+            <div class="date-row">
+                <div class="form-group">
+                    <label for="day">Day:</label>
+                    <select id="day" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(1, 32)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="month">Month:</label>
+                    <select id="month" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(1, 13)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(2020, 2030)]) + """
+                    </select>
+                </div>
+            </div>
+            
+            <div class="time-row">
+                <div class="form-group">
+                    <label for="hour">Hour:</label>
+                    <select id="hour" class="form-control">
+                        """ + ''.join([f'<option value="{i:02d}">{i:02d}</option>' for i in range(0, 24)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="minute">Minute:</label>
+                    <select id="minute" class="form-control">
+                        """ + ''.join([f'<option value="{i:02d}">{i:02d}</option>' for i in range(0, 60)]) + """
+                    </select>
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="btn btn-danger mt-3">Generate Assignment</button>
+        </div>
+        
+        <div class="confirmation-container">
+            <div id="output-message" class="mt-3"></div>
+            <div id="confirmation-buttons" class="mt-3" style="display: none;">
+                <button id="confirm-btn" class="btn btn-success">Confirm</button>
+                <button id="cancel-btn" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results Section -->
+    <div id="assignment-results" class="results-container" style="display: none;">
+        <h3>Your Cosmic Assignment</h3>
+        <div class="result-card">
+            <div id="result-content"></div>
+        </div>
+        
 
-# return natal chart in SVG string
-Chart(mimi, width=600).svg
+        
+        <!-- Next Steps Section -->
+        <h3 class="mt-4">Next Steps</h3>
+        <div class="result-card next-steps-card">
+            <div id="next-steps-content"></div>
+        </div>
+    </div>
+</div>
 
-# create transit data object
-transit = Data(
-    name="Transit",
-    utc_dt="2024-01-01 05:30",
-    lat=25.0531,
-    lon=121.526,
-)
+<style>
+#datetime-selector {
+    width: 100%;
+    margin: 20px 0;
+}
 
-# create a transit chart
-transit_chart = Chart(
-    data1=mimi, 
-    data2=transit, 
-    width=600
-)
+/* Container layout for side-by-side display */
+.container-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
 
-# view the composite chart in jupyter notebook
+.form-container {
+    flex: 0 0 auto;
+    margin-right: 30px;
+}
 
-HTML(transit_chart.svg)
+.confirmation-container {
+    flex: 0 0 300px;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+    min-height: 150px;
+}
 
+/* Style for date and time rows */
+.date-row, .time-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+/* Make the form groups display inline */
+.form-group {
+    margin-right: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 200px;
+    padding: 8px;
+    font-size: 14px;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-success { background-color: #28a745; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+.mt-3 { margin-top: 15px; }
+
+#user-name {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Error styling */
+.error-text {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Results styling */
+.results-container {
+    margin-top: 30px;
+    padding: 20px;
+    border-top: 2px solid #007bff;
+    clear: both;
+    width: 100%;
+}
+
+.result-card {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    margin-top: 15px;
+}
+
+.result-item {
+    margin-bottom: 15px;
+}
+
+.result-title {
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.reasons-list {
+    padding-left: 20px;
+}
+
+.reasons-list li {
+    margin-bottom: 5px;
+}
+
+.cosmic-highlight {
+    color: #6f42c1;
+    font-weight: bold;
+}
+
+.next-steps-card {
+    background-color: #e9f7fe;
+    border-left: 4px solid #17a2b8;
+}
+
+.meanings-card {
+    background-color: #f8f4ff;
+    border-left: 4px solid #6f42c1;
+}
+
+.overseer-profile-card {
+    background-color: #fff5eb;
+    border-left: 4px solid #fd7e14;
+}
+
+.countdown-timer {
+    font-size: 24px;
+    font-weight: bold;
+    color: #dc3545;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.special-deal {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.overseer-contact {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 10px 15px;
+    margin: 15px 0;
+    border-radius: 4px;
+}
+
+.contact-btn {
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 10px;
+}
+
+.contact-btn:hover {
+    background-color: #218838;
+}
+
+.pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.pricing-table th, .pricing-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.pricing-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.pricing-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.pricing-highlight {
+    background-color: #e8f4fd;
+}
+
+.overseer-profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.overseer-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #fd7e14;
+}
+
+.overseer-info {
+    flex: 1;
+}
+
+.overseer-name {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    color: #fd7e14;
+}
+
+.history-item, .meaning-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #ddd;
+}
+
+.history-item:last-child, .meaning-item:last-child {
+    border-bottom: none;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to all elements
+    const daySelect = document.getElementById('day');
+    const monthSelect = document.getElementById('month');
+    const yearSelect = document.getElementById('year');
+    const hourSelect = document.getElementById('hour');
+    const minuteSelect = document.getElementById('minute');
+    const generateBtn = document.getElementById('generate-btn');
+    const outputMessage = document.getElementById('output-message');
+    const confirmationButtons = document.getElementById('confirmation-buttons');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const assignmentResults = document.getElementById('assignment-results');
+    const resultContent = document.getElementById('result-content');
+    
+    // Store selected values
+    let selectedValues = {};
+    let currentStep = 'datetime'; // Possible values: 'datetime', 'name', 'complete'
+    
+    // Lists for random assignments
+    const planets = [
+        "Mercury", "Venus", "Mars", "The Densely Populated Federation (formerly Jupiter; colonized by China and India)", "Saturn", 
+        "Ur-Anus (formerly Uranus)", "Neptune", "The Prison Federation (formerly Pluto; colonized by Australia and ???)", "Ceres", "Eris", 
+        "Station-452b", "Starlink-1e", "Elon 189733b", "Bezos Centauri b", "Aristole 581g"
+    ];
+    
+    const jobs = [
+        "Endentured Servant", "Stellar Jester", "Concubine", 
+        "Alchemist", "Police Officer", "Professor", "Space Diplomat", 
+        "Personal Chef", "Galactic Historian", "Interstellar Artist",
+        "Planetary Engineer", "Star Whisperer", "Comet Rider", "Wormhole Technician", 
+        "Temporal Guardian"
+    ];
+    
+    const plantationTypes = [
+        "Knowles-Carter Crystal Orchards", "Antigone-Gravity Moss Fields", 
+        "Mexican Bamboo Forests", "SLothful Flower Gardens", 
+        "Trump Energy Farms", "Lafayette Mushroom Caverns", 
+        "Pomona Fruit Vineyards", "Scripps Matter Herb Terraces", 
+        "Harvey Mudd Ray Vegetable Plots", "CMC Belt Lichen Colonies",
+        "CGU Tulip Meadows", "KGI-Point Energy Root Farms",
+        "Magnetic Rose Gardens", "Misc. Spice Plantation",
+        "Neutron Star Succulents"
+    ];
+    
+    const reasons = [
+        "Neptune in the 10th House: Disillusionment with your career. Let us get youback on track with some servitude!",
+        "Saturn in the 8th House: The alignment of Saturn at your birth indicates natural talent in this field",
+        "Your numerological pattern suggests exceptional adaptability to harsh, arid environments. You'd love it here!",
+        "Sun in the 4th House: The stellar wind patterns say you may dislike your mother. Leave her behind and go to space!",
+        "Ancient celestial texts predicted your destiny for this role",
+        "Your aura's wavelength matches the harmonic frequency of this position",
+        "The quantum entanglement of your birth stars predisposed you to excel here",
+        "Your Sun's element (Earth) has natural synergy with this placement",
+        "Uranus conjuct Elon-89389: The energy active during your birth created an affinity for innovative work",
+        "Interdimensional calculations show this is your optimal planet if you want clear skin (likely highly valued due to Moon in the 6th house)",
+        "Sir Baron Musk-Trump III of Mars recently decreed that those with Jupitarian influence should go here to bring abundance to the rest of the servants.",
+        "War has erupted between the Indo-Carribean and Indo-American colonies; you are destined to be a fighter (Mars in the 1stHouse)! Armor up!",
+        "Your soul's journey across previous incarnations has prepared you for this task",
+        "The galactic core's radiation pattern at your birth time encoded this destiny",
+        "The orbital resonance of Neptune during your conception aligned with this purpose",
+        "Your spiritual DNA contains markers specifically attuned to this position",
+        "The asteroid belt configuration during your first breath predicted this path",
+        "Your quantum consciousness signature matches this assignment perfectly",
+        "The cosmic ray shower occurring on your birth date empowered this potential",
+        "Your metaphysical blueprint contains the exact structure needed for this role"
+    ];
+    
+    // Planet histories and meanings
+    const planetHistories = {
+        "Mercury": "Discovered by ancient civilizations as the Messenger Planet, Mercury was first colonized in 2189 during the Great Solar Expansion. Its proximity to the sun made it an ideal energy harvesting hub, and its rich deposits of rare metals transformed it into a center for quantum computing.",
+        "Venus": "Venus, once a toxic hellscape, was transformed through atmospheric engineering in 2214. The Cloud Cities of Venus now float above its surface, creating a paradise of airborne gardens and research centers dedicated to atmospheric sciences.",
+        "Mars": "The first human outpost on Mars was established in 2037, growing into a network of underground cities and terraformed valleys. Mars is now home to the Solar System's oldest off-Earth human settlements and boasts the most advanced agricultural research facilities.",
+        "Jupiter": "Jupiter's colonization began with floating cities in its upper atmosphere in 2185. The gas giant's powerful storms are now harnessed for energy production, while its dozens of moons serve as mining outposts and research stations.",
+        "Saturn": "The Rings of Saturn host the most beautiful human settlements in the solar system. Ring miners and artists coexist in harmony, creating floating cities that dance between the rings and harvest rare ice crystals for both practical and aesthetic purposes.",
+        "Uranus": "The sideways planet became humanity's gateway to deep space in 2289. Its unique axial tilt creates extreme seasonal variations that have spawned distinctive cultural adaptations among its colonists, who are known for their resilience and ingenuity.",
+        "Neptune": "The blue giant's colonization was focused on its largest moon, Triton. Neptune's powerful winds made it unsuitable for direct habitation until the development of pressure-resistant habitats in 2342, which now float like jewels in its beautiful azure storms.",
+        "Pluto": "Though small and distant, Pluto became a thriving outpost thanks to its abundant ice resources. The underground cities of Pluto are known for their tight-knit communities and advanced cryogenic research facilities.",
+        "Ceres": "The largest asteroid in the belt became the hub of the inner system's mining operations. Its central location made it an ideal trading post, eventually growing into one of the wealthiest commercial centers in the solar system.",
+        "Eris": "The distant dwarf planet was the last major solar system body to be colonized in 2401. Its extreme isolation attracted spiritual communities seeking separation from the hustle of inner system life.",
+        "Kepler-452b": "The first Earth-like exoplanet colonized by humans in 2567, Kepler-452b is known as 'Earth's Cousin.' Its similar gravity and atmosphere made it ideal for human adaptation, requiring minimal terraforming.",
+        "TRAPPIST-1e": "Part of the famous TRAPPIST system, this planet is known for its beautiful red sunsets and unique flora that evolved under the light of a red dwarf star. Human settlements are concentrated on its tidally-locked twilight zone.",
+        "HD 189733b": "This cobalt-blue gas giant was initially deemed uninhabitable until the development of advanced floating cities. It's now famous for its glass-making industry, utilizing the silicate rain in its upper atmosphere.",
+        "Proxima Centauri b": "Our closest exoplanet neighbor and the first stepping stone to the stars. Its tidally-locked nature created a unique band of habitability that circles the planet, known as the 'Green Ring.'",
+        "Gliese 581g": "Located in the habitable zone of its star, Gliese 581g became a center for exobiology research due to its native microbial life. Its colonists are known for their respect for indigenous lifeforms and careful approach to settlement."
+    };
+    
+    const jobMeanings = {
+        "Cosmic Gardener": "These specialized botanists cultivate alien flora and create sustainable ecosystems in harsh planetary environments. Their work ensures food security and maintains the delicate balance of terraformed worlds.",
+        "Stellar Architect": "Masters of extreme engineering, Stellar Architects design habitats that can withstand the harshest cosmic conditions. Their work combines advanced materials science with artistic vision to create beautiful yet functional living spaces.",
+        "Nebula Navigator": "These skilled pilots chart courses through the most challenging regions of space. Their intuitive understanding of cosmic phenomena and expert handling of spacecraft makes them essential for interstellar travel.",
+        "Quantum Alchemist": "Part scientist, part artist, Quantum Alchemists manipulate matter at the subatomic level to create new materials with extraordinary properties. Their creations are vital for advanced technology and infrastructure.",
+        "Void Walker": "These specialized explorers venture into uncharted space, comfortable in the vast emptiness between stars. Their psychological fortitude and survival skills make them ideal for first-contact missions and discovering new resources.",
+        "Asteroid Miner": "The backbone of the space economy, Asteroid Miners extract precious metals and rare elements from celestial bodies. Their work fuels technological advancement and economic growth throughout colonized space.",
+        "Space Diplomat": "These skilled negotiators maintain peaceful relations between diverse planetary cultures. Their deep understanding of extraterrestrial customs and excellent communication skills prevent conflicts and foster cooperation.",
+        "Celestial Chef": "Masters of xenogastronomy, these culinary experts create delicious and nutritious meals from exotic ingredients found throughout the cosmos. Their work is crucial for morale and cultural exchange.",
+        "Galactic Historian": "These scholars document the expansion of human civilization beyond Earth and preserve the knowledge of ancient stellar civilizations. Their work ensures that lessons from the past guide future development.",
+        "Interstellar Artist": "These creative souls capture the beauty and wonder of cosmic environments through various mediums. Their work helps connect colonists with their new homes and expresses the human experience in space.",
+        "Planetary Engineer": "Specialists in large-scale environmental modification, these engineers transform hostile worlds into habitable ones. Their work combines geology, climatology, and ecology to create sustainable new homes for humanity.",
+        "Star Whisperer": "These unique individuals possess an intuitive connection with stellar phenomena. Their ability to predict solar storms and stellar behavior is crucial for the safety of nearby colonies and space traffic.",
+        "Comet Rider": "Part daredevil, part scientist, Comet Riders attach themselves to comets to study their composition and behavior. Their research provides valuable data about the early solar system and potential resources.",
+        "Wormhole Technician": "These cutting-edge scientists maintain the network of artificial wormholes that enable rapid interstellar travel. Their precise calculations and adjustments keep the fragile spacetime tunnels stable and safe.",
+        "Temporal Guardian": "Specialists who monitor and protect the stability of the spacetime continuum near high-gravity environments. Their work prevents dangerous temporal anomalies and ensures the consistent flow of time in colonized space."
+    };
+    
+    const plantationMeanings = {
+        "Luminous Crystal Orchards": "These beautiful gardens grow crystalline structures that naturally emit light. The 'fruit' they produce is used for sustainable lighting across human settlements, combining aesthetic beauty with practical function.",
+        "Anti-Gravity Moss Fields": "This specialized moss naturally counteracts gravitational forces, creating floating patches of greenery. Harvested moss is used in medical treatments for bone density issues and in the construction of lightweight structures.",
+        "Quantum Bamboo Forests": "This rapidly-growing plant exists in multiple states simultaneously, making it ideal for computational biotechnology. Products derived from quantum bamboo form the basis of organic computing systems.",
+        "Nebula Flower Gardens": "These delicate blooms absorb trace gases from their environment, creating miniature nebula-like patterns in their petals. They're valued for their air-purification properties and stunning beauty.",
+        "Stellar Energy Farms": "These specialized plants convert stellar radiation directly into usable energy with efficiency exceeding any artificial solar panels. Their harvest provides clean power for entire settlements.",
+        "Void Mushroom Caverns": "These fungi thrive in complete darkness and naturally absorb radiation. They're crucial for waste management in space habitats and produce nutrients otherwise difficult to synthesize in space.",
+        "Plasma Fruit Vineyards": "These unusual plants produce fruit containing naturally occurring plasma that can be harvested for various technological applications. They require careful tending due to their inherently energetic nature.",
+        "Dark Matter Herb Terraces": "These mysterious plants interact with dark matter in ways science still doesn't fully understand. Their cultivation provides insights into this elusive cosmic component and yields herbs with unique medicinal properties.",
+        "Cosmic Ray Vegetable Plots": "These hardy vegetables are specifically bred to thrive under intense cosmic radiation. They not only survive but convert harmful rays into nutrients, making them ideal for outer solar system locations.",
+        "Asteroid Belt Lichen Colonies": "These resilient organisms grow on the surface of asteroids, slowly breaking down their mineral components into soil. They're essential for the first stages of asteroid terraforming and mining operations.",
+        "Dimensional Tulip Meadows": "These flowers occasionally phase between dimensional states, creating spectacular visual displays. Their pollen has applications in quantum physics research and interdimensional communication experiments.",
+        "Zero-Point Energy Root Farms": "These deep-growing root systems tap into zero-point energy fields. The harvested roots can store this energy indefinitely, serving as organic batteries for space habitats and vehicles.",
+        "Magnetic Rose Gardens": "These metallic-petaled roses naturally generate magnetic fields. They're used in navigation systems and in medical treatments for circulatory conditions, as well as being prized for their unique beauty.",
+        "Interstellar Spice Plantations": "These highly aromatic plants produce spices that not only enhance food but have preservative and medicinal properties. They've become valuable trade goods between different stellar systems.",
+        "Neutron Star Succulents": "These dense, water-rich plants can withstand extreme gravitational forces. Their extract is used in gravity adaptation treatments for humans transitioning between different planetary environments."
+    };
+    
+    // Overseer names and characteristics
+    const overseerFirstNames = [
+        "Zephyr", "Nova", "Orion", "Lyra", "Castor", "Vega", "Atlas", "Celeste", 
+        "Sirius", "Andromeda", "Phoenix", "Rigel", "Carina", "Altair", "Luna"
+    ];
+    
+    const overseerLastNames = [
+        "Stellaris", "Voidborn", "Cosmic", "Graviton", "Astralian", "Nebulon", 
+        "Solstice", "Quasar", "Infiniti", "Galaxian", "Starweaver", "Pulsar", 
+        "Eclipse", "Celestian", "Aetherwalk"
+    ];
+    
+    const overseerTitles = [
+        "Chief Cultivation Officer", "Planetary Stewardship Director", 
+        "Senior Xenobotanist", "Master of Cosmic Agriculture", 
+        "Head of Extraterrestrial Flora", "Interstellar Growth Coordinator", 
+        "Principal Planetary Cultivator", "Supreme Harvest Guardian", 
+        "Director of Cosmic Resources", "Executive Botanical Strategist"
+    ];
+    
+    const overseerBackgrounds = [
+        "has pioneered revolutionary growing techniques for low-gravity environments",
+        "was the first to successfully cultivate Earth plants on their assigned planet",
+        "comes from a long line of space agriculturalists dating back to the lunar colonies",
+        "left a prestigious academic position to pursue practical applications in space farming",
+        "discovered a new species of plant that now bears their name",
+        "holds multiple patents for terraforming technology",
+        "wrote the definitive text on extraterrestrial agriculture used in all major academies",
+        "survived alone for three years on an isolated outpost by growing their own food",
+        "has visited more planets than any other agricultural specialist in the system",
+        "developed a revolutionary irrigation system now used throughout colonized space"
+    ];
+    
+    const overseerImages = [
+        "/api/placeholder/400/400?text=Overseer+Profile+1",
+        "/api/placeholder/400/400?text=Overseer+Profile+2",
+        "/api/placeholder/400/400?text=Overseer+Profile+3",
+        "/api/placeholder/400/400?text=Overseer+Profile+4",
+        "/api/placeholder/400/400?text=Overseer+Profile+5",
+        "/api/placeholder/400/400?text=Overseer+Profile+6",
+        "/api/placeholder/400/400?text=Overseer+Profile+7",
+        "/api/placeholder/400/400?text=Overseer+Profile+8",
+        "/api/placeholder/400/400?text=Overseer+Profile+9",
+        "/api/placeholder/400/400?text=Overseer+Profile+10"
+    ];
+    
+    // Ticket class tiers and prices
+    const ticketClasses = [
+        {
+            name: "Stardust",
+            description: "Basic transportation with shared sleeping quarters",
+            price: () => Math.floor(Math.random() * 500) + 1000,
+            amenities: ["Shared sleeping pod", "Basic meals", "2kg personal luggage allowance", "Emergency medical care"]
+        },
+        {
+            name: "Nova",
+            description: "Improved comfort with semi-private accommodations",
+            price: () => Math.floor(Math.random() * 1000) + 2500,
+            amenities: ["Semi-private sleeping quarters", "Standard meals with options", "5kg personal luggage allowance", "Basic entertainment package", "Standard medical care"]
+        },
+        {
+            name: "Pulsar",
+            description: "Business-class travel with private quarters",
+            price: () => Math.floor(Math.random() * 2000) + 5000,
+            amenities: ["Private cabin", "Premium meals and beverages", "15kg personal luggage allowance", "Advanced entertainment system", "Priority boarding", "Comprehensive medical coverage"]
+        },
+        {
+            name: "Supernova Elite",
+            description: "Luxury travel experience with full amenities",
+            price: () => Math.floor(Math.random() * 5000) + 12000,
+            amenities: ["Luxury suite with viewport", "Gourmet dining experience", "50kg personal luggage allowance", "Personal AI assistant", "Private lounge access", "Advanced medical suite", "Cryosleep optional", "Exclusive events with the captain"]
+        }
+    ];
+    
+    // Function to get random item from array
+    function getRandomItem(array) {
+        return array[Math.floor(Math.random() * array.length)];
+    }
+    
+    // Function to get multiple unique random items from array
+    function getMultipleRandomItems(array, count) {
+        const shuffled = [...array].sort(() => 0.5 - Math.random());
+        return shuffled.slice(0, count);
+    }
+    
+    // Function to generate cosmic assignment
+    function generateCosmicAssignment(name) {
+        const assignedPlanet = getRandomItem(planets);
+        const assignedJob = getRandomItem(jobs);
+        const assignedPlantation = getRandomItem(plantationTypes);
+        const assignedNumber = Math.floor(Math.random() * 42) + 1; // Random number between 1-42
+        const topReasons = getMultipleRandomItems(reasons, 5);
+        
+        return {
+            name: name,
+            planet: assignedPlanet,
+            job: assignedJob,
+            plantation: assignedPlantation,
+            number: assignedNumber,
+            reasons: topReasons
+        };
+    }
+    
+    // Function to generate random phone number
+    function generatePhoneNumber() {
+        const area = Math.floor(Math.random() * 900) + 100; // Random 3-digit area code
+        const middle = Math.floor(Math.random() * 900) + 100; // Random 3-digit middle
+        const end = Math.floor(Math.random() * 9000) + 1000; // Random 4-digit end
+        return `${area}-${middle}-${end}`;
+    }
+    
+    // Function to generate random countdown time
+    function generateCountdown() {
+        const days = Math.floor(Math.random() * 30) + 1; // 1-30 days
+        const hours = Math.floor(Math.random() * 24); // 0-23 hours
+        const minutes = Math.floor(Math.random() * 60); // 0-59 minutes
+        return {days, hours, minutes};
+    }
+    
+    // Function to generate random discount percentage
+    function generateDiscount() {
+        return Math.floor(Math.random() * 36) + 15; // 15-50% discount
+    }
+    
+    // Function to display assignment results
+    function displayAssignmentResults(assignment) {
+        let reasonsHTML = '';
+        assignment.reasons.forEach((reason, index) => {
+            reasonsHTML += `<li>${reason}</li>`;
+        });
+        
+        const resultHTML = `
+            <div class="result-item">
+                <div class="result-title">Name:</div>
+                <div>${assignment.name}</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title">Assigned Planet:</div>
+                <div class="cosmic-highlight">${assignment.planet}</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title">Cosmic Occupation:</div>
+                <div class="cosmic-highlight">${assignment.job}</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title">Plantation Type:</div>
+                <div class="cosmic-highlight">${assignment.plantation}</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title">Your Cosmic Number:</div>
+                <div class="cosmic-highlight">${assignment.number}</div>
+            </div>
+            <div class="result-item">
+                <div class="result-title">Top 5 Reasons for Your Assignment:</div>
+                <ol class="reasons-list">
+                    ${reasonsHTML}
+                </ol>
+            </div>
+        `;
+        
+        resultContent.innerHTML = resultHTML;
+        
+        // Generate next steps information
+        const countdown = generateCountdown();
+        const discount = generateDiscount();
+        const overseerPhone = generatePhoneNumber();
+        
+        const nextStepsHTML = `
+            <div class="result-item">
+                <div class="result-title">Time Until Next Take-off to ${assignment.planet}:</div>
+                <div class="countdown-timer">${countdown.days} Days, ${countdown.hours} Hours, ${countdown.minutes} Minutes</div>
+            </div>
+            
+            <div class="special-deal">
+                <div class="result-title">Special Offer Available!</div>
+                <p>For a limited time, enjoy <strong>${discount}% off</strong> on your rocket seat to ${assignment.planet}. This exclusive deal is only available for the next 24 hours!</p>
+                <p><em>* Terms and conditions apply. Offer valid for new cosmic travelers only.</em></p>
+            </div>
+            
+            <div class="overseer-contact">
+                <div class="result-title">Connect with Your Plantation Overseer</div>
+                <p>Your assigned overseer for the ${assignment.plantation} is ready to answer any questions you may have about your new role as a ${assignment.job}.</p>
+                <p><strong>Overseer Contact:</strong> ${overseerPhone}</p>
+                <a href="tel:${overseerPhone}" class="contact-btn">Call Now</a>
+            </div>
+        `;
+        
+        document.getElementById('next-steps-content').innerHTML = nextStepsHTML;
+        assignmentResults.style.display = 'block';
+        
+        // Scroll to results
+        assignmentResults.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    // Add click event for the generate button
+    generateBtn.addEventListener('click', function() {
+        // Store all selected values
+        selectedValues = {
+            day: daySelect.value,
+            month: monthSelect.value,
+            year: yearSelect.value,
+            hour: hourSelect.value,
+            minute: minuteSelect.value
+        };
+        
+        // Display confirmation message
+        outputMessage.innerHTML = `<h4>Confirm Your Selection</h4>
+                                  <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                  Time: ${selectedValues.hour}:${selectedValues.minute} <br>
+                                  Location: collected auomatically.</p>
+                                  <p>Are you sure you want to proceed? Your personal information may be added to our tracking directory if you continue. </p>`;
+        
+        // Show confirmation buttons
+        confirmationButtons.style.display = 'block';
+    });
+    
+    // Add click event for confirm button
+    confirmBtn.addEventListener('click', function() {
+        outputMessage.innerHTML = `<h4>Confirmation Successful</h4>
+                                  <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                  Time: ${selectedValues.hour}:${selectedValues.minute}</p>
+                                  <p>Please enter your name:</p>
+                                  <div class="form-group">
+                                    <input type="text" id="user-name" class="form-control" placeholder="Enter your name">
+                                  </div>
+                                  <button id="submit-name-btn" class="btn btn-primary mt-3">Submit</button>`;
+        confirmationButtons.style.display = 'none';
+        
+        // Add event listener for the new submit button
+        setTimeout(() => {
+            const submitNameBtn = document.getElementById('submit-name-btn');
+            const userNameInput = document.getElementById('user-name');
+            
+            submitNameBtn.addEventListener('click', function() {
+                const userName = userNameInput.value.trim();
+                if (userName) {
+                    // Store the name along with the date/time
+                    selectedValues.name = userName;
+                    
+                    // Show final confirmation
+                    outputMessage.innerHTML = `<h4>All Information Received</h4>
+                                            <p>Name: ${selectedValues.name}</p>
+                                            <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                            Time: ${selectedValues.hour}:${selectedValues.minute}</p>
+                                            <p>Generating your cosmic assignment...</p>`;
+                    
+                    // Generate and display the assignment
+                    setTimeout(() => {
+                        const assignment = generateCosmicAssignment(selectedValues.name);
+                        displayAssignmentResults(assignment);
+                    }, 1000); // Add a slight delay for dramatic effect
+                    
+                } else {
+                    // Show error if name is empty
+                    userNameInput.style.borderColor = 'red';
+                    const errorMsg = document.createElement('p');
+                    errorMsg.style.color = 'red';
+                    errorMsg.textContent = 'Please enter your name';
+                    
+                    // Insert error message after input if it doesn't exist
+                    if (!userNameInput.nextElementSibling || !userNameInput.nextElementSibling.style || userNameInput.nextElementSibling.style.color !== 'red') {
+                        userNameInput.parentNode.insertBefore(errorMsg, userNameInput.nextElementSibling);
+                    }
+                }
+            });
+        }, 100); // Small timeout to ensure the element is in the DOM
+    });
+    
+    // Add click event for cancel button
+    cancelBtn.addEventListener('click', function() {
+        outputMessage.innerHTML = '<h4>Cancelled</h4><p>Please adjust your selection if needed.</p>';
+        confirmationButtons.style.display = 'none';
+    });
+});
+</script>
+"""
+
+# Display the HTML
+display(HTML(html_content))
 ```

@@ -1,0 +1,355 @@
+---
+title: "Arbistrology - Your Cosmic Guide"
+format: html
+jupyter: python3
+execute:
+  warning: false
+  message: false
+  echo: false
+  enabled: true
+  output: true
+---
+
+```{python}
+# This is a Python code cell in your Quarto document
+from IPython.display import display, HTML
+
+# Create HTML with embedded JavaScript for interactivity
+html_content = """
+<div id="datetime-selector">
+    <div class="container-layout">
+        <div class="form-container">
+            <div class="date-row">
+                <div class="form-group">
+                    <label for="day">Day:</label>
+                    <select id="day" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(1, 32)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="month">Month:</label>
+                    <select id="month" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(1, 13)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="year">Year:</label>
+                    <select id="year" class="form-control">
+                        """ + ''.join([f'<option value="{i}">{i}</option>' for i in range(2020, 2030)]) + """
+                    </select>
+                </div>
+            </div>
+            
+            <div class="time-row">
+                <div class="form-group">
+                    <label for="hour">Hour:</label>
+                    <select id="hour" class="form-control">
+                        """ + ''.join([f'<option value="{i:02d}">{i:02d}</option>' for i in range(0, 24)]) + """
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="minute">Minute:</label>
+                    <select id="minute" class="form-control">
+                        """ + ''.join([f'<option value="{i:02d}">{i:02d}</option>' for i in range(0, 60)]) + """
+                    </select>
+                </div>
+            </div>
+            
+            <button id="generate-btn" class="btn btn-primary mt-3">Generate Assignment</button>
+        </div>
+        
+        <div class="confirmation-container">
+            <div id="output-message" class="mt-3"></div>
+            <div id="confirmation-buttons" class="mt-3" style="display: none;">
+                <button id="confirm-btn" class="btn btn-success">Confirm</button>
+                <button id="cancel-btn" class="btn btn-danger">Cancel</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Results section -->
+    <div id="results-container" class="mt-3" style="display: none;">
+        <h2>Your Cosmic Assignment Results</h2>
+        <div id="planet-assignment" class="planet-result"></div>
+        <div id="placement-results" class="placement-results"></div>
+    </div>
+</div>
+
+<style>
+#datetime-selector {
+    width: 100%;
+    margin: 20px 0;
+}
+
+/* Container layout for side-by-side display */
+.container-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.form-container {
+    flex: 0 0 auto;
+    margin-right: 30px;
+}
+
+.confirmation-container {
+    flex: 0 0 300px;
+    padding: 15px;
+    border-left: 1px solid #ddd;
+    min-height: 150px;
+}
+
+/* Style for date and time rows */
+.date-row, .time-row {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+/* Make the form groups display inline */
+.form-group {
+    margin-right: 15px;
+}
+
+.form-control {
+    display: block;
+    width: 200px;
+    padding: 8px;
+    font-size: 14px;
+    height: 38px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 8px 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+.btn-primary { background-color: #007bff; color: white; }
+.btn-success { background-color: #28a745; color: white; }
+.btn-danger { background-color: #dc3545; color: white; }
+.mt-3 { margin-top: 15px; }
+
+#user-name {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+/* Error styling */
+.error-text {
+    color: #dc3545;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+/* Results styling */
+#results-container {
+    margin-top: 30px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+}
+
+.planet-result {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.placement-results {
+    margin-top: 10px;
+}
+
+.placement-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #e2e3e5;
+    border-left: 4px solid #6c757d;
+    border-radius: 3px;
+}
+
+.planet-name {
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 22px;
+}
+
+.reason-number {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #495057;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to all elements
+    const daySelect = document.getElementById('day');
+    const monthSelect = document.getElementById('month');
+    const yearSelect = document.getElementById('year');
+    const hourSelect = document.getElementById('hour');
+    const minuteSelect = document.getElementById('minute');
+    const generateBtn = document.getElementById('generate-btn');
+    const outputMessage = document.getElementById('output-message');
+    const confirmationButtons = document.getElementById('confirmation-buttons');
+    const confirmBtn = document.getElementById('confirm-btn');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const resultsContainer = document.getElementById('results-container');
+    const planetAssignment = document.getElementById('planet-assignment');
+    const placementResults = document.getElementById('placement-results');
+    
+    // Store selected values
+    let selectedValues = {};
+    let currentStep = 'datetime'; // Possible values: 'datetime', 'name', 'complete'
+    
+    // Planets for random assignment
+    const planets = [
+        "Mercury", "Venus", "Mars", "Jupiter", "Saturn", 
+        "Uranus", "Neptune", "Pluto", "Ceres", "Eris"
+    ];
+    
+    // Placements/reasons for assignment
+    const placements = [
+        "Your cosmic energy aligns perfectly with this planet's vibrations",
+        "The planetary position at your birth time creates a strong affinity",
+        "Your numerological profile resonates with this celestial body",
+        "Quantum astrological calculations indicate this is your cosmic home",
+        "The celestial harmonics of your birth chart point directly here",
+        "Interstellar alignments suggest a powerful connection between you",
+        "Your chronological signature matches this planet's frequency",
+        "Astral projections from your birth time converge at this location",
+        "The metaphysical properties of your name link to this planet",
+        "Cosmic wavelength analysis shows strong compatibility",
+        "Gravitational pull calculations favor this assignment",
+        "Your biorhythmic pattern mirrors this planet's orbit",
+        "Stellar cartography indicates this as your spiritual center",
+        "Astronomical algorithms highlight this cosmic connection",
+        "Astrobiological factors show natural affinity to this environment"
+    ];
+    
+    // Function to generate random results
+    function generateRandomResults(name) {
+        // Randomly select a planet
+        const randomPlanet = planets[Math.floor(Math.random() * planets.length)];
+        
+        // Randomly select 5 unique placements
+        let selectedPlacements = [];
+        let remainingPlacements = [...placements]; // Create a copy to work with
+        
+        for (let i = 0; i < 5 && remainingPlacements.length > 0; i++) {
+            const randomIndex = Math.floor(Math.random() * remainingPlacements.length);
+            selectedPlacements.push(remainingPlacements[randomIndex]);
+            remainingPlacements.splice(randomIndex, 1); // Remove selected placement
+        }
+        
+        // Create the results HTML
+        planetAssignment.innerHTML = `<p>Based on your cosmic profile, ${name}, you have been assigned to: <span class="planet-name">${randomPlanet}</span></p>`;
+        
+        let placementsHTML = '<h3>Top 5 Reasons for This Assignment:</h3>';
+        selectedPlacements.forEach((placement, index) => {
+            placementsHTML += `<div class="placement-item">
+                <span class="reason-number">${index + 1}.</span> ${placement}
+            </div>`;
+        });
+        
+        placementResults.innerHTML = placementsHTML;
+        resultsContainer.style.display = 'block';
+    }
+    
+    // Add click event for the generate button
+    generateBtn.addEventListener('click', function() {
+        // Store all selected values
+        selectedValues = {
+            day: daySelect.value,
+            month: monthSelect.value,
+            year: yearSelect.value,
+            hour: hourSelect.value,
+            minute: minuteSelect.value
+        };
+        
+        // Display confirmation message
+        outputMessage.innerHTML = `<h4>Confirm Your Selection</h4>
+                                  <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                  Time: ${selectedValues.hour}:${selectedValues.minute}</p>
+                                  <p>Are you sure you want to proceed?</p>`;
+        
+        // Show confirmation buttons
+        confirmationButtons.style.display = 'block';
+    });
+    
+    // Add click event for confirm button
+    confirmBtn.addEventListener('click', function() {
+        outputMessage.innerHTML = `<h4>Confirmation Successful</h4>
+                                  <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                  Time: ${selectedValues.hour}:${selectedValues.minute}</p>
+                                  <p>Please enter your name:</p>
+                                  <div class="form-group">
+                                    <input type="text" id="user-name" class="form-control" placeholder="Enter your name">
+                                  </div>
+                                  <button id="submit-name-btn" class="btn btn-primary mt-3">Submit</button>`;
+        confirmationButtons.style.display = 'none';
+        
+        // Add event listener for the new submit button
+        setTimeout(() => {
+            const submitNameBtn = document.getElementById('submit-name-btn');
+            const userNameInput = document.getElementById('user-name');
+            
+            submitNameBtn.addEventListener('click', function() {
+                const userName = userNameInput.value.trim();
+                if (userName) {
+                    // Store the name along with the date/time
+                    selectedValues.name = userName;
+                    
+                    // Show final confirmation
+                    outputMessage.innerHTML = `<h4>All Information Received</h4>
+                                            <p>Name: ${selectedValues.name}</p>
+                                            <p>Date: ${selectedValues.day}/${selectedValues.month}/${selectedValues.year}<br>
+                                            Time: ${selectedValues.hour}:${selectedValues.minute}</p>
+                                            <p>Your cosmic assignment is ready below!</p>`;
+                                            
+                    // Generate and display random results
+                    generateRandomResults(userName);
+                    
+                } else {
+                    // Show error if name is empty
+                    userNameInput.style.borderColor = 'red';
+                    const errorMsg = document.createElement('p');
+                    errorMsg.className = 'error-text';
+                    errorMsg.textContent = 'Please enter your name';
+                    
+                    // Insert error message after input if it doesn't exist
+                    if (!userNameInput.nextElementSibling || !userNameInput.nextElementSibling.className !== 'error-text') {
+                        userNameInput.parentNode.insertBefore(errorMsg, userNameInput.nextElementSibling);
+                    }
+                }
+            });
+        }, 100); // Small timeout to ensure the element is in the DOM
+    });
+    
+    // Add click event for cancel button
+    cancelBtn.addEventListener('click', function() {
+        outputMessage.innerHTML = '<h4>Cancelled</h4><p>Please adjust your selection if needed.</p>';
+        confirmationButtons.style.display = 'none';
+    });
+});
+</script>
+"""
+
+# Display the HTML
+display(HTML(html_content))
+```

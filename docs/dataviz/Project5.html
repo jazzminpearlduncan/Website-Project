@@ -225,8 +225,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#new-orleans-stops-by-location-with-average-ages" id="toc-new-orleans-stops-by-location-with-average-ages" class="nav-link" data-scroll-target="#new-orleans-stops-by-location-with-average-ages">New Orleans: Stops by Location (with Average Ages)</a></li>
   </ul></li>
-  <li><a href="#table-2" id="toc-table-2" class="nav-link" data-scroll-target="#table-2">Table 2</a></li>
+  <li><a href="#table-2" id="toc-table-2" class="nav-link" data-scroll-target="#table-2">Table 2</a>
+  <ul class="collapse">
   <li><a href="#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day" id="toc-san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day" class="nav-link" data-scroll-target="#san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day">San Francisco vs.&nbsp;San Antonio: How do arrests compare day-by day?</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -286,7 +288,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="table-1">Table 1</h2>
 <section id="new-orleans-stops-by-location-with-average-ages" class="level3">
 <h3 class="anchored" data-anchor-id="new-orleans-stops-by-location-with-average-ages">New Orleans: Stops by Location (with Average Ages)</h3>
-<p><a href="https://openpolicing.stanford.edu/data/">see dataset here:</a></p>
+<p><a href="https://openpolicing.stanford.edu/data/">see dataset here</a></p>
 <p>This table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the average age of all those stopped at a particular location are visible, as well as the age of the youngest traffic stop target.</p>
 <p>It shows the average age of those stopped at each location, as well as the age of the youngest person stopped. It’s striking (and somewhat humorous) to see that different locations along Bourbon Street make up the top three stop locations—likely due to its reputation as a party hub, especially during holidays like Mardi Gras. It is more concerning and interesting to see the youngest_stop column, it’s interesting to see just how young the stops get (minimum was 10 yo.) and it would be interesting to also see the outcomes (citation, warning, arrest, etc.) of the youngest stops in each location.</p>
 <p>We can see that the table contains ages all throughout the specified age range (10-25), and the average stop age tends to hover between 18-21, which could be useful when considering the lives of young adults in NOLA, whether in the context of police surveillance or individual behavior. Further, this observation could suggest, unsurprisingly, that those that are slightly earlier in adulthood are more likely to encounter the police.</p>
@@ -296,7 +298,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="kw">SELECT</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  location,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">COUNT</span>(<span class="op">*</span>) <span class="kw">AS</span> num_stops,</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">AVG</span>(subject_age) <span class="kw">AS</span> avg_age,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">AVG</span>(subject_age) <span class="kw">AS</span> avg_young_adult_age,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">MIN</span>(subject_age) <span class="kw">AS</span> youngest_stop</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="kw">FROM</span> la_new_orleans_2020_04_01</span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="kw">WHERE</span> subject_age <span class="kw">BETWEEN</span> <span class="dv">10</span> <span class="kw">AND</span> <span class="dv">25</span> <span class="kw">AND</span> location <span class="kw">IS</span> <span class="kw">NOT</span> <span class="kw">NULL</span></span>
@@ -306,11 +308,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <caption>Displaying records 1 - 10</caption>
+<colgroup>
+<col style="width: 42%">
+<col style="width: 13%">
+<col style="width: 26%">
+<col style="width: 18%">
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">location</th>
 <th style="text-align: right;">num_stops</th>
-<th style="text-align: right;">avg_age</th>
+<th style="text-align: right;">avg_young_adult_age</th>
 <th style="text-align: right;">youngest_stop</th>
 </tr>
 </thead>
@@ -383,10 +391,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="table-2" class="level2">
 <h2 class="anchored" data-anchor-id="table-2">Table 2</h2>
-</section>
-<section id="san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day" class="level2">
-<h2 class="anchored" data-anchor-id="san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day">San Francisco vs.&nbsp;San Antonio: How do arrests compare day-by day?</h2>
-<p><a href="https://openpolicing.stanford.edu/data/">see dataset here:</a></p>
+<section id="san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day" class="level3">
+<h3 class="anchored" data-anchor-id="san-francisco-vs.-san-antonio-how-do-arrests-compare-day-by-day">San Francisco vs.&nbsp;San Antonio: How do arrests compare day-by day?</h3>
+<p><a href="https://openpolicing.stanford.edu/data/">see dataset here</a></p>
 <p>This table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity.</p>
 <p>For instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.</p>
 <div class="cell">
@@ -477,6 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 </section>
 </section>
 
