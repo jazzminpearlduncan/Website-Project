@@ -4,7 +4,18 @@ description: Scatterplot analysis of cheese origins over nations
 author: Jazzmin Duncan
 date: February 17, 2025
 format: html
+execute: 
+  warning: false
+  message: false
 ---
+
+The data being used for this plot was originally collected by cheese.com, an archive and database containing an incredible amount of information about cheeses. Used for Tidy Tuesday in June of 2024 to investigate the relationships between fat content, cheese type, texture, flavor, and aroma -- this data contains 1,187 rows of different cheeses, and 19 columns specifying the details of said cheeses. For today, the relevant columns are cheese (name), milk, country, and color.
+
+
+```{r}
+cheeses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-04/cheeses.csv')
+cheeses
+```
 
 ```{r, echo=FALSE}
 library(dplyr)
@@ -29,10 +40,10 @@ ggplot(cheese_summary, aes(x = reorder(country, -(num_cheeses)), y = num_cheeses
   geom_bar(stat = "identity") +
   facet_wrap(~milk, scales = "free_y") +
   coord_flip() +
-  labs(title = "Magnitude of Cheese Production Methods by Country",
+  labs(title = "Magnitude of Cheese Types (milk used) by Country",
        x = "Country",
-       y = "Amount of Cheese",
-       fill = "Cheese Type") +
+       y = "Number of Different Cheeses of Type in Countries",
+       fill = "Milk") +
   theme(
     text = element_text(size = 12),
     axis.text.y = element_text(size = 8),
@@ -44,4 +55,3 @@ This is a faceted bar chart demonstrating different eating habits across nations
 
 TidyTusedy dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-06-04
 
-Data origins: cheese.com, a blog and resource for cheese lovers, collected this data. 

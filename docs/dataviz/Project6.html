@@ -999,24 +999,58 @@ your name
 </div>
 
 </section>
-<section class="slide level2">
+<section class="slide level2 scrollable">
 
-<p>The first is to re-do all the previous projects. Not only should you address all the issues that have been previously brought to light (see comments on projects on Canvas), but you should also do things like removing the warnings &amp; messages. Make sure that all data and ideas have been properly cited. Rewrite any code so that it is actually your work (instead of, for example, copied directly from ChatGPT). Give all graphs proper captions. Explain your work. You will write up (and turn in, separate from your website) a document explaining what changes and updates you’ve made.</p>
-<p>The second thing to do is to prepare a ~5 min presentation on some aspect of your project. It can be about any aspect of the project (or all aspects of the project), and your presentation should be as if to a client about the work. You’ll create the presentation in Quarto (formatted as revealjs) rendered to html. The presentation will be either on Thursday May 8th during reading days (9am-noon) or during our regularly scheduled final time, Tuesday May 13th 9am-noon (your choice).</p>
-<p>Write up a document detailing the changes you have made to your website.</p>
-<p>Timeline Project 6 must be submitted on Canvas (not Gradescope) by 11:59 PM on Tuesday, May 13, 2025. To Canvas submit two things: 1. the URL of your overall website, 2. a document detailing the changes you have made.</p>
-<p>Additionally, you will give a ~5 min presentation to the class on some aspect(s) of your project. You can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project. (You will present either on the Thursday May 8th during reading days (9am-noon) or during our regularly scheduled final time, Tuesday May 13th 9am-noon.)</p>
+<ul>
+<li>re-do all the previous projects.
+<ul>
+<li>Not only should you address all the issues that have been previously brought to light (see comments on projects on Canvas), but you should also do things like</li>
+<li>removing the warnings &amp; messages.</li>
+<li>Make sure that all data and ideas have been properly cited.</li>
+<li>Rewrite any code so that it is actually your work (instead of, for example, copied directly from ChatGPT).</li>
+<li>Give all graphs proper captions. Explain your work.</li>
+<li>You will write up (and turn in, separate from your website) a document explaining what changes and updates you’ve made.</li>
+</ul></li>
+<li>prepare a ~5 min presentation on some aspect of your project.
+<ul>
+<li>It can be about any aspect of the project (or all aspects of the project), and your presentation</li>
+<li>should be as if to a client about the work.</li>
+<li>You’ll create the presentation in Quarto (formatted as revealjs) rendered to html.</li>
+<li>You can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.</li>
+</ul></li>
+</ul>
+<p>Timeline</p>
+<ul>
+<li>submit two things:
+<ul>
+<li><ol type="1">
+<li>the URL of your overall website,</li>
+</ol></li>
+<li><ol start="2" type="1">
+<li>a document detailing the changes you have made.</li>
+</ol></li>
+</ul></li>
+</ul>
 <p>Presentation Your slides should be created in Quarto (formatted as revealjs) and rendered to html. They should be linked to the website. A new slide is created by a second level header: ##. The YAML for the presentation slides might look like this:</p>
 <p>The presentation should be on the website (i.e., it should have a URL). Just like with each of the previous projects, open the .RProject from the appropriate folder, then from the pull down menus click on File -&gt; New File -&gt; Quarto Presentation. Link the project from within “_quarto.yml”.</p>
-<p>Hints IMPORTANT: you want your website to represent your knowledge. If all the code on the website is from ChatGPT, you should go back and re-write the code so that it actually represents what you have learned in the class.</p>
-<p>clean up the entire website</p>
-<p>no warnings or messages all plots with good labeling alt text on all plots good narrative describing adding a plot when you introduce the data to introduce the reader to the data / context (e.g., if you are doing a permutation test, start by providing a visualization of the data / variables of interest before you do the test so that the reader understands your context.) add comments within the code to help the reader navigate what you are doing. making sure that all work, data sources, etc. are documented appropriately create a corresponding document (text, Word, Google doc, pdf, etc.) describing (in enough detail to receive credit!) all of the changes you’ve made from the original set of projects.</p>
-<p>on the navigation bar at the top of your website, don’t call your analyses “my website” or “project 2”, use descriptive names that will make sense after the semester is over (to someone looking at your website who doesn’t know about our class).</p>
-<p>make sure that your citations are full. That is, provide more than the TidyTuesday URL (include authors, title, publication source, year, etc.). Who collected the data? Why? What is the original source of the information?</p>
-<p>provide a narrative setting up the analysis. Don’t just start with code.</p>
-<p>use exploratory data analysis to set up the example. That is, show a plot / table of the original data. Explain the variables to your reader.</p>
-<p>use the tidyverse. If you have gotten code from a different place (which uses $ for example), translate the code into a tidy pipeline.</p>
-<p>Extra credit You may earn one extra credit point toward the projects for doing something new / expanding extensively on one of the previous projects. To earn extra credit, please give a full explanation for what you did. Stating “I added regular expressions” is not sufficient for me to get a sense for what you did. Feel free to include before and after images in your project write-up.</p>
+<p>Hints</p>
+<p>IMPORTANT: you want your website to represent your knowledge. If all the code on the website is from ChatGPT, you should go back and re-write the code so that it actually represents what you have learned in the class.</p>
+<ul>
+<li>clean up the entire website</li>
+<li>no warnings or messages</li>
+<li>all plots with good labeling</li>
+<li>alt text on all plots</li>
+<li>good narrative describing</li>
+<li>adding a plot when you introduce the data to introduce the reader to the data / context (e.g., if you are doing a permutation test, start by providing a visualization of the data / variables of interest before you do the test so that the reader understands your context.)</li>
+<li>add comments within the code to help the reader navigate what you are doing.</li>
+<li>making sure that all work, data sources, etc. are documented appropriately</li>
+<li>on the navigation bar at the top of your website, don’t call your analyses “my website” or “project 2”, use descriptive names that will make sense after the semester is over (to someone looking at your website who doesn’t know about our class).</li>
+<li>make sure that your citations are full. That is, provide more than the TidyTuesday URL (include authors, title, publication source, year, etc.). Who collected the data? Why? What is the original source of the information?</li>
+<li>provide a narrative setting up the analysis. Don’t just start with code.</li>
+<li>use exploratory data analysis to set up the example. That is, show a plot / table of the original data. Explain the variables to your reader.</li>
+<li>use the tidyverse. If you have gotten code from a different place (which uses $ for example), translate the code into a tidy pipeline.</li>
+</ul>
+<p>Extra credit - You may earn one extra credit point toward the projects for doing something new / expanding extensively on one of the previous projects. - To earn extra credit, please give a full explanation for what you did. Stating “I added regular expressions” is not sufficient for me to get a sense for what you did. Feel free to include before and after images in your project write-up.</p>
 <p>Some examples include:</p>
 <p>add extensive regular expressions to the project on string data add regular expressions to the SQL project (regular expressions in SQL are slightly different) add a shiny or plotly example to the graphs from TidyTuesday expand on the website in new ways: adding a resume, including multiple new tabs to highlight other projects you’ve worked on, changing the format (colors, fonts) of the website, etc.</p>
 

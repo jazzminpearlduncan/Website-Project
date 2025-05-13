@@ -102,7 +102,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-mutli-media-projects">    
         <li>
     <a class="dropdown-item" href="../multi/astro/Arbistrology.html">
- <span class="dropdown-text">areocentric natal chart generator</span></a>
+ <span class="dropdown-text">Space Travel Benefits Portal</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../multi/Hi-De-Ho.html">
@@ -160,6 +160,10 @@ ul.task-list li input[type="checkbox"] {
         <li>
     <a class="dropdown-item" href="../dataviz/Project5.html">
  <span class="dropdown-text">project 5</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../dataviz/Project6_Pres.html">
+ <span class="dropdown-text">project 6</span></a>
   </li>  
     </ul>
   </li>
@@ -220,48 +224,7 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="cell">
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'dplyr'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    filter, lag</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:base':
-
-    intersect, setdiff, setequal, union</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 905 Columns: 10
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr (6): tconst, title_type, primary_title, original_title, genres, simple_t...
-dbl (4): year, runtime_minutes, average_rating, num_votes
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 843 × 3
-   years runtime_minutes average_rating
-   &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;
- 1  1946             102            6.1
- 2  1946             150            7.5
- 3  1947              88            5.8
- 4  1948              93            5.7
- 5  1949             102            7.1
- 6  1951              87            5.7
- 7  1950             108            7.1
- 8  1951             125            8.1
- 9  1951             103            6.8
-10  1951              96            7.5
-# ℹ 833 more rows</code></pre>
-</div>
-</div>
+<p>The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for <a href="https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3">Tidy Tuesday in July of 2024</a> to investigate the relationships between TV shows and movies with the word “summer” in their titles – this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -270,14 +233,8 @@ dbl (4): year, runtime_minutes, average_rating, num_votes
 </figure>
 </div>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "tconst"          "title_type"      "primary_title"   "original_title" 
- [5] "year"            "runtime_minutes" "genres"          "simple_title"   
- [9] "average_rating"  "num_votes"      </code></pre>
 </div>
-</div>
-<p>TidyTuesday dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-30</p>
-<p>Data origins: The Internet Movie Database collected this data; it contains a list of movies with the name “Summer” in the title.</p>
+<p>This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; runtime is used to measure the movies’ length in minutes. From this plot, we can see that the range of movie runtimes have increased dramatically since the 40’s, along with the actual number of movies available, likely due to increased asscess to production materials, especially going into the 2000’s. Ratings remain reletively diverse across time up until the 2000’s, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies.</p>
 
 
 

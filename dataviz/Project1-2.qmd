@@ -4,10 +4,14 @@ description: Bar graph analysis of movie runtime over time
 author: Jazzmin Duncan
 date: February 17, 2025
 format: html
+execute: 
+  warning: false
+  message: false
 ---
 
+The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for [Tidy Tuesday in July of 2024](https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3) to investigate the relationships between TV shows and movies with the word "summer" in their titles -- this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating
 
-```{r, echo=FALSE}
+```{r, fig.width=10, fig.height=8, echo=FALSE}
 library(dplyr)
 library(readr)
 
@@ -18,23 +22,17 @@ important_movies <- summer_movies |>
   select(years, runtime_minutes, average_rating) |>
   filter(years>1945, !is.na(years), !is.na(runtime_minutes), !is.na(average_rating)) 
   
-
-important_movies
 ```
 
 ```{r, fig.width=10, fig.height=8, echo=FALSE}
 library(ggplot2)
+
 ggplot(data=important_movies, aes(x = years, y = runtime_minutes, color = average_rating)) +
   geom_point() +
   labs(
     title = "Changes in Movie Runtime (1945-2024)",
        x = "Year",
        y = "Runtime (min)")
-colnames(summer_movies)
 
-  
 ```
-
-TidyTuesday dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-30
-
-Data origins: The Internet Movie Database collected this data; it contains a list of movies with the name "Summer" in the title.
+This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; runtime is used to measure the movies' length in minutes. From this plot, we can see that the range of movie runtimes have increased dramatically since the 40's, along with the actual number of movies available, likely due to increased asscess to production materials, especially going into the 2000's. Ratings remain reletively diverse across time up until the 2000's, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies. 
