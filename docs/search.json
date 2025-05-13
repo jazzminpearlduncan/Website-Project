@@ -238,13 +238,6 @@
     "text": "surprise! i made you playlist!\nwarning: some songs are explicit"
   },
   {
-    "objectID": "dataviz/Project6.html",
-    "href": "dataviz/Project6.html",
-    "title": "Project 6",
-    "section": "",
-    "text": "re-do all the previous projects.\n\nNot only should you address all the issues that have been previously brought to light (see comments on projects on Canvas), but you should also do things like\nremoving the warnings & messages.\nMake sure that all data and ideas have been properly cited.\nRewrite any code so that it is actually your work (instead of, for example, copied directly from ChatGPT).\nGive all graphs proper captions. Explain your work.\nYou will write up (and turn in, separate from your website) a document explaining what changes and updates you’ve made.\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nTimeline - submit two things: - 1. the URL of your overall website, - 2. a document detailing the changes you have made.\nPresentation Your slides should be created in Quarto (formatted as revealjs) and rendered to html. They should be linked to the website. A new slide is created by a second level header: ##. The YAML for the presentation slides might look like this:\nThe presentation should be on the website (i.e., it should have a URL). Just like with each of the previous projects, open the .RProject from the appropriate folder, then from the pull down menus click on File -&gt; New File -&gt; Quarto Presentation. Link the project from within “_quarto.yml”.\nHints IMPORTANT: you want your website to represent your knowledge. If all the code on the website is from ChatGPT, you should go back and re-write the code so that it actually represents what you have learned in the class.\nclean up the entire website\nno warnings or messages all plots with good labeling alt text on all plots good narrative describing adding a plot when you introduce the data to introduce the reader to the data / context (e.g., if you are doing a permutation test, start by providing a visualization of the data / variables of interest before you do the test so that the reader understands your context.) add comments within the code to help the reader navigate what you are doing. making sure that all work, data sources, etc. are documented appropriately create a corresponding document (text, Word, Google doc, pdf, etc.) describing (in enough detail to receive credit!) all of the changes you’ve made from the original set of projects.\non the navigation bar at the top of your website, don’t call your analyses “my website” or “project 2”, use descriptive names that will make sense after the semester is over (to someone looking at your website who doesn’t know about our class).\nmake sure that your citations are full. That is, provide more than the TidyTuesday URL (include authors, title, publication source, year, etc.). Who collected the data? Why? What is the original source of the information?\nprovide a narrative setting up the analysis. Don’t just start with code.\nuse exploratory data analysis to set up the example. That is, show a plot / table of the original data. Explain the variables to your reader.\nuse the tidyverse. If you have gotten code from a different place (which uses $ for example), translate the code into a tidy pipeline.\nExtra credit You may earn one extra credit point toward the projects for doing something new / expanding extensively on one of the previous projects. To earn extra credit, please give a full explanation for what you did. Stating “I added regular expressions” is not sufficient for me to get a sense for what you did. Feel free to include before and after images in your project write-up.\nSome examples include:\nadd extensive regular expressions to the project on string data add regular expressions to the SQL project (regular expressions in SQL are slightly different) add a shiny or plotly example to the graphs from TidyTuesday expand on the website in new ways: adding a resume, including multiple new tabs to highlight other projects you’ve worked on, changing the format (colors, fonts) of the website, etc."
-  },
-  {
     "objectID": "dataviz/Project5.html",
     "href": "dataviz/Project5.html",
     "title": "Project 5: SQL",
@@ -278,6 +271,76 @@
     "title": "Project 5: SQL",
     "section": "Table 2",
     "text": "Table 2\n\nSan Francisco vs. San Antonio: How do arrests compare day-by day?\nsee dataset here\nThis table allows us to compare the number of arrests made on matching stop dates in San Francisco and San Antonio. By displaying the total number of arrests per day (if said date is in both datasets) for each city, it provides insight into differences or similarities in policing patterns, traffic enforcement intensity, or external factors influencing police activity.\nFor instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.\n\n# JOIN, WHERE, GROUP BY, ORDER BY\n\nSELECT \n  sf.date AS date_of_stop,\n  sf.sf_arrests,\n  sa.sa_arrests\nFROM (\n  SELECT date, COUNT(*) AS sf_arrests\n  FROM ca_san_francisco_2020_04_01\n  WHERE arrest_made = 1\n  GROUP BY date\n) sf\nJOIN (\n  SELECT date, COUNT(*) AS sa_arrests\n  FROM tx_san_antonio_2023_01_26\n  WHERE arrest_made = 1\n  GROUP BY date\n) sa\nON sf.date = sa.date\nORDER BY date_of_stop;\n\n\nDisplaying records 1 - 10\n\n\ndate_of_stop\nsf_arrests\nsa_arrests\n\n\n\n\n2012-01-01\n5\n2\n\n\n2012-01-02\n2\n4\n\n\n2012-01-04\n8\n2\n\n\n2012-01-05\n4\n2\n\n\n2012-01-06\n2\n3\n\n\n2012-01-07\n3\n2\n\n\n2012-01-09\n6\n2\n\n\n2012-01-10\n3\n3\n\n\n2012-01-11\n4\n1\n\n\n2012-01-12\n5\n1"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#introduction",
+    "href": "dataviz/Project6_Pres.html#introduction",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Introduction",
+    "text": "Introduction\n\nGeneral Overview of Site-Building Process\n\nspecifically interactive elements\n\nExplanation of My Intentions\nIndependent Project (housed on site) Overview\nPlans Moving Forward"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
+    "href": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Developing the “Look” and Interactive Elements",
+    "text": "Developing the “Look” and Interactive Elements\n\nScreenshot of my homepage"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#techincal-implementations",
+    "href": "dataviz/Project6_Pres.html#techincal-implementations",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Techincal Implementations",
+    "text": "Techincal Implementations\n\nCSS Styling and Color Selection\nHTML Embedded Songs, Playlists, and Videos\nButtons and Outside Links"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#visual-elements",
+    "href": "dataviz/Project6_Pres.html#visual-elements",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Visual Elements",
+    "text": "Visual Elements\nCSS Styling\nh1.title {\n    color: #633822 !important; \n    text-align: center; \n    font-size: 2.5em; \n}\n\n.navbar-nav .nav-item:nth-child(1) a {\n  color: #633822 !important; \n  background-color: rgba(255,255,255,1);\n  padding: 2px 6px; \n  border-radius: 0px; \n}\nHTML Image Insertions\n[Images](insert link/file path here)"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#interactive-elements",
+    "href": "dataviz/Project6_Pres.html#interactive-elements",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Interactive Elements",
+    "text": "Interactive Elements\nEmbedded Songs\n\nSpotify"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#interactive-elements-1",
+    "href": "dataviz/Project6_Pres.html#interactive-elements-1",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Interactive Elements",
+    "text": "Interactive Elements\nEmbedded Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#interactive-elements-2",
+    "href": "dataviz/Project6_Pres.html#interactive-elements-2",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Interactive Elements",
+    "text": "Interactive Elements\nButtons\n[LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#my-intentions-and-applications",
+    "href": "dataviz/Project6_Pres.html#my-intentions-and-applications",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "My Intentions and Applications",
+    "text": "My Intentions and Applications\n\nContinued Use as a Professional site\nArchival Functionality\nDigital Art Sandbox/Junk Bin"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#indep.-natal-chart-visualizatoin-project",
+    "href": "dataviz/Project6_Pres.html#indep.-natal-chart-visualizatoin-project",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Indep. Natal Chart Visualizatoin Project",
+    "text": "Indep. Natal Chart Visualizatoin Project\n\nData Viz as Storytelling\nHTML Implementation\nPython Integration for Back-end"
+  },
+  {
+    "objectID": "dataviz/Project6_Pres.html#moving-forward",
+    "href": "dataviz/Project6_Pres.html#moving-forward",
+    "title": "My Process of Building a Digital Art Archive",
+    "section": "Moving Forward",
+    "text": "Moving Forward\n\nIndep. Visualization Projects\nIntegrating Processing and other languages for interactive digital art\n\n \n    \n      \n      unfortunely your browser cannot play the video :(."
   },
   {
     "objectID": "dataviz/Project1-1.html",
@@ -334,187 +397,5 @@
     "title": "My Resume",
     "section": "",
     "text": "It appears you don't have a PDF plugin for this browser.\n    No biggie... you can click here to\n    download the PDF file."
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#presentation",
-    "href": "dataviz/Project6_Pres.html#presentation",
-    "title": "Project 6",
-    "section": "Presentation",
-    "text": "Presentation"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-1---website-setup",
-    "href": "dataviz/Project6_Pres.html#project-1---website-setup",
-    "title": "Project 6",
-    "section": "Project 1 - Website Setup",
-    "text": "Project 1 - Website Setup\nNice work with all the different formatting! I love that you figured out how to change up the appearance.\nI love the poetry. I’m happy to help you format, just ask! Also, make sure you spell check. totally good with the poetry, but I think  you are missing a few letters of the last sentence on your front page.\nIf you don’t have anything on the home page, remove it.\nRemove all the messages and warnings (see the YAML on the HW for relevant code).\nYou need a sentence or two to introduce the data. I don’t know what the runtime plot is (and it doesn’t look like a barplot to me).\nFor cheese, what is being plotted as “amount of cheese”?\nYour reader should be able to get to the original source of the data. “The Internet Movie Database collected this data” is not a full reference.\n \nTry re-rendering everything so that the formatting (e.g., menu headers) are consistent."
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-2--",
-    "href": "dataviz/Project6_Pres.html#project-2--",
-    "title": "Project 6",
-    "section": "Project 2 -",
-    "text": "Project 2 -\nOMG Jazzmin, I love what you’ve done to your website!!! Really great way to present yourself. Also, it looks like you are having fun.\nReally good work on the assignment.\ntypo: “able to soound it out”"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-3",
-    "href": "dataviz/Project6_Pres.html#project-3",
-    "title": "Project 6",
-    "section": "Project 3",
-    "text": "Project 3\nGreat start, Jazz! You have a super interesting topic, and I can see that you’ve put a lot of time into creating an interesting narrative. However, there are some places where the logic in your analysis falls apart. I’ve written some questions below.\nAs I mentioned before, I’d **really** love to work through all of this with you on a regular basis. If you can’t make my office hours, I’d happily set up a regular time for us to meet outside of those times. Just let me know.\n\ndo you want to change your website name to make it shorter? if so, please let me know and we can do it together.  The idea is to make the URL: https://jazzminpearlduncan.github.io/\nbroad claim here: “whether Netflix favors certain genres”.  I’m not sure you can assess that from the data at hand.\nhypothesis testing is specifically designed for the situation when you don’t have the full population, but you do have a sample from the population (and you want to say something about the population). however, the data you are working with is probably not a random sample of titles, so there’s that.\n“rating” seems to be G / PG / R / etc. But your hypotheses ask if rating gets better or worse over time. What does that mean?\nwhy are you filtering n &gt;= 10?  seems like maybe that step should be earlier? to remove the first few years when there are only a few movies added each year?\nI’d love to see a scatterplot of the model you are permuting. I think it has proportion of adult films on the y-axis and year introduced into Netflix on the x-axis. do you believe that those two variables are linearly related?\nI prefer “explanatory” and “response” variable instead of “independent” and “dependent” variable because we aren’t (can’t!) establishing anything causal.\nin order for the reader to get a sense for the conclusion, you should plot the observed statistic as a vertical line on the null distribution\nwhat is the ordering on the x-axis of the plot called “Netflix Content Rating Distribution by Time Period and Type”? You should be re-ordering the factor variable to have something meaningful along the x-axis.\nwhy do movies get rated with a TV rating? does that make sense? I’m not sure I agree with your last set of findings (from the final plot)."
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-4",
-    "href": "dataviz/Project6_Pres.html#project-4",
-    "title": "Project 6",
-    "section": "Project 4",
-    "text": "Project 4\nJazz –\nI love how you were able to find a source that validates much of what we discussed in class: “Green…frames these issues theoretically, highlighting how data collection processes claiming objectivity often lack democratic participation from affected communities and fail to acknowledge missing observations from marginalized groups.”\nFantastic work.  One thing you might acknowledge which contrasts the 1902 work with the COMPAS algorithm is that COMPAS is highly efficient. It has the potential to be much more destructive because of its ease of use and ease of dispersal to any jurisdiction (in our more technical age).\nAdvice I’m giving everyone: ask a friend to read your blog entry. Ask if they think it is clear (with respect to the data science / ethics content). Ask if they think it is clear (with respect to flow and grammar). I’m not trying to micro-edit each entry, but most people’s entries could be improved a lot with a single round of a solid peer edit.  Heck, ask someone from class so that it isn’t a burden because you can read the article of your peer!"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-5",
-    "href": "dataviz/Project6_Pres.html#project-5",
-    "title": "Project 6",
-    "section": "Project 5",
-    "text": "Project 5\n\nJo Hardin at Mon May 12, 2025 2:46pmat Mon May 12, 2025 2:46pm\nJazz – great start. I really like the questions that you’ve asked about the data. I’ve given a few suggestions below about how your work could more effectively communicate the ideas you want.\n\nnot 88 cities…  88 datasets from 42 different states including multiple cities and highway patrols.\nI don’t really understand why you filter for 10 to 25 and then take the average. I’m not sure what the average would represent in that case?\nEspecially for New Orleans, are you looking at pedestrian stops or vehicular stops?\nno reason to do `HAVING num_stops &gt; 5`, instead just do a `LIMIT` (because you’ve already sorted), `HAVING` just makes more work for the computer.\nIf you actually want to know some kind of behavior describing the distribution of ages, you can just make more plots, you know!\nI like what you did to compare SF and SA, but I don’t know why you make a table (most of which we can’t see!). You could easily have made it into a scatterplot, and maybe you can color by day of the year?  From what you’ve reported, it is impossible to see, for example, what the range of years are that overlap across the two datasets?\nyou need to include references both for the provenance of the data (SOPP) as well as the manuscript that should be cited whenever this work is mentioned."
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#simple-edits",
-    "href": "dataviz/Project6_Pres.html#simple-edits",
-    "title": "Project 6",
-    "section": "Simple Edits",
-    "text": "Simple Edits\n\nSpell Check & Formatting/Rendering (P 1, 2\nUpdating homepage (P 1\nRemoving messages and warnings (P 1\nTitle changes (ALL; P 1 headers,\nData Intros/metrics (P1,\nUpdated references (P 1\nStrengthening Arguments (P2,\nClaulation updates (P 3, P 5\nAdded plots (P3, P 5\nChatGPT Replacements (EC P)"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#ex",
-    "href": "dataviz/Project6_Pres.html#ex",
-    "title": "Project 6",
-    "section": "EX",
-    "text": "EX\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nNice work with all the different formatting! I love that you figured out how to change up the appearance.\nI love the poetry. I’m happy to help you format, just ask! Also, make sure you spell check. totally good with the poetry, but I think  you are missing a few letters of the last sentence on your front page.\nIf you don’t have anything on the home page, remove it.\nRemove all the messages and warnings (see the YAML on the HW for relevant code).\nYou need a sentence or two to introduce the data. I don’t know what the runtime plot is (and it doesn’t look like a barplot to me).\nFor cheese, what is being plotted as “amount of cheese”?\nYour reader should be able to get to the original source of the data. “The Internet Movie Database collected this data” is not a full reference.\n \nTry re-rendering everything so that the formatting (e.g., menu headers) are consistent.\nProject 2 -\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nOMG Jazzmin, I love what you’ve done to your website!!! Really great way to present yourself. Also, it looks like you are having fun.\nReally good work on the assignment.\ntypo: “able to soound it out”\nProject 3\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nGreat start, Jazz! You have a super interesting topic, and I can see that you’ve put a lot of time into creating an interesting narrative. However, there are some places where the logic in your analysis falls apart. I’ve written some questions below.\nAs I mentioned before, I’d **really** love to work through all of this with you on a regular basis. If you can’t make my office hours, I’d happily set up a regular time for us to meet outside of those times. Just let me know.\n\ndo you want to change your website name to make it shorter? if so, please let me know and we can do it together.  The idea is to make the URL: https://jazzminpearlduncan.github.io/\nbroad claim here: “whether Netflix favors certain genres”.  I’m not sure you can assess that from the data at hand.\nhypothesis testing is specifically designed for the situation when you don’t have the full population, but you do have a sample from the population (and you want to say something about the population). however, the data you are working with is probably not a random sample of titles, so there’s that.\n“rating” seems to be G / PG / R / etc. But your hypotheses ask if rating gets better or worse over time. What does that mean?\nwhy are you filtering n &gt;= 10?  seems like maybe that step should be earlier? to remove the first few years when there are only a few movies added each year?\nI’d love to see a scatterplot of the model you are permuting. I think it has proportion of adult films on the y-axis and year introduced into Netflix on the x-axis. do you believe that those two variables are linearly related?\nI prefer “explanatory” and “response” variable instead of “independent” and “dependent” variable because we aren’t (can’t!) establishing anything causal.\nin order for the reader to get a sense for the conclusion, you should plot the observed statistic as a vertical line on the null distribution\nwhat is the ordering on the x-axis of the plot called “Netflix Content Rating Distribution by Time Period and Type”? You should be re-ordering the factor variable to have something meaningful along the x-axis.\nwhy do movies get rated with a TV rating? does that make sense? I’m not sure I agree with your last set of findings (from the final plot).\nProject 4\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nJazz –\nI love how you were able to find a source that validates much of what we discussed in class: “Green…frames these issues theoretically, highlighting how data collection processes claiming objectivity often lack democratic participation from affected communities and fail to acknowledge missing observations from marginalized groups.”\nFantastic work.  One thing you might acknowledge which contrasts the 1902 work with the COMPAS algorithm is that COMPAS is highly efficient. It has the potential to be much more destructive because of its ease of use and ease of dispersal to any jurisdiction (in our more technical age).\nAdvice I’m giving everyone: ask a friend to read your blog entry. Ask if they think it is clear (with respect to the data science / ethics content). Ask if they think it is clear (with respect to flow and grammar). I’m not trying to micro-edit each entry, but most people’s entries could be improved a lot with a single round of a solid peer edit.  Heck, ask someone from class so that it isn’t a burden because you can read the article of your peer!\nProject 5\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\n\nJo Hardin at Mon May 12, 2025 2:46pmat Mon May 12, 2025 2:46pm\nJazz – great start. I really like the questions that you’ve asked about the data. I’ve given a few suggestions below about how your work could more effectively communicate the ideas you want.\n\nnot 88 cities…  88 datasets from 42 different states including multiple cities and highway patrols.\nI don’t really understand why you filter for 10 to 25 and then take the average. I’m not sure what the average would represent in that case?\nEspecially for New Orleans, are you looking at pedestrian stops or vehicular stops?\nno reason to do `HAVING num_stops &gt; 5`, instead just do a `LIMIT` (because you’ve already sorted), `HAVING` just makes more work for the computer.\nIf you actually want to know some kind of behavior describing the distribution of ages, you can just make more plots, you know!\nI like what you did to compare SF and SA, but I don’t know why you make a table (most of which we can’t see!). You could easily have made it into a scatterplot, and maybe you can color by day of the year?  From what you’ve reported, it is impossible to see, for example, what the range of years are that overlap across the two datasets?\nyou need to include references both for the provenance of the data (SOPP) as well as the manuscript that should be cited whenever this work is mentioned."
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#developing-the-look",
-    "href": "dataviz/Project6_Pres.html#developing-the-look",
-    "title": "Project 6",
-    "section": "Developing the “Look”",
-    "text": "Developing the “Look”\n\n\n\nEmbedded Spotify songs and playlists"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#my-intentions-and-applications",
-    "href": "dataviz/Project6_Pres.html#my-intentions-and-applications",
-    "title": "Project 6",
-    "section": "My Intentions and Applications",
-    "text": "My Intentions and Applications"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#calculations",
-    "href": "dataviz/Project6_Pres.html#calculations",
-    "title": "Project 6",
-    "section": "Calculations",
-    "text": "Calculations"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#project-updates",
-    "href": "dataviz/Project6_Pres.html#project-updates",
-    "title": "Project 6",
-    "section": "Project Updates",
-    "text": "Project Updates"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#moving-forward",
-    "href": "dataviz/Project6_Pres.html#moving-forward",
-    "title": "Project 6",
-    "section": "Moving Forward",
-    "text": "Moving Forward"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#techincal-implementations",
-    "href": "dataviz/Project6_Pres.html#techincal-implementations",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Techincal Implementations",
-    "text": "Techincal Implementations\n\nCSS Styling and Color Selection\nHTML Embedded Songs, Playlists, and Videos\nButtons and Outside Links"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
-    "href": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Developing the “Look” and Interactive Elements",
-    "text": "Developing the “Look” and Interactive Elements\n\nScreenshot of my homepage"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#natal-chart-visualizatoin-project",
-    "href": "dataviz/Project6_Pres.html#natal-chart-visualizatoin-project",
-    "title": "Project 6 - Building a Digital Art Archive",
-    "section": "Natal Chart Visualizatoin Project",
-    "text": "Natal Chart Visualizatoin Project\n\nData Viz as Storytelling\nHTML\nPython Integration"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#indep.-natal-chart-visualizatoin-project",
-    "href": "dataviz/Project6_Pres.html#indep.-natal-chart-visualizatoin-project",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Indep. Natal Chart Visualizatoin Project",
-    "text": "Indep. Natal Chart Visualizatoin Project\n\nData Viz as Storytelling\nHTML Implementation\nPython Integration for Back-end"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#techincal-implementations-1",
-    "href": "dataviz/Project6_Pres.html#techincal-implementations-1",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Techincal Implementations",
-    "text": "Techincal Implementations\nEmbedded Songs and Videos\n #### Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;\nButtons\n{.btn .btn-dark .btn-sm}\nOrganization"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#techincal-implementations-of-interactive-elements",
-    "href": "dataviz/Project6_Pres.html#techincal-implementations-of-interactive-elements",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Techincal Implementations of Interactive Elements",
-    "text": "Techincal Implementations of Interactive Elements\nEmbedded Songs\n ## Interactive Elements\nEmbedded Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#techincal-implementations-of-interactive-elements-1",
-    "href": "dataviz/Project6_Pres.html#techincal-implementations-of-interactive-elements-1",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Techincal Implementations of Interactive Elements",
-    "text": "Techincal Implementations of Interactive Elements\nButtons\n{.btn .btn-dark .btn-sm}"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#techincal-implementations-of-visual-elements",
-    "href": "dataviz/Project6_Pres.html#techincal-implementations-of-visual-elements",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Techincal Implementations of Visual Elements",
-    "text": "Techincal Implementations of Visual Elements\nCSS Styling\nh1.title {\n    color: #633822 !important; \n    text-align: center; \n    font-size: 2.5em; \n}\n\n.navbar-nav .nav-item:nth-child(1) a {\n  color: #633822 !important; \n  background-color: rgba(255,255,255,1);\n  padding: 2px 6px; \n  border-radius: 0px; \n}\n[Images](insert link/file path here)"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#introduction",
-    "href": "dataviz/Project6_Pres.html#introduction",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Introduction",
-    "text": "Introduction\n\nGeneral Overview of Site-Building Process\n\nspecifically interactive elements\n\nExplanation of My Intentions\nIndependent Project (housed on site) Overview\nPlans Moving Forward"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#visual-elements",
-    "href": "dataviz/Project6_Pres.html#visual-elements",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Visual Elements",
-    "text": "Visual Elements\nCSS Styling\nh1.title {\n    color: #633822 !important; \n    text-align: center; \n    font-size: 2.5em; \n}\n\n.navbar-nav .nav-item:nth-child(1) a {\n  color: #633822 !important; \n  background-color: rgba(255,255,255,1);\n  padding: 2px 6px; \n  border-radius: 0px; \n}\nHTML Image Insertions\n[Images](insert link/file path here)"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#interactive-elements",
-    "href": "dataviz/Project6_Pres.html#interactive-elements",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Interactive Elements",
-    "text": "Interactive Elements\nEmbedded Songs\n\nSpotify"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#interactive-elements-1",
-    "href": "dataviz/Project6_Pres.html#interactive-elements-1",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Interactive Elements",
-    "text": "Interactive Elements\nEmbedded Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html#interactive-elements-2",
-    "href": "dataviz/Project6_Pres.html#interactive-elements-2",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "Interactive Elements",
-    "text": "Interactive Elements\nButtons\n[LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}"
   }
 ]

@@ -31,17 +31,17 @@ website:
 
       - text: "data viz"
         menu:
-          - text: "project 1 - part 1"
+          - text: "project 1 - part 1: Cheese and Nations"
             href: dataviz/Project1-1.qmd
-          - text: "project 1 - part 2"
+          - text: "project 1 - part 2: Movie Length over Time"
             href: dataviz/Project1-2.qmd
           - text: "project 2"
             href: dataviz/Project2.qmd
           - text: "project 3"
             href: dataviz/Project3.qmd
-          - text: "project 4"
+          - text: "project 4: Ethics and Skull Measuring"
             href: dataviz/Project4.qmd
-          - text: "project 5"
+          - text: "project 5: SQL Wrangling"
             href: dataviz/Project5.qmd
           - text: "project 6"
             href: dataviz/Project6_Pres.qmd
