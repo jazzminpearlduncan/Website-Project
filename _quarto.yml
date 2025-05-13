@@ -11,7 +11,7 @@ website:
            
       - text: "mutli-media projects"
         menu:
-         - text: "areocentric natal chart generator"
+         - text: "Space Travel Benefits Portal"
            href: multi/astro/Arbistrology.qmd
          - text: "hi-de-ho animation"
            href: multi/Hi-De-Ho.qmd

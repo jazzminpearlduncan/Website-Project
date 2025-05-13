@@ -7,7 +7,6 @@ format: html
 ---
 
 ```{r, echo=FALSE}
-
 library(dplyr)
 library(stringr)
 cheeses <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-04/cheeses.csv')
@@ -16,7 +15,6 @@ cheese_important <- cheeses |>
   select(cheese, milk, country, color) |>
   filter(!is.na(milk), !str_detect(country, ","), !str_detect(milk, ","))
 
-         
 cheese_summary <- cheese_important |> 
   group_by(country, milk) |> 
   summarize(num_cheeses = n(), .groups = "drop") |>

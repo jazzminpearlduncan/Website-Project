@@ -1,0 +1,12 @@
+{
+  "hash": "ef676beca3c7362a0e027fcb12f1b7ee",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\nformat: html\nimage: embeddedpics/meass.png \ntoc: false\nabout:\n  template: solana\n  image-width: 35em\n  image-shape: rectangle\n---\n\n\n[Email: jpduncan2022@gmail.com](mailto:jpduncan2022@gmail.com?&subject=I Came From Your Website!){.btn .btn-dark .btn-sm}\n [LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm} \n \n [Book a 30-Minute Meeting!](https://calendar.app.google/QsZ4EEaKmKxtV9L97){.btn .btn-success .btn-sm} [@jazzmiinpearll (Personal IG)](https://www.instagram.com/jazzmiinpearll/){.btn .btn-dark .btn-sm}\n\n\n\n\n```{html}\n<iframe style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/0OLOcKHN4uXRo5ISx2TAqk?utm_source=generator\" width=\"100%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe>\n```\n\n\n# (:  welcome! \n\n\n\nthank you for visiting!\n\nyou can find all kinds of information about me here! my resume, past projects, photos, upcoming plans, and more can be found by clicking through the navigation bar above. \n\nthere are different songs (WARNING: explicit versions) littered throughout the site, all of which are in constant rotation on my playlist (updated regularly). i hope you enjoy whatever you find here; whether it be my resume, an insightful poem, or a new favorite song!\n\nplease contact me if you have any questions or inquiries!\n\n(website made using GutHub Pages and Quarto)\n\n",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
