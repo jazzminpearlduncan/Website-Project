@@ -380,30 +380,30 @@
   {
     "objectID": "dataviz/Project6_Pres.html#simple-edits",
     "href": "dataviz/Project6_Pres.html#simple-edits",
-    "title": "Project 6 - Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "Simple Edits",
     "text": "Simple Edits\n\nSpell Check & Formatting/Rendering (P 1, 2\nUpdating homepage (P 1\nRemoving messages and warnings (P 1\nTitle changes (ALL; P 1 headers,\nData Intros/metrics (P1,\nUpdated references (P 1\nStrengthening Arguments (P2,\nClaulation updates (P 3, P 5\nAdded plots (P3, P 5\nChatGPT Replacements (EC P)"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#ex",
     "href": "dataviz/Project6_Pres.html#ex",
-    "title": "My Process of Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "EX",
     "text": "EX\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nNice work with all the different formatting! I love that you figured out how to change up the appearance.\nI love the poetry. I’m happy to help you format, just ask! Also, make sure you spell check. totally good with the poetry, but I think  you are missing a few letters of the last sentence on your front page.\nIf you don’t have anything on the home page, remove it.\nRemove all the messages and warnings (see the YAML on the HW for relevant code).\nYou need a sentence or two to introduce the data. I don’t know what the runtime plot is (and it doesn’t look like a barplot to me).\nFor cheese, what is being plotted as “amount of cheese”?\nYour reader should be able to get to the original source of the data. “The Internet Movie Database collected this data” is not a full reference.\n \nTry re-rendering everything so that the formatting (e.g., menu headers) are consistent.\nProject 2 -\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nOMG Jazzmin, I love what you’ve done to your website!!! Really great way to present yourself. Also, it looks like you are having fun.\nReally good work on the assignment.\ntypo: “able to soound it out”\nProject 3\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nGreat start, Jazz! You have a super interesting topic, and I can see that you’ve put a lot of time into creating an interesting narrative. However, there are some places where the logic in your analysis falls apart. I’ve written some questions below.\nAs I mentioned before, I’d **really** love to work through all of this with you on a regular basis. If you can’t make my office hours, I’d happily set up a regular time for us to meet outside of those times. Just let me know.\n\ndo you want to change your website name to make it shorter? if so, please let me know and we can do it together.  The idea is to make the URL: https://jazzminpearlduncan.github.io/\nbroad claim here: “whether Netflix favors certain genres”.  I’m not sure you can assess that from the data at hand.\nhypothesis testing is specifically designed for the situation when you don’t have the full population, but you do have a sample from the population (and you want to say something about the population). however, the data you are working with is probably not a random sample of titles, so there’s that.\n“rating” seems to be G / PG / R / etc. But your hypotheses ask if rating gets better or worse over time. What does that mean?\nwhy are you filtering n &gt;= 10?  seems like maybe that step should be earlier? to remove the first few years when there are only a few movies added each year?\nI’d love to see a scatterplot of the model you are permuting. I think it has proportion of adult films on the y-axis and year introduced into Netflix on the x-axis. do you believe that those two variables are linearly related?\nI prefer “explanatory” and “response” variable instead of “independent” and “dependent” variable because we aren’t (can’t!) establishing anything causal.\nin order for the reader to get a sense for the conclusion, you should plot the observed statistic as a vertical line on the null distribution\nwhat is the ordering on the x-axis of the plot called “Netflix Content Rating Distribution by Time Period and Type”? You should be re-ordering the factor variable to have something meaningful along the x-axis.\nwhy do movies get rated with a TV rating? does that make sense? I’m not sure I agree with your last set of findings (from the final plot).\nProject 4\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\nJazz –\nI love how you were able to find a source that validates much of what we discussed in class: “Green…frames these issues theoretically, highlighting how data collection processes claiming objectivity often lack democratic participation from affected communities and fail to acknowledge missing observations from marginalized groups.”\nFantastic work.  One thing you might acknowledge which contrasts the 1902 work with the COMPAS algorithm is that COMPAS is highly efficient. It has the potential to be much more destructive because of its ease of use and ease of dispersal to any jurisdiction (in our more technical age).\nAdvice I’m giving everyone: ask a friend to read your blog entry. Ask if they think it is clear (with respect to the data science / ethics content). Ask if they think it is clear (with respect to flow and grammar). I’m not trying to micro-edit each entry, but most people’s entries could be improved a lot with a single round of a solid peer edit.  Heck, ask someone from class so that it isn’t a burden because you can read the article of your peer!\nProject 5\n\nprepare a ~5 min presentation on some aspect of your project.\n\nIt can be about any aspect of the project (or all aspects of the project), and your presentation\nshould be as if to a client about the work.\nYou’ll create the presentation in Quarto (formatted as revealjs) rendered to html.\nYou can describe one of the projects, the creation of the website, the entire project overall, or any other aspect of the project.\n\n\n\nJo Hardin at Mon May 12, 2025 2:46pmat Mon May 12, 2025 2:46pm\nJazz – great start. I really like the questions that you’ve asked about the data. I’ve given a few suggestions below about how your work could more effectively communicate the ideas you want.\n\nnot 88 cities…  88 datasets from 42 different states including multiple cities and highway patrols.\nI don’t really understand why you filter for 10 to 25 and then take the average. I’m not sure what the average would represent in that case?\nEspecially for New Orleans, are you looking at pedestrian stops or vehicular stops?\nno reason to do `HAVING num_stops &gt; 5`, instead just do a `LIMIT` (because you’ve already sorted), `HAVING` just makes more work for the computer.\nIf you actually want to know some kind of behavior describing the distribution of ages, you can just make more plots, you know!\nI like what you did to compare SF and SA, but I don’t know why you make a table (most of which we can’t see!). You could easily have made it into a scatterplot, and maybe you can color by day of the year?  From what you’ve reported, it is impossible to see, for example, what the range of years are that overlap across the two datasets?\nyou need to include references both for the provenance of the data (SOPP) as well as the manuscript that should be cited whenever this work is mentioned."
   },
   {
     "objectID": "dataviz/Project6_Pres.html#developing-the-look",
     "href": "dataviz/Project6_Pres.html#developing-the-look",
-    "title": "Project 6 - Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "Developing the “Look”",
-    "text": "Developing the “Look”\n\nScreenshot of my homepage\nCSS Styling and Color Selection\nEmbedded Spotify songs and playlists\nButtons and Outside Links"
+    "text": "Developing the “Look”\n\n\n\nEmbedded Spotify songs and playlists"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#my-intentions-and-applications",
     "href": "dataviz/Project6_Pres.html#my-intentions-and-applications",
-    "title": "My Process of Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "My Intentions and Applications",
-    "text": "My Intentions and Applications\n\nContinued Use as a Professional site\nArchival Functionality\nDigital Art Sandbox/Junk Bin"
+    "text": "My Intentions and Applications"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#calculations",
@@ -415,16 +415,16 @@
   {
     "objectID": "dataviz/Project6_Pres.html#project-updates",
     "href": "dataviz/Project6_Pres.html#project-updates",
-    "title": "My Process of Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "Project Updates",
-    "text": "Project Updates\n\nRecoloring and More Interactive Elements\nAddressing Walls of Text and Clarity"
+    "text": "Project Updates"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#moving-forward",
     "href": "dataviz/Project6_Pres.html#moving-forward",
-    "title": "My Process of Building a Digital Art Archive",
+    "title": "Project 6",
     "section": "Moving Forward",
-    "text": "Moving Forward\n\nIndep. Visualization Projects\nIntegrating Processing and other languages for interactive digital art\n\n \n    \n      \n      unfortunely your browser cannot play the video :(."
+    "text": "Moving Forward"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#techincal-implementations",
