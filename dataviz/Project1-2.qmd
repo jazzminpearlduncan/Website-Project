@@ -9,13 +9,28 @@ execute:
   message: false
 ---
 
-The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for [Tidy Tuesday in July of 2024](https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3) to investigate the relationships between TV shows and movies with the word "summer" in their titles -- this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating
+# Introduction
+
+For this analysis, I'll be looking at the length of movies with the word "Summer" in the title that have been produced between 1945 and the 2020's. I'll also be investigating the relationship between movie length and audience reactions - measured through ratings. I hope to draw conclusions about potential changes in audience engagement and preferences.
+
+## Data and Libraries
+
+The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for [Tidy Tuesday in July of 2024](https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3) to investigate the relationships between TV shows and movies with the word "summer" in their titles -- this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating.
+
+Here is a sneak peek at the original data.
+
+```{r}
+# Loading in data and displaying first 10 rows
+
+summer_movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-07-30/summer_movies.csv')
+
+head(summer_movies, 10)
+```
 
 ```{r, fig.width=10, fig.height=8, echo=FALSE}
 library(dplyr)
 library(readr)
 
-summer_movies <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-07-30/summer_movies.csv')
 
 important_movies <- summer_movies |>
   mutate(years = year) |>
@@ -24,10 +39,15 @@ important_movies <- summer_movies |>
   
 ```
 
+# Plotting
+
 ```{r, fig.width=10, fig.height=8, echo=FALSE}
 library(ggplot2)
 
-ggplot(data=important_movies, aes(x = years, y = runtime_minutes, color = average_rating)) +
+ggplot(data=important_movies, 
+       aes(x = years, 
+           y = runtime_minutes, 
+           color = average_rating)) +
   geom_point() +
   labs(
     title = "Changes in Movie Runtime (1945-2024)",
@@ -35,4 +55,8 @@ ggplot(data=important_movies, aes(x = years, y = runtime_minutes, color = averag
        y = "Runtime (min)")
 
 ```
-This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; runtime is used to measure the movies' length in minutes. From this plot, we can see that the range of movie runtimes have increased dramatically since the 40's, along with the actual number of movies available, likely due to increased asscess to production materials, especially going into the 2000's. Ratings remain reletively diverse across time up until the 2000's, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies. 
+This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; run time is used to measure the movies' length in minutes. 
+
+## Conclusons and Observations
+
+From this plot, we can see that the range of movie run times have increased dramatically since the 40's, along with the actual number of movies available, likely due to increased access to production materials, especially going into the 2000's. Ratings remain relatively diverse across time up until the 2000's, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies; this could be related to a simultaneous increase in access to productoin tools and growth of 'trendiness' in contemporary Hollywood films. 

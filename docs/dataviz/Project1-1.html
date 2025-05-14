@@ -181,11 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project2.html">
- <span class="dropdown-text">project 2</span></a>
+ <span class="dropdown-text">project 2: Song Title String Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project3.html">
- <span class="dropdown-text">project 3</span></a>
+ <span class="dropdown-text">project 3: Movies and Ratings - Stat Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project4.html">
@@ -193,11 +193,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project5.html">
- <span class="dropdown-text">project 5: SQL Wrangling</span></a>
+ <span class="dropdown-text">project 5: Arrest in SF, NOLA, and SA - SQL Wrangling</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project6_Pres.html">
- <span class="dropdown-text">project 6</span></a>
+ <span class="dropdown-text">presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -216,11 +216,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a></li>
+  <li><a href="#observations-and-conclusions" id="toc-observations-and-conclusions" class="nav-link" data-scroll-target="#observations-and-conclusions">Observations and Conclusions</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -234,7 +248,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -258,12 +272,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>The data being used for this plot was originally collected by cheese.com, an archive and database containing an incredible amount of information about cheeses. Used for Tidy Tuesday in June of 2024 to investigate the relationships between fat content, cheese type, texture, flavor, and aroma – this data contains 1,187 rows of different cheeses, and 19 columns specifying the details of said cheeses. For today, the relevant columns are cheese (name), milk, country, and color.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>For this analysis, I’ll be investigating the relationships between dairy (and non-dairy) products across the world. Specifically, looking at the different animals used for milk/cheese, I hope to draw conclusions about potential eating habits or traditions across the world.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p>The data being used for this plot was originally collected by cheese.com, an archive and database containing an incredible amount of information about cheeses. <a href="https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-06-04">Used for Tidy Tuesday</a> in June of 2024 to investigate the relationships between fat content, cheese type, texture, flavor, and aroma – this data contains 1,187 rows of different cheeses, and 19 columns specifying the details of said cheeses. For today, the relevant columns are cheese (name), milk, country, and color.</p>
+<p>Here is a sneak peak at the actual data.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>cheeses <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2024/2024-06-04/cheeses.csv'</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>cheeses</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(cheeses, <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1,187 × 19
+<pre><code># A tibble: 10 × 19
    cheese    url   milk  country region family type  fat_content calcium_content
    &lt;chr&gt;     &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;          
  1 Aarewass… http… cow   Switze… &lt;NA&gt;   &lt;NA&gt;   semi… &lt;NA&gt;        &lt;NA&gt;           
@@ -276,12 +296,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  8 Abbot’s … http… cow   Englan… North… Chedd… semi… &lt;NA&gt;        &lt;NA&gt;           
  9 Abertam   http… sheep Czech … Karlo… &lt;NA&gt;   hard… 45%         &lt;NA&gt;           
 10 Abondance http… cow   France  &lt;NA&gt;   &lt;NA&gt;   semi… &lt;NA&gt;        &lt;NA&gt;           
-# ℹ 1,177 more rows
 # ℹ 10 more variables: texture &lt;chr&gt;, rind &lt;chr&gt;, color &lt;chr&gt;, flavor &lt;chr&gt;,
 #   aroma &lt;chr&gt;, vegetarian &lt;lgl&gt;, vegan &lt;lgl&gt;, synonyms &lt;chr&gt;,
 #   alt_spellings &lt;chr&gt;, producers &lt;chr&gt;</code></pre>
 </div>
 </div>
+</section>
+</section>
+<section id="analysis" class="level2">
+<h2 class="anchored" data-anchor-id="analysis">Analysis</h2>
+<section id="plotting" class="level3">
+<h3 class="anchored" data-anchor-id="plotting">Plotting</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -291,10 +316,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>This is a faceted bar chart demonstrating different eating habits across nations as it pertains to cheese. We can see that cows are substantially more centered in the dairy industry, while other milks, like water buffalo, go relatively unnoticed. You can also see countries in multiple different groups demonstrating both the breadth and nicheness of their cheeses, Italy being particularly noticible in this regard.</p>
-<p>TidyTusedy dataset: https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-06-04</p>
+<p>This is a faceted bar chart demonstrating different eating habits across nations as it pertains to cheese. It uses the name of each country as the x-axis, with the total amount of a certain type of cheese (which has been counted per country) as the y-axis. The fill color and faceting are by the specific animal the milk came from.</p>
+</section>
+<section id="observations-and-conclusions" class="level3">
+<h3 class="anchored" data-anchor-id="observations-and-conclusions">Observations and Conclusions</h3>
+<p>We can see that cows are substantially more centered in the dairy industry, while other milks, like water buffalo, go relatively unnoticed. You can also see countries in multiple different groups demonstrating both the breadth and nicheness of their cheeses, Italy being particularly noticible in this regard.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

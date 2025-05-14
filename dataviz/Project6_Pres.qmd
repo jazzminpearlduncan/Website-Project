@@ -16,11 +16,12 @@ execute:
 ---
 
 ## Introduction
-- General Overview of Site-Building Process
-  - specifically interactive elements
-- Explanation of My Intentions
-- Independent Project (housed on site) Overview 
-- Plans Moving Forward
+
+-   General Overview of Site-Building Process
+    -   specifically interactive elements
+-   Explanation of My Intentions
+-   Independent Project (housed on site) Overview
+-   Plans Moving Forward
 
 ## Developing the "Look" and Interactive Elements
 
@@ -28,12 +29,14 @@ execute:
 
 ## Techincal Implementations
 
-- CSS Styling and Color Selection
-- HTML Embedded Songs, Playlists, and Videos
-- Buttons and Outside Links
+-   CSS Styling and Color Selection
+-   HTML Embedded Songs, Playlists, and Videos
+-   Buttons and Outside Links
 
 ## Visual Elements
+
 ### CSS Styling
+
 ```{css}
 h1.title {
     color: #633822 !important; 
@@ -54,13 +57,17 @@ h1.title {
 ```{html}
 [Images](insert link/file path here)
 ```
+
 ## Interactive Elements
-### Embedded Songs 
+
+### Embedded Songs
+
 ![Spotify](spotify.png)
 
 ## Interactive Elements
 
 ### Embedded Videos
+
 ```{html}
 
   <div style="text-align: center;">
@@ -73,27 +80,33 @@ h1.title {
 ```
 
 ## Interactive Elements
+
 ### Buttons
+
 ```{html}
 [LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}
 ```
 
 ## My Intentions and Applications
-- Continued Use as a Professional site
-- Archival Functionality
-- Digital Art Sandbox/Junk Bin
+
+-   Continued Use as a Professional site
+-   Archival Functionality
+-   Digital Art Sandbox/Junk Bin
 
 ## Indep. Natal Chart Visualizatoin Project
 
-- Data Viz as Storytelling
-- HTML Implementation
-- Python Integration for Back-end
+-   Data Viz as Storytelling
+-   HTML Implementation
+-   Python Integration for Back-end
 
-<iframe src="https://jazzminpearlduncan.github.io/Website-Project/multi/astro/Arbistrology.html" width="100%" height="300px"></iframe>
+<iframe src="https://jazzminpearlduncan.github.io/Website-Project/multi/astro/Arbistrology.html" width="100%" height="300px">
+
+</iframe>
 
 ## Moving Forward
-- Indep. Visualization Projects
-- Integrating Processing and other languages for interactive digital art
+
+-   Indep. Visualization Projects
+-   Integrating Processing and other languages for interactive digital art
 
 ```{=html}
  <div style="text-align: center;">

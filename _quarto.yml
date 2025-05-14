@@ -35,15 +35,15 @@ website:
             href: dataviz/Project1-1.qmd
           - text: "project 1 - part 2: Movie Length over Time"
             href: dataviz/Project1-2.qmd
-          - text: "project 2"
+          - text: "project 2: Song Title String Analysis"
             href: dataviz/Project2.qmd
-          - text: "project 3"
+          - text: "project 3: Movies and Ratings - Stat Analysis"
             href: dataviz/Project3.qmd
           - text: "project 4: Ethics and Skull Measuring"
             href: dataviz/Project4.qmd
-          - text: "project 5: SQL Wrangling"
+          - text: "project 5: Arrest in SF, NOLA, and SA - SQL Wrangling"
             href: dataviz/Project5.qmd
-          - text: "project 6"
+          - text: "presentation"
             href: dataviz/Project6_Pres.qmd
             
       - text: "contact me!"

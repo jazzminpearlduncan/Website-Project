@@ -147,11 +147,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project2.html">
- <span class="dropdown-text">project 2</span></a>
+ <span class="dropdown-text">project 2: Song Title String Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project3.html">
- <span class="dropdown-text">project 3</span></a>
+ <span class="dropdown-text">project 3: Movies and Ratings - Stat Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project4.html">
@@ -159,11 +159,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project5.html">
- <span class="dropdown-text">project 5: SQL Wrangling</span></a>
+ <span class="dropdown-text">project 5: Arrest in SF, NOLA, and SA - SQL Wrangling</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project6_Pres.html">
- <span class="dropdown-text">project 6</span></a>
+ <span class="dropdown-text">presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -182,11 +182,24 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#data-and-libraries" id="toc-data-and-libraries" class="nav-link" data-scroll-target="#data-and-libraries">Data and Libraries</a></li>
+  </ul></li>
+  <li><a href="#plotting" id="toc-plotting" class="nav-link" data-scroll-target="#plotting">Plotting</a>
+  <ul class="collapse">
+  <li><a href="#conclusons-and-observations" id="toc-conclusons-and-observations" class="nav-link" data-scroll-target="#conclusons-and-observations">Conclusons and Observations</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -200,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -224,7 +237,16 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for <a href="https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3">Tidy Tuesday in July of 2024</a> to investigate the relationships between TV shows and movies with the word “summer” in their titles – this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>For this analysis, I’ll be looking at the length of movies with the word “Summer” in the title that have been produced between 1945 and the 2020’s. I’ll also be investigating the relationship between movie length and audience reactions - measured through ratings. I hope to draw conclusions about potential changes in audience engagement and preferences.</p>
+<section id="data-and-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="data-and-libraries">Data and Libraries</h2>
+<p>The data being used for this plot was originally collected by The Internet Movie Database, or IMDB, a hub for networking and news in the motion picture sector. Used for <a href="https://github.com/rfordatascience/tidytuesday/tree/a95bcce0d7e09590519ba1ff98512fbf10f443af/data/2024/2024-07-3">Tidy Tuesday in July of 2024</a> to investigate the relationships between TV shows and movies with the word “summer” in their titles – this data contains 905 rows of different movies and TV shows, and 10 columns specifying the details of said movies. For today, the relevant columns are year, runtime, and rating.</p>
+</section>
+</section>
+<section id="plotting" class="level1">
+<h1>Plotting</h1>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -234,9 +256,14 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p>This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; runtime is used to measure the movies’ length in minutes. From this plot, we can see that the range of movie runtimes have increased dramatically since the 40’s, along with the actual number of movies available, likely due to increased asscess to production materials, especially going into the 2000’s. Ratings remain reletively diverse across time up until the 2000’s, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies.</p>
+<p>This is a scatterplot that displays changes in the length of movies, as well as the ratings for said movies, since 1945. Ratings are out of ten, and colored according to where they fall on that scale; run time is used to measure the movies’ length in minutes.</p>
+<section id="conclusons-and-observations" class="level2">
+<h2 class="anchored" data-anchor-id="conclusons-and-observations">Conclusons and Observations</h2>
+<p>From this plot, we can see that the range of movie run times have increased dramatically since the 40’s, along with the actual number of movies available, likely due to increased access to production materials, especially going into the 2000’s. Ratings remain relatively diverse across time up until the 2000’s, where a sweet spot between 75 minutes and 125 minutes began to be filled with many more movies.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

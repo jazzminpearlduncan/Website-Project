@@ -181,11 +181,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project2.html">
- <span class="dropdown-text">project 2</span></a>
+ <span class="dropdown-text">project 2: Song Title String Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project3.html">
- <span class="dropdown-text">project 3</span></a>
+ <span class="dropdown-text">project 3: Movies and Ratings - Stat Analysis</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project4.html">
@@ -193,11 +193,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project5.html">
- <span class="dropdown-text">project 5: SQL Wrangling</span></a>
+ <span class="dropdown-text">project 5: Arrest in SF, NOLA, and SA - SQL Wrangling</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../dataviz/Project6_Pres.html">
- <span class="dropdown-text">project 6</span></a>
+ <span class="dropdown-text">presentation</span></a>
   </li>  
     </ul>
   </li>
@@ -216,11 +216,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#data" id="toc-data" class="nav-link" data-scroll-target="#data">Data</a></li>
+  </ul></li>
+  <li><a href="#analysis" id="toc-analysis" class="nav-link" data-scroll-target="#analysis">Analysis</a>
+  <ul class="collapse">
+  <li><a href="#plot-1" id="toc-plot-1" class="nav-link" data-scroll-target="#plot-1">PLOT 1</a>
+  <ul class="collapse">
+  <li><a href="#observations-and-conclusions" id="toc-observations-and-conclusions" class="nav-link" data-scroll-target="#observations-and-conclusions">Observations and Conclusions</a></li>
+  </ul></li>
+  <li><a href="#plot-2" id="toc-plot-2" class="nav-link" data-scroll-target="#plot-2">PLOT 2</a>
+  <ul class="collapse">
+  <li><a href="#observations-and-conclusions-1" id="toc-observations-and-conclusions-1" class="nav-link" data-scroll-target="#observations-and-conclusions-1">Observations and Conclusions</a></li>
+  </ul></li>
+  <li><a href="#regular-expressions-and-str-functions" id="toc-regular-expressions-and-str-functions" class="nav-link" data-scroll-target="#regular-expressions-and-str-functions">Regular Expressions and str functions</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -234,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     <div>
     <div class="quarto-title-meta-heading">Author</div>
@@ -258,13 +279,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p><em>Loading in data…</em></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>For this analysis, I will be investigating various different relationships between the titles, genres, and popularity of different songs on Spotify (see section below for details on the data set). I hope to be able to draw conclusions about general artist popularity as well as the popularity of specific expressions in music, potentially reflecting preferences in audiences as well as deliberate decisions across different genres.</p>
+<section id="data" class="level3">
+<h3 class="anchored" data-anchor-id="data">Data</h3>
+<p><a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2020/2020-01-21/readme.md">This</a> dataset was used for TidyTuesday in January of 2020; it was originally collected by Spotify, and made accessible via the <a href="https://www.rcharlie.com/spotifyr/">spotifyr</a> package. It contains about 32, 000 rows – each a different song – and 26 columns (track_id, track_name, track_artist, track_popularity, track_album_id, track_album_name, track_album_release_date, playlist_name, playlist_id, playlist_genre, playlist_subgenre, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, and duration_ms). About 5000 songs were collected from each of 6 major genres – R&amp;B, Rock, Rap, Latin, Pop, and EDM.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>spotify_songs <span class="ot">&lt;-</span> readr<span class="sc">::</span><span class="fu">read_csv</span>(<span class="st">'https://raw.githubusercontent.com/rfordatascience/tidytuesday/main/data/2020/2020-01-21/spotify_songs.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><em>Context for the data</em></p>
-<p><a href="https://github.com/rfordatascience/tidytuesday/blob/main/data/2020/2020-01-21/readme.md">This</a> dataset was used for TidyTuesday in January of 2020; it was originally collected by Spotify, and made accessible via the <a href="https://www.rcharlie.com/spotifyr/">spotifyr</a> package. It contains about 32, 000 rows – each a different song – and 26 columns (track_id, track_name, track_artist, track_popularity, track_album_id, track_album_name, track_album_release_date, playlist_name, playlist_id, playlist_genre, playlist_subgenre, danceability, energy, key, loudness, mode, speechiness, acousticness, instrumentalness, liveness, valence, tempo, and duration_ms). About 5000 songs were collected from each of 6 major genres – R&amp;B, Rock, Rap, Latin, Pop, and EDM.</p>
-<p><em>PLOT 1</em></p>
+</section>
+</section>
+<section id="analysis" class="level1">
+<h1>Analysis</h1>
+<section id="plot-1" class="level2">
+<h2 class="anchored" data-anchor-id="plot-1">PLOT 1</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringr)</span>
@@ -300,9 +329,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<section id="observations-and-conclusions" class="level3">
+<h3 class="anchored" data-anchor-id="observations-and-conclusions">Observations and Conclusions</h3>
 <p>This plot displays the top 10 most mentioned artists from each of the Rap, Rock, and R&amp;B genres, including a count of how many mentions and colors to indicate genre. I’ve chosen these genres because they are my personal most played genres (specifically when DJing), and I was curious as to how one of my sets may compare to the tastes demonstrated through the data artist-wise. The name that doesn’t appear on the plot is ‘オメガトライブ’, which I’m not sure how to make visible.</p>
 <p>We can see that Queen and Guns n Roses are the most recurrent, Queen being an outlier with 134 entries. It would appear that Rock is the most popular genre of the 3, with Rap being the least popular. It’s also interesting to see Drake’s bar, as he is the only artist with multiple genres listed (33 R&amp;B, 36 Rap), which isn’t surprising considering the sheer amount of mingling with genres he does.</p>
-<p><em>PLOT 2</em></p>
+</section>
+</section>
+<section id="plot-2" class="level2">
+<h2 class="anchored" data-anchor-id="plot-2">PLOT 2</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -347,9 +381,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<section id="observations-and-conclusions-1" class="level3">
+<h3 class="anchored" data-anchor-id="observations-and-conclusions-1">Observations and Conclusions</h3>
 <p>This plot displays the difference between mentions of the words ‘girl’ and ‘boy’ in their titles by genre, with the counts for either gender and colors to idicate genderas well. I chose to do this pplot because I was curious about how and where either sex was mentioned; however, without a context variable (sounds very messy), it doesn’t provide much insight into the genres.</p>
 <p>We can see that rap music has the most mentions of the word “boy”, and R&amp;B has the most mentions of the word “girl”. Generally, other than in R&amp;B, the word “boy” tends to be mentioned more often in titles than “girl”.</p>
-<p><em>Additional Work</em></p>
+</section>
+</section>
+<section id="regular-expressions-and-str-functions" class="level2">
+<h2 class="anchored" data-anchor-id="regular-expressions-and-str-functions">Regular Expressions and str functions</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#str_subset</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -366,6 +405,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Here, I was wondering if I could spell out my name by extracting the letters from song titles; there are 106 songs where this would be possible, if I were doing the phenetic spelling. The second Z is not included in many of these, so I technically couldnt <em>spell</em> my name with all of these titles, but I would be able to soound it out.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

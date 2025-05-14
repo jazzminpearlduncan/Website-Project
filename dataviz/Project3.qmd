@@ -13,7 +13,7 @@ execute:
 ## Description 
 
 
-I will conduct a permutation test by simulating behavior under the null hypothesis using the Netflix dataset. This study will explore whether Netflix favors certain genres more than others in its acquisitions. Understanding the patterns in Netflix's content distribution can provide insights into the platform's strategic decisions and how they align with viewer preferences and industry trends.
+I will conduct a permutation test by simulating behavior under the null hypothesis using the Netflix dataset. This study will explore whether Netflix favors certain maturity ratings more than others in its acquisitions. Understanding the patterns in Netflix's content distribution can provide insights into the platform's strategic decisions and how they align with viewer preferences and industry trends.
 
 Overview of Process: 
 
@@ -52,7 +52,7 @@ The dataset contains about 8,800 rows -- each a different TV show or movie in Ne
 ### Hypothesising 
 #### Are ratings correlated with the date content was added to Netflix? That is, can we see changes in Netflix's acquisition decisions/key audience based on changes in the ratings (e.g. PG, TV-MA, etc.) over added content over time.
   - null (H0): There is no correlation between a show's rating and its date added to Netflix. As in, the ratings are consistent over time.
-  - alt (H1): There is a correlation between a show's rating and its date added to Netflix. As in, the ratings get better or worse over time.
+  - alt (H1): There is a correlation between a show's rating and its date added to Netflix. As in, the ratings change over time to accommodate audience demand.
 
 # Simulation Study
 
