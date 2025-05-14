@@ -5,6 +5,7 @@ format: html
 
 # Introduction
 ## Project Description
+
 I plan to analyze the patterns and outcomes of arrests in across cities to better understand their law enforcement dynamics and the populations most affected. By examining the frequency of arrests over time and the context surrounding them—such as location, age range, and outcomes—I'll focus on trends or events that reflect how policing operates in this area. This reveals not only which groups are most frequently stopped or arrested, but also provides insight into broader social and structural patterns that shape public safety and surveillance.
 
 The code and tables below explore how policing and traffic stops differ by location and who is most affected (within pretty specific yet broad age or location demographics). The New Orleans table shows where young people (ages 10 to 25) were most often stopped, with Bourbon Street appearing frequently—likely due to its party-heavy reputation. It’s also striking that some of the youngest people stopped were as young as 10, raising concerns about who’s being policed and why.
@@ -40,7 +41,7 @@ E. Pierson, C. Simoiu, J. Overgoor, S. Corbett-Davies, D. Jenson, A. Shoemaker, 
 ### New Orleans: Stops by Location (with Average Ages)
 [see dataset here](https://openpolicing.stanford.edu/data/)
 
-This table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the average age of all those stopped at a particular location are visible, as well as the age of the youngest traffic stop target. Only places with more than 5 stops are included.
+This table displays the traffic stop locations in New Orleans (Dec 2009 - Jul 2018) for people between 10 and 25 years old; the total number of stops per location are displayed, as well as the age of the youngest traffic stop target. Only places with more than 5 stops are included.
 
 It shows the average age of those stopped at each location, as well as the age of the youngest person stopped. 
 
@@ -51,19 +52,20 @@ It shows the average age of those stopped at each location, as well as the age o
 SELECT 
   location,
   COUNT(*) AS num_stops,
-  AVG(subject_age) AS avg_young_adult_age,
   MIN(subject_age) AS youngest_stop
+  
 FROM la_new_orleans_2020_04_01
 WHERE subject_age BETWEEN 10 AND 25 AND location IS NOT NULL
 GROUP BY location
-HAVING num_stops > 5
 ORDER BY num_stops DESC
+LIMIT 10
 
 ```
     
-It's striking (and somewhat humorous) to see that different locations along Bourbon Street make up the top three stop locations—likely due to its reputation as a party hub, especially during holidays like Mardi Gras. It is more concerning and interesting to see the youngest_stop column, it's interesting to see just how young the stops get (minimum was 10 yo.) and it would be interesting to also see the outcomes (citation, warning, arrest, etc.) of the youngest stops in each location. 
+It's striking (and somewhat humorous) to see that different locations along Bourbon Street make up the top three stop (both vehicular and pedestrian) locations—likely due to its reputation as a party hub, especially during holidays like Mardi Gras. It is more concerning and interesting to see the youngest_stop column, it's interesting to see just how young the stops get (youngest was 10 yo.) and it would be interesting to also see the outcomes (citation, warning, arrest, etc.) of the youngest stops in each location. 
 
-We can see that the table contains ages all throughout the specified age range (10-25), and the average stop age tends to hover between 18-21, which could be useful when considering the lives of young adults in NOLA, whether in the context of police surveillance or individual behavior. Further, this observation could suggest, unsurprisingly, that those that are slightly earlier in adulthood are more likely to encounter the police. 
+We can see that the table contains ages all throughout the specified age range (10-25), and the average stop age tends to hover between 18-21, which could be useful when considering the lives of young adults in NOLA, whether in the context of police surveillance or individual behavior. 
+
 ## Table 2
 ### San Francisco vs. San Antonio: How do arrests compare day-by day?
 [see dataset here](https://openpolicing.stanford.edu/data/)
@@ -72,7 +74,7 @@ This table allows us to compare the number of arrests made on matching stop date
 
 ```{sql, connection=con_traffic}
 # JOIN, WHERE, GROUP BY, ORDER BY
-
+# Creates table that compares SF and SA and their numbers of arrests
 SELECT 
   sf.date AS date_of_stop,
   sf.sf_arrests,
@@ -92,9 +94,6 @@ JOIN (
 ON sf.date = sa.date
 ORDER BY date_of_stop;
 
-
-
-
 ```
 
-For instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonios (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the datasets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.
+For instance, San Francisco consistently shows higher arrest counts, despite its population (909k) being smaller than San Antonio's (1.3m); this could reflect stricter enforcement, denser traffic, etc. Conversely, similar arrest levels on certain days might point to shared factors like weekends, holidays, or major events affecting both cities. However, since the data sets come from different years, any comparison assumes that dates align meaningfully, which may not always hold true—so interpretations should be made cautiously. Overall, this table serves as a useful tool for identifying trends, anomalies, or behavioral patterns in traffic enforcement across different urban contexts.

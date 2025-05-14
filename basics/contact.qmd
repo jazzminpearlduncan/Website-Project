@@ -2,21 +2,15 @@
 format: html
 ---
 
-## contact me! click the buttons for direct links.
-
+### Contact me by clicking any of the buttons below!
 
 [Email: jpduncan2022@gmail.com](mailto:jpduncan2022@gmail.com?&subject=I Came From Your Website!){.btn .btn-dark .btn-sm}
-
 [LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}
-
 [Book a 30-Minute Meeting!](https://calendar.app.google/QsZ4EEaKmKxtV9L97){.btn .btn-success .btn-sm}
-
 [Personal Instagram: jazzmiinpearll](https://www.instagram.com/jazzmiinpearll/){.btn .btn-dark .btn-sm}
 
-[Click here for GitHub Repository](https://github.com/jazzminpearlduncan/Website-Project){.btn .btn-success .btn-sm}
 
+### :)
 
-## surprise! i made you playlist!
-warning: some songs are explicit
-
+[Click here for a surprise video!](https://youtu.be/lpzaVsEPsdY?si=ShYIGMwcxcjrWg3M)
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/71e9b3kw4aAPUb8u5Zmvgu?utm_source=generator" width="50%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>

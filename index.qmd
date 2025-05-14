@@ -9,25 +9,24 @@ about:
 ---
 
 [Email: jpduncan2022@gmail.com](mailto:jpduncan2022@gmail.com?&subject=I Came From Your Website!){.btn .btn-dark .btn-sm}
- [My LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [My Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm} 
+ [My LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Personal Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm} 
  
  [Book a 30-Minute Meeting w/ Me!](https://calendar.app.google/QsZ4EEaKmKxtV9L97){.btn .btn-success .btn-sm} [@jazzmiinpearll (Personal Instagram)](https://www.instagram.com/jazzmiinpearll/){.btn .btn-dark .btn-sm}
  
-# (:  welcome!
+# (:  Welcome!
+
+Thank you for visiting!
+
+This site works best on desktops or laptops; if you're using a mobile device, some embedded documents may not render. You can find all kinds of information about me here! Some of my past projects, essays, interests, and more can be found by clicking through the navigation bar above. The *Data Viz* section is for my Data Science homework, so ignore that unless you're just really curious!
+
+There are different songs <span style="color: red;">(WARNING: some are explicit; pay attention to the E symbol on the track)</span> littered throughout the site, all of which are in constant rotation on my playlist (updated regularly). I hope you enjoy whatever you find here; whether it be project inspo or a new favorite song!
+
+Please contact me if you have any questions or inquiries!
 
 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/53e5ZudJmBizBGPnUP3aQ8?utm_source=generator" width="100%" height="120" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
-thank you for visiting!
-
-this site works best on desktops or laptops; if you're using a mobile device, some embedded documents may not render. you can find all kinds of information about me here! my past projects, essays, interests, and more can be found by clicking through the navigation bar above. The *Data Viz* section is for my Data Science homework, so ignore that unless you're just really curious!
-
-there are different songs <span style="color: red;">(WARNING: some are explicit; pay attention to the E symbol on the track)</span> littered throughout the site, all of which are in constant rotation on my playlist (updated regularly). i hope you enjoy whatever you find here; whether it be project inspo or a new favorite song!
-
-please contact me if you have any questions or inquiries!
-
-(website made manually using GitHub Pages and RStudio)
-
 [Click here for GitHub Repository](https://github.com/jazzminpearlduncan/Website-Project){.btn .btn-dark .btn-sm}
 
+*(website made manually using GitHub Pages and RStudio)*
 
 

@@ -60,7 +60,7 @@ ggplot(cheese_important, aes(x = reorder(country, -(num_cheeses)), y = num_chees
   coord_flip() +
   labs(title = "Magnitude of Cheese Types (milk used) by Country",
        x = "Country",
-       y = "Number of Different Cheeses of Type in Countries",
+       y = "Number of Different Cheeses from Animal",
        fill = "Milk") +
   theme(
     
