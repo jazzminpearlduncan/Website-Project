@@ -43,6 +43,8 @@ website:
             href: dataviz/Project4.qmd
           - text: "Project 5: Arrest in SF, NOLA, and SA - SQL Wrangling"
             href: dataviz/Project5.qmd
+          - text: "Project 6 - Editing Site Reflection"
+            href: dataviz/Project6.qmd
           - text: "Final Presentation"
             href: dataviz/Project6_Pres.qmd
             
