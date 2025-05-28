@@ -21,9 +21,9 @@ You can read a copy of the first issue here! See below:
 
 
 ```{=html}
-<object data="projects/Loop.pdf" type="application/pdf" width="100%" height="50%" style="min-height:100vh;">
+<object data="multi/projects/Loop.pdf" type="application/pdf" width="100%" height="50%" style="min-height:100vh;">
     <p>It appears you don't have a PDF plugin for this browser.
-    No biggie... you can <a href="projects/Loop.pdf">click here to
+    No biggie... you can <a href="multi/projects/Loop.pdf">click here to
     download the PDF file.</a></p>
 </object>
 ```
