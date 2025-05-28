@@ -3,7 +3,7 @@ project:
   output-dir: docs
   
 website:
-  title: "- Jazz <3"
+  title: "- Jazzmin Duncan <3"
   navbar:
     right:
       - text: "About Me"
