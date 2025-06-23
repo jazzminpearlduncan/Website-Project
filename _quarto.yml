@@ -11,42 +11,26 @@ website:
            
       - text: "Multi-Media Projects"
         menu:
-         - text: "Space Travel Benefits Portal"
-           href: multi/astro/Arbistrology.qmd
-         - text: "Hi-De-Ho Animation"
-           href: multi/Hi-De-Ho.qmd
-         - text: "The Loop Zine"
-           href: TheLoop.qmd
          - text: "Halloweekend in Claremont Documentary"
            href: multi/Halloweekend.qmd
+         - text: "The Loop Zine"
+           href: TheLoop.qmd
+         - text: "Hi-De-Ho Animation"
+           href: multi/Hi-De-Ho.qmd
+         - text: "Space Travel Benefits Portal"
+           href: multi/astro/Arbistrology.qmd
          - text: "Music (under construction)"
 
            
       - text: "Writing and Photography"
         menu:
-          - text: "Journalism & Non-Fiction"
-            href: nonfiction.qmd
-          - text: "Poetry & Creative Writing (under construction)"
+          - text: "Essays & Articles"
+            href: writing/nonfiction.qmd
+          - text: "Poetry & Creative Writing"
+            href: writing/poetry.qmd
           - text: "Photography (under construction)"
 
-      - text: "Data Viz"
-        menu:
-          - text: "Project 1 - 1: Cheese and Nations"
-            href: dataviz/Project1-1.qmd
-          - text: "Project 1 - 2: Movie Length over Time"
-            href: dataviz/Project1-2.qmd
-          - text: "Project 2: Song Title String Analysis"
-            href: dataviz/Project2.qmd
-          - text: "Project 3: Movies and Ratings - Stat Analysis"
-            href: dataviz/Project3.qmd
-          - text: "Project 4: Ethics and Skull Measuring"
-            href: dataviz/Project4.qmd
-          - text: "Project 5: Arrest in SF, NOLA, and SA - SQL Wrangling"
-            href: dataviz/Project5.qmd
-          - text: "Project 6 - Editing Site Reflection"
-            href: dataviz/Project6.qmd
-          - text: "Final Presentation"
-            href: dataviz/Project6_Pres.qmd
+
             
       - text: "Contact"
         href: basics/contact.qmd
