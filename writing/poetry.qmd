@@ -1,10 +1,11 @@
 ---
-title: "poetry"
+title: "Poetry"
 format: html
 ---
 
-This collection of poems "Mr. Mailman" was a final project for my African American Poetics class, where I explored the intersection of voice, identity, and artistic lineage through a series of interconnected poems. This draft follows a central character's journey from silence to artistic self-determination, framed as a message being delivered to the enigmatic Ms. Surance Couth.
-Through shifts between theatrical presentation and intimate confession, first and third person perspectives, I've attempted to examine how Black identity is both performed and authentically experienced. The collection draws from musical traditions (Zydeco, hip-hop), family history, and the complex inheritance of cultural voice.
+This collection of poems, "Mr. Mailman," was a creative writing project where I explored the intersection of voice, identity, and artistic lineage through a series of interconnected poems. This draft follows a central character's journey from silence to artistic self-determination, framed as a message being delivered to the enigmatic Ms. Surance Couth.
+
+Through shifts between theatrical presentation, intimate confession, and first and third person perspectives, I've attempted to examine how Black identity is both performed and authentically experienced. The collection draws from musical traditions (Zydeco, hip-hop), family history, and the complex inheritance of cultural voice.
 
 Although still in draft form, these poems represent my exploration of how messages are transmitted across generations, how artistic voice develops through mentorship, and the sometimes haunting presence of family legacy. The theatrical framework allows me to question what is real and what is performance in the formation of identity. 
 

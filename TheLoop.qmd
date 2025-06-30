@@ -12,25 +12,28 @@ The Loop is a product of the collective work of students across the five Claremo
 
 As a Co-founder, I am incredibly proud of the momentum, content, and community this magazine and organization has fostered in such a short amount of time, allowing me and my peers to grow as both artists, organizers, and multimedia fanatics. See more about CIMS [here](https://claremont.campuslabs.com/engage/organization/circuits-internet-media-software).
 
+I independently curated and edited each submission, designed each page, and led print distribution. This magazine was primarily meant to be humanitarian, platforming and dignifying student works that would otherwise be forever stuck in their files; however, it has developed into a more mature, formalized production as the organization behind it - CIMS – has grown due to my persistent scouting of new E-Board members, student works, and potential events. We host workshops for professional skill building (Raspberry Pi, FL Studio, etc.), opportunities for content creation (various production projects), and community engagement events for club members (powerpoint nights, WingStop mixers, etc.). Each event engages with internet culture and unrecognized digital niches that usually go unseen. [Click here to join! (5C students only </3)](https://claremont.campuslabs.com/engage/organization/circuits-internet-media-software)
+
+This experience has prepared me to report on, organize, and advise people and ideas, especially those related to media, technology, and culture. Having to collaborate extensively across a wide variety of academic disciplines has allowed me to gain the necessary experience to begin learning the ropes of doing so professionally.
+
 You can read a copy of the first two issues here! See below:
 
 
 ```{=html}
-<object data="multi/projects/Loop.pdf" type="application/pdf" width="100%" height="50%" style="min-height:100vh;">
+<object data="multi/projects/Loop.pdf" type="application/pdf" width="100%" height="30%" style="min-height:100vh;">
     <p>It appears you don't have a PDF plugin for this browser.
     No biggie... you can <a href="multi/projects/Loop.pdf">click here to
     download the PDF file.</a></p>
 </object>
 ```
+
+........................................................................................................................................................................................................
 
 ```{=html}
-<object data="multi/projects/Loop2.pdf" type="application/pdf" width="100%" height="50%" style="min-height:100vh;">
+<object data="multi/projects/Loop2.pdf" type="application/pdf" width="100%" height="30%" style="min-height:100vh;">
     <p>It appears you don't have a PDF plugin for this browser.
-    No biggie... you can <a href="multi/projects/Loop.pdf">click here to
+    No biggie... you can <a href="multi/projects/Loop2.pdf">click here to
     download the PDF file.</a></p>
 </object>
 ```
 
-I independently curated and edited each submission, designed each page, and led print distribution. This magazine was primarily meant to be humanitarian, platforming and dignifying student works that would otherwise be forever stuck in their files; however, it has developed into a more mature, formalized production as the organization behind it - CIMS – has grown due to my persistent scouting of new E-Board members, student works, and potential events. We host workshops for professional skill building (Raspberry Pi, FL Studio, etc.), opportunities for content creation (various production projects), and community engagement events for club members (powerpoint nights, WingStop mixers, etc.). Each event engages with internet culture and unrecognized digital niches that usually go unseen. [Click here to join! (5C students only </3)]((https://claremont.campuslabs.com/engage/organization/circuits-internet-media-software)
-
-This experience has prepared me to report on, organize, and advise people and ideas, especially those related to media, technology, and culture. Having to collaborate extensively across a wide variety of academic disciplines has allowed me to gain the necessary experience to begin learning the ropes of doing so professionally.

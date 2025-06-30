@@ -1,6 +1,5 @@
 ---
 title: Halloweekend in Claremont - A Documentarian Analysis of 5C Party Promo Culture
-description: Editor, Project Team Member, and Research Designer
 date: December 14, 2024
 format: html
 ---
