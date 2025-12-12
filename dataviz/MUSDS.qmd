@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roots and Grounding</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #0a0a0a 100%);
+            color: #e0e0e0;
+            font-family: 'Georgia', serif;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 3em;
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+            background: linear-gradient(45deg, #ff6b9d, #c06c84, #6c5ce7);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 107, 157, 0.3);
+        }
+
+        .intro {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 80px;
+            opacity: 0;
+            animation: fadeIn 2s 0.5s forwards;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .section {
+            margin: 100px 0;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            color: #ff6b9d;
+            border-left: 4px solid #ff6b9d;
+            padding-left: 20px;
+            transition: all 0.3s;
+        }
+
+        .section-title:hover {
+            border-left-width: 8px;
+            padding-left: 25px;
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .section-text {
+            font-size: 1.05em;
+            line-height: 1.9;
+            margin-bottom: 30px;
+            color: #d0d0d0;
+        }
+
+        .video-grid {
+            display: grid;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .video-link {
+            display: block;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 107, 157, 0.2);
+            border-radius: 8px;
+            text-decoration: none;
+            color: #c06c84;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .video-link:hover::before {
+            left: 100%;
+        }
+
+        .video-link:hover {
+            background: rgba(255, 107, 157, 0.1);
+            border-color: #ff6b9d;
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(255, 107, 157, 0.3);
+        }
+
+        .video-link-text {
+            font-size: 1.1em;
+            font-style: italic;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #ff6b9d, transparent);
+            margin: 80px 0;
+            opacity: 0.3;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #ff6b9d;
+            border-radius: 50%;
+            animation: rise linear infinite;
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1);
+                opacity: 0;
+            }
+        }
+
+        .quote {
+            font-size: 1.3em;
+            font-style: italic;
+            text-align: center;
+            color: #ff6b9d;
+            margin: 60px 0;
+            padding: 30px;
+            border-top: 1px solid rgba(255, 107, 157, 0.3);
+            border-bottom: 1px solid rgba(255, 107, 157, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <h1 class="title floating">Roots and Grounding</h1>
+        
+        <div class="intro">
+            This digital archive honors the music videos and visual albums that carried me through this semester.
+            <br><br>
+            A testament to the artists' talents and vulnerabilities, however unseen.
+            <br><br>
+            These pieces allowed me to grow, to channel the energy of sound into video,
+            <br>
+            through heart and soul.
+        </div>
+
+        <div class="divider"></div>
+
+        <section class="section" data-section>
+            <h2 class="section-title">Touchdown — 409 on the Scoreboard!!</h2>
+            <p class="section-text">
+                This semester brought tumultuous times that caused me to lose my grounding. These videos helped me reconnect music through video and video through music.
+                <br><br>
+                Teezo Touchdown, a formerly underground artist from Beaumont, TX—we share an area code: 409. This collaboration perfectly captures the feeling of being overwhelmed, overstimulated, and insecure. It shows how coping sometimes looks obscure and clown-like, yet remains rhythmic and calming.
+                <br><br>
+                It reminds me that I have a home—not just physically, but metaphorically and artistically.
+            </p>
+            <div class="video-grid">
+                <a href="https://youtu.be/aZb4QHCAQD8?si=qWsCeb9mGorj58LM" target="_blank" class="video-link">
+                    <span class="video-link-text">Anxiety</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="section" data-section>
+            <h2 class="section-title">I'm Sorry Ms. Jackson — Breathing in Greatness</h2>
+            <p class="section-text">
+                The Jackson family—beyond speculation, I see the love of art and how trauma affects those fighting to express themselves fully. Both Janet and Michael became social outcasts, yet returned time and again, breaking generational curses: poverty, suppression, greed, racism.
+                <br><br>
+                Their resilience through speculation, familial trauma, and public scrutiny created people highly motivated and determined. These videos force us to ask: How can anyone determine who deserves what, or who a person is, based on images and personas?
+            </p>
+            <div class="video-grid">
+                <a href="https://youtu.be/Xh9Cp4rd7mI?si=8yAVAyHlgQOZpzFN" target="_blank" class="video-link">
+                    <span class="video-link-text">You're a Freak — Go Home</span>
+                </a>
+                <a href="https://youtu.be/0P4A1K4lXDo?si=EHdjxefN2PNdaXmX" target="_blank" class="video-link">
+                    <span class="video-link-text">Please Just Stop Shit-talking Me and Get OUT of My Personal Business</span>
+                </a>
+                <a href="https://youtu.be/JgeAUejUZhg?si=CrstFDC_Jp1bNqzQ" target="_blank" class="video-link">
+                    <span class="video-link-text">I am Loved by History</span>
+                </a>
+                <a href="https://youtu.be/Sd4SJVsTulc?si=5k0bgaBstNFURkao" target="_blank" class="video-link">
+                    <span class="video-link-text">Baddie Baddie Shot O'Clock</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="section" data-section>
+            <h2 class="section-title">Psalms in the Keys to My Life — Exclusive Access and Affirmations</h2>
+            <p class="section-text">
+                Stevie, one of the Wonders of the World, continues to inspire me through difficult times. Prince once said that <em>Songs in the Key of Life</em> was all you needed to learn about music and life. These are the keys I've found.
+            </p>
+            <div class="video-grid">
+                <a href="https://youtu.be/qundeyQtsQU?si=vP7i74H8w-hEXpiY" target="_blank" class="video-link">
+                    <span class="video-link-text">sometimes i cant understand, but the vibe is good so lets go</span>
+                </a>
+                <a href="https://youtu.be/XWCwc1_sYMY?si=ue7xaZoJP5Y8x90_" target="_blank" class="video-link">
+                    <span class="video-link-text">I'm a Phenomenal DJ when I put my Mind to it</span>
+                </a>
+                <a href="https://youtu.be/VQ6Em9-e5hY?si=wka2brceuz7XgY4o" target="_blank" class="video-link">
+                    <span class="video-link-text">Breathing Excercises? Idk bro</span>
+                </a>
+                <a href="https://youtu.be/Sr3KfWgNZcA?si=pvAYhoq7uGFTCJFi" target="_blank" class="video-link">
+                    <span class="video-link-text">From Ethiopia to La Marque — I send my Love everywhere</span>
+                </a>
+                <a href="https://youtu.be/7hPMmzKs62w?si=IrMZWnSJ3n1toRql" target="_blank" class="video-link">
+                    <span class="video-link-text">wait why am i kinda goated</span>
+                </a>
+                <a href="https://youtu.be/mPRy1B4t5YA?si=TF09IPX00_ZbAM9w" target="_blank" class="video-link">
+                    <span class="video-link-text">oops :(</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="section" data-section>
+            <h2 class="section-title">F*ck it, We Ball — Perseverance and Inspiration</h2>
+            <div class="video-grid">
+                <a href="https://youtu.be/SuNYFA8z6s0?si=nj48fCMJGUxZCe1O" target="_blank" class="video-link">
+                    <span class="video-link-text">right..right..</span>
+                </a>
+                <a href="https://youtu.be/7vfnAY4fCbo?si=jUQO_em5Fwv0t5in" target="_blank" class="video-link">
+                    <span class="video-link-text">we will be up in such insane — professionally and esoterically, not mentally — ways</span>
+                </a>
+                <a href="https://youtu.be/nP8dkzn8vmE?si=MRH-ZHYM-ddACR6r" target="_blank" class="video-link">
+                    <span class="video-link-text">maybe i do enjoy being left out in the cold with the cornballs</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="section" data-section>
+            <h2 class="section-title">Parting Words — Ambient Ambiance</h2>
+            <div class="video-grid">
+                <a href="https://youtu.be/nqxVMLVe62U?si=SpIaXXFA520sf4CM" target="_blank" class="video-link">
+                    <span class="video-link-text">blame</span>
+                </a>
+                <a href="https://youtu.be/9gCzP3XtWYw?si=EHRoWtqPDIKJoUjG" target="_blank" class="video-link">
+                    <span class="video-link-text">sorry im in pajamas but i just off the PJ</span>
+                </a>
+                <a href="https://youtu.be/BoEKWtgJQAU?si=wOwPO8NdNS1Q5GbT" target="_blank" class="video-link">
+                    <span class="video-link-text">jazz</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=3vXXiku0580&list=LL&index=1&t=1016s" target="_blank" class="video-link">
+                    <span class="video-link-text">we r up</span>
+                </a>
+                <a href="https://www.youtube.com/watch?v=Le7VxsSlEgo&list=LL&index=4" target="_blank" class="video-link">
+                    <span class="video-link-text">f*ck it bro it's your life</span>
+                </a>
+                <a href="https://youtu.be/dslpHxTuA-w?si=LvEPztquQERIXvPP" target="_blank" class="video-link">
+                    <span class="video-link-text">what is a home?</span>
+                </a>
+                <a href="https://youtu.be/Qe8EPns4Mow?si=Msh3bL6TYXemcWdQ" target="_blank" class="video-link">
+                    <span class="video-link-text">here</span>
+                </a>
+            </div>
+        </section>
+
+        <div class="quote">
+            "I am strong, talented, and independent — just as the stars who have been brave enough to speak their truths."
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 30; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.animationDelay = Math.random() * 5 + 's';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('[data-section]').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
