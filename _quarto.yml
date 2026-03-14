@@ -15,7 +15,7 @@ website:
            href: multi/Halloweekend.qmd
          - text: "The Loop Zine"
            href: TheLoop.qmd
-         - text: "Hi-De-Ho Animation"
+         - text: "Mini Video Projects"
            href: multi/Hi-De-Ho.qmd
          - text: "Space Travel Benefits Portal"
            href: multi/astro/Arbistrology.qmd
@@ -29,7 +29,6 @@ website:
           - text: "Poetry & Creative Writing"
             href: writing/poetry.qmd
           - text: "Photography (under construction)"
-      
 
 
 

@@ -1,0 +1,48 @@
+---
+title: "Concert Attendance Project"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(lubridate)
+library(readr)
+
+# Load data
+attend <- read_csv("fulllog.csv", col_types = cols())
+
+clean_attend <- attend %>%
+  
+  # --- Clean Total Count ---
+  mutate(
+    `Total Count` = parse_number(`Total Count`)
+  ) %>%
+  
+  # Keep only rows with valid total counts
+  filter(!is.na(`Total Count`)) %>%
+  
+  # --- Standardize Date ---
+  mutate(
+    `Day/Date` = parse_date_time(
+      `Day/Date`,
+      orders = c("mdy", "m/d/y", "m/d/Y"),
+      exact = FALSE
+    ) %>% as.Date()
+  ) %>%
+  
+  # --- Standardize Time ---
+  mutate(
+    Time = case_when(
+      is.na(Time) ~ NA_character_,
+      str_detect(Time, "^\\d{1,2}:\\d{2}") ~
+        format(parse_date_time(Time, orders = c("H:M", "I:M p")), "%H:%M"),
+      str_detect(Time, "^\\d{1,2}\\s*(AM|PM|am|pm)$") ~
+        format(parse_date_time(Time, orders = c("I p")), "%H:%M"),
+      TRUE ~ NA_character_  # junk values removed
+    )
+  )
+
+# View cleaned data
+glimpse(clean_attend)
+
+```
