@@ -1,5 +1,5 @@
 ---
-title: "Mini Videos"
+title: "Videos Doodles"
 format: html
 ---
 
@@ -8,30 +8,60 @@ format: html
 ::::
 <span style="background-color: yellow; font-weight: bold;">^^^listen to Icon - Jaden Smith to hear this sampled!</span>
 
-This is a collection of short video projects which I've directed, edited, and/or produced for class or extracurriculars. They're all pretty low-pressure [rojects, so don't judge any weird things!
+This is a collection of short video projects which I've directed, edited, and/or produced for class or extracurriculars, or just for fun! They're all pretty low-pressure projects, so don't judge any peculiar creative decisions! Many of these were completed for my Media Sketchbook class, so they're the equivalent of doodles in a digital sketchbook.
+
+### Revolution
+
+```{=html}
+
+<div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/lmcwEQ2HPzQ" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+```
 
 ### Frankenstime
 
 ```{=html}
 
-  <div style="text-align: center;">
-    <video width="640" height="360" controls>
-      <source src="projects/frank.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+<div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/uRhpzbltiWQ" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
   </div>
 
 ```
 
-### Outside
+### Watch This Drive
 
 ```{=html}
 
-  <div style="text-align: center;">
-    <video width="640" height="360" controls>
-      <source src="projects/outside.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+ <div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/Lqs4adoEvp4" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+```
+
+### Yosemite
+
+```{=html}
+
+<div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/879q3DxjQzg" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
   </div>
 
 ```
@@ -40,13 +70,27 @@ This is a collection of short video projects which I've directed, edited, and/or
 
 ```{=html}
 
-  <div style="text-align: center;">
-    <video width="640" height="360" controls>
-      <source src="projects/dream.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+<div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/LvAVBv2rivE" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
   </div>
 
+```
+
+### Outside
+
+```{=html}
+
+ <div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/R5AZzEIu_Qc" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
 ```
 
 ### Paranormal Inactivity
@@ -54,12 +98,49 @@ This is a collection of short video projects which I've directed, edited, and/or
 ```{=html}
 
   <div style="text-align: center;">
-    <video width="640" height="360" controls>
-      <source src="projects/para.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/3JOYJG4ZZQk" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+```
+
+### bleeeppp
+
+```{=html}
+
+ <div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/ObJoUZgyIUY" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
   </div>
 
 ```
 
 
+
+## Longer Projects
+
+### Halloweekend in Claremont
+
+This short documentary gives a brief, intimate peek into the parties thrown throughout Halloweekend 2024 (Oct 31 - Nov 2). Examining music, design, communication pipelines, and administrative changes at Pomona since the 90’s, we designed this project to include the documentary below and a complementary ethnographic research paper.
+
+[click here to watch](https://jazzminpearlduncan.github.io/Website-Project/multi/Halloweekend.html)
+
+### Happy Everyday 
+
+```{=html}
+
+<div style="text-align: center;">
+    <iframe width="640" height="360" 
+      src="https://www.youtube.com/embed/GtU0t7yJdcg" 
+      frameborder="0" 
+      allowfullscreen>
+    </iframe>
+  </div>
+
+```
