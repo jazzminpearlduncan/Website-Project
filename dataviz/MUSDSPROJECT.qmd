@@ -14,7 +14,7 @@ library(lubridate)
 library(readr)
 
 
-# Read csv files contianing the attendance data
+# Read csv files containing the attendance data
 all_years_files <- 
   # rules for how to search the folder
   list.files(
@@ -29,7 +29,7 @@ all_years_data <- setNames(
   lapply(all_years_files, read_csv),
   basename(all_years_files))
 
-all_years_data
+head(all_years_data, 1)
 ```
 
 ## Cleaning the Data
@@ -38,7 +38,19 @@ all_years_data
 
 ```{r}
 
-y1 <- all_years_data[["2008-09.csv"]] 
+y1 <- all_years_data[["2008Fall.csv"]] |>
+  print(y1) |>
+  mutate(
+    Date = Date |>
+      str_remove("\\.") |>
+      str_replace("$", " 2008") |>
+      mdy()
+  )
+
+  
+y1
+
+# switch to mm/dd/yyyy format for date
 
 
 ```
@@ -46,8 +58,9 @@ y1 <- all_years_data[["2008-09.csv"]]
 ### 2009-2010
 
 ```{r}
+y2 <- all_years_data[["2009-10.csv"]] 
 
-
+y2
 ```
 
 ### 2010-2011
