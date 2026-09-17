@@ -203,6 +203,20 @@
     "text": "# Load libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(readr)\n\n\n# Read csv files containing the attendance data\nall_years_files &lt;- \n  # rules for how to search the folder\n  list.files(\n    path = \"MDSDATA\",\n    # see: regular expressions\n    pattern = \".csv$\" ,\n    full.names = TRUE\n  )\n\n\nall_years_data &lt;- setNames(\n  lapply(all_years_files, read_csv),\n  basename(all_years_files))\n\nhead(all_years_data, 1)\n\n$`2008Fall.csv`\n# A tibble: 23 × 5\n   Date     Event                      Count Notes                      Location\n   &lt;chr&gt;    &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;   \n 1 Sept. 21 Celliola                   150   &lt;NA&gt;                       Little …\n 2 Sept. 24 Francisco Aguabella        75-82 Fluid movement             Lyman H…\n 3 Sept. 28 Davitt Moroney             124   &lt;NA&gt;                       Little …\n 4 Oct. 4   Millennium Consort Singers 250   &lt;NA&gt;                       Little …\n 5 Oct. 11  Pomona College Orchestra   245   &lt;NA&gt;                       Little …\n 6 Oct. 12  Pomona College Orchestra   282   &lt;NA&gt;                       Little …\n 7 Oct. 25  Pelev/Ashcraft             130   &lt;NA&gt;                       Little …\n 8 Oct. 29  Student Recital            80    Fluid movement             Lyman H…\n 9 Nov. 2   William Peterson           120   by Graydon in audience     Little …\n10 Nov. 3   Amir ElSaffar Lecture/Demo 15    Monday after Halloween/fi… Lyman H…\n# ℹ 13 more rows\n\n\n\n\n\n\n\n\ny1 &lt;- all_years_data[[\"2008Fall.csv\"]] |&gt;\n  mutate(\n    Date = Date |&gt;\n      str_remove(\"\\\\.\") |&gt;\n      str_replace(\"$\", \" 2008\") |&gt;\n      mdy()\n  )\n\n  \ny1\n\n# A tibble: 23 × 5\n   Date       Event                      Count Notes                    Location\n   &lt;date&gt;     &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                    &lt;chr&gt;   \n 1 2008-09-21 Celliola                   150   &lt;NA&gt;                     Little …\n 2 2008-09-24 Francisco Aguabella        75-82 Fluid movement           Lyman H…\n 3 2008-09-28 Davitt Moroney             124   &lt;NA&gt;                     Little …\n 4 2008-10-04 Millennium Consort Singers 250   &lt;NA&gt;                     Little …\n 5 2008-10-11 Pomona College Orchestra   245   &lt;NA&gt;                     Little …\n 6 2008-10-12 Pomona College Orchestra   282   &lt;NA&gt;                     Little …\n 7 2008-10-25 Pelev/Ashcraft             130   &lt;NA&gt;                     Little …\n 8 2008-10-29 Student Recital            80    Fluid movement           Lyman H…\n 9 2008-11-02 William Peterson           120   by Graydon in audience   Little …\n10 2008-11-03 Amir ElSaffar Lecture/Demo 15    Monday after Halloween/… Lyman H…\n# ℹ 13 more rows\n\n# switch to mm/dd/yyyy format for date\n\n\n\n\n\ny2 &lt;- all_years_data[[\"2009-10.csv\"]] \n\ny2\n\nNULL"
   },
   {
+    "objectID": "dataviz/MUSDSPROJECT.html#loading-files-and-reading-the-data",
+    "href": "dataviz/MUSDSPROJECT.html#loading-files-and-reading-the-data",
+    "title": "Concert Attendance Project",
+    "section": "",
+    "text": "# Load libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(readr)\n\n\n# Read csv files containing the attendance data\nall_years_files &lt;- \n  # rules for how to search the folder\n  list.files(\n    path = \"MDSDATA\",\n    # see: regular expressions\n    pattern = \".csv$\" ,\n    full.names = TRUE\n  )\n\n\nall_years_data &lt;- setNames(\n  lapply(all_years_files, read_csv),\n  basename(all_years_files))\n\nhead(all_years_data, 1)\n\n$`2008Fall.csv`\n# A tibble: 23 × 5\n   Date     Event                      Count Notes                      Location\n   &lt;chr&gt;    &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;   \n 1 Sept. 21 Celliola                   150   &lt;NA&gt;                       Little …\n 2 Sept. 24 Francisco Aguabella        75-82 Fluid movement             Lyman H…\n 3 Sept. 28 Davitt Moroney             124   &lt;NA&gt;                       Little …\n 4 Oct. 4   Millennium Consort Singers 250   &lt;NA&gt;                       Little …\n 5 Oct. 11  Pomona College Orchestra   245   &lt;NA&gt;                       Little …\n 6 Oct. 12  Pomona College Orchestra   282   &lt;NA&gt;                       Little …\n 7 Oct. 25  Pelev/Ashcraft             130   &lt;NA&gt;                       Little …\n 8 Oct. 29  Student Recital            80    Fluid movement             Lyman H…\n 9 Nov. 2   William Peterson           120   by Graydon in audience     Little …\n10 Nov. 3   Amir ElSaffar Lecture/Demo 15    Monday after Halloween/fi… Lyman H…\n# ℹ 13 more rows"
+  },
+  {
+    "objectID": "dataviz/MUSDSPROJECT.html#cleaning-the-data",
+    "href": "dataviz/MUSDSPROJECT.html#cleaning-the-data",
+    "title": "Concert Attendance Project",
+    "section": "",
+    "text": "y1 &lt;- all_years_data[[\"2008Fall.csv\"]] |&gt;\n  mutate(\n    Date = Date |&gt;\n      str_remove(\"\\\\.\") |&gt;\n      str_replace(\"$\", \" 2008\") |&gt;\n      mdy()\n  )\n\n  \ny1\n\n# A tibble: 23 × 5\n   Date       Event                      Count Notes                    Location\n   &lt;date&gt;     &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                    &lt;chr&gt;   \n 1 2008-09-21 Celliola                   150   &lt;NA&gt;                     Little …\n 2 2008-09-24 Francisco Aguabella        75-82 Fluid movement           Lyman H…\n 3 2008-09-28 Davitt Moroney             124   &lt;NA&gt;                     Little …\n 4 2008-10-04 Millennium Consort Singers 250   &lt;NA&gt;                     Little …\n 5 2008-10-11 Pomona College Orchestra   245   &lt;NA&gt;                     Little …\n 6 2008-10-12 Pomona College Orchestra   282   &lt;NA&gt;                     Little …\n 7 2008-10-25 Pelev/Ashcraft             130   &lt;NA&gt;                     Little …\n 8 2008-10-29 Student Recital            80    Fluid movement           Lyman H…\n 9 2008-11-02 William Peterson           120   by Graydon in audience   Little …\n10 2008-11-03 Amir ElSaffar Lecture/Demo 15    Monday after Halloween/… Lyman H…\n# ℹ 13 more rows\n\n# switch to mm/dd/yyyy format for date\n\n\n\n\n\ny2 &lt;- all_years_data[[\"2009-10.csv\"]] \n\ny2\n\nNULL"
+  },
+  {
     "objectID": "basics/about.html",
     "href": "basics/about.html",
     "title": "- Jazzmin Duncan <3",
@@ -262,15 +276,15 @@
     "objectID": "dataviz/Project6_Pres.html#introduction",
     "href": "dataviz/Project6_Pres.html#introduction",
     "title": "My Process of Building a Digital Art Archive",
-    "section": "",
-    "text": "General Overview of Site-Building Process\n\nspecifically interactive elements\n\nExplanation of My Intentions\nIndependent Project (housed on site) Overview\nPlans Moving Forward"
+    "section": "Introduction",
+    "text": "Introduction\n\nGeneral Overview of Site-Building Process\n\nspecifically interactive elements\n\nExplanation of My Intentions\nIndependent Project (housed on site) Overview\nPlans Moving Forward"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
     "href": "dataviz/Project6_Pres.html#developing-the-look-and-interactive-elements",
     "title": "My Process of Building a Digital Art Archive",
     "section": "Developing the “Look” and Interactive Elements",
-    "text": "Developing the “Look” and Interactive Elements\n\n\n\nScreenshot of my homepage"
+    "text": "Developing the “Look” and Interactive Elements\n\nScreenshot of my homepage"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#techincal-implementations",
@@ -284,28 +298,28 @@
     "href": "dataviz/Project6_Pres.html#visual-elements",
     "title": "My Process of Building a Digital Art Archive",
     "section": "Visual Elements",
-    "text": "Visual Elements\n\nCSS Styling\nh1.title {\n    color: #633822 !important; \n    text-align: center; \n    font-size: 2.5em; \n}\n\n.navbar-nav .nav-item:nth-child(1) a {\n  color: #633822 !important; \n  background-color: rgba(255,255,255,1);\n  padding: 2px 6px; \n  border-radius: 0px; \n}\n\n\nHTML Image Insertions\n[Images](insert link/file path here)"
+    "text": "Visual Elements\nCSS Styling\nh1.title {\n    color: #633822 !important; \n    text-align: center; \n    font-size: 2.5em; \n}\n\n.navbar-nav .nav-item:nth-child(1) a {\n  color: #633822 !important; \n  background-color: rgba(255,255,255,1);\n  padding: 2px 6px; \n  border-radius: 0px; \n}\nHTML Image Insertions\n[Images](insert link/file path here)"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#interactive-elements",
     "href": "dataviz/Project6_Pres.html#interactive-elements",
     "title": "My Process of Building a Digital Art Archive",
     "section": "Interactive Elements",
-    "text": "Interactive Elements\n\nEmbedded Songs\n\n\n\nSpotify"
+    "text": "Interactive Elements\nEmbedded Songs\n\nSpotify"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#interactive-elements-1",
     "href": "dataviz/Project6_Pres.html#interactive-elements-1",
     "title": "My Process of Building a Digital Art Archive",
     "section": "Interactive Elements",
-    "text": "Interactive Elements\n\nEmbedded Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;"
+    "text": "Interactive Elements\nEmbedded Videos\n\n  &lt;div style=\"text-align: center;\"&gt;\n    &lt;video width=\"640\" height=\"360\" controls&gt;\n      &lt;source src=\"projects/Anthro.mp4\" type=\"video/mp4\"&gt;\n      unfortunely your browser cannot play the video :(.\n    &lt;/video&gt;\n  &lt;/div&gt;"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#interactive-elements-2",
     "href": "dataviz/Project6_Pres.html#interactive-elements-2",
     "title": "My Process of Building a Digital Art Archive",
     "section": "Interactive Elements",
-    "text": "Interactive Elements\n\nButtons\n[LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}"
+    "text": "Interactive Elements\nButtons\n[LinkedIn](https://www.linkedin.com/in/jazzmin-pearl-duncan){.btn .btn-warning .btn-sm} [Substack](https://euphoniousthegreat.substack.com/){.btn .btn-danger .btn-sm}"
   },
   {
     "objectID": "dataviz/Project6_Pres.html#my-intentions-and-applications",
@@ -439,26 +453,5 @@
     "title": "- Jazzmin Duncan <3",
     "section": "Honorable Mentions",
     "text": "Honorable Mentions\n\nCCTV Revival\nCCTV is an inactive broadcast journalism organization on campus at the 5C’s. I am currently working to revive the organization and broaden its scope as an on-campus video production hub. The link is to their YouTube channel; a newer version is coming soon (likely in the Fall)!\n……………………………………………………………………………………………………………………………………………\n\n\nHalloweekend in Claremont\nThis is a short documentary that I made in Fall 2024 as a class project that covered the party promotion culture at the 5C’s, particularly thoughout Halloween weekend. It features interviews from students and alumni, academic analysis, and general coverage regarding the party culture(s) in Claremont.\n……………………………………………………………………………………………………………………………………………\n\n\nTech Accountability Archive (TAA)\nThis is another class project from Fall 2024. This project focused on documenting information about major tech companies, and creating a centralized archive containing vital information – including Labor Practices, Data Ethics, and more."
-  },
-  {
-    "objectID": "dataviz/MUSDSPROJECT.html#loading-files-and-reading-the-data",
-    "href": "dataviz/MUSDSPROJECT.html#loading-files-and-reading-the-data",
-    "title": "Concert Attendance Project",
-    "section": "",
-    "text": "# Load libraries\nlibrary(tidyverse)\nlibrary(lubridate)\nlibrary(readr)\n\n\n# Read csv files containing the attendance data\nall_years_files &lt;- \n  # rules for how to search the folder\n  list.files(\n    path = \"MDSDATA\",\n    # see: regular expressions\n    pattern = \".csv$\" ,\n    full.names = TRUE\n  )\n\n\nall_years_data &lt;- setNames(\n  lapply(all_years_files, read_csv),\n  basename(all_years_files))\n\nhead(all_years_data, 1)\n\n$`2008Fall.csv`\n# A tibble: 23 × 5\n   Date     Event                      Count Notes                      Location\n   &lt;chr&gt;    &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;   \n 1 Sept. 21 Celliola                   150   &lt;NA&gt;                       Little …\n 2 Sept. 24 Francisco Aguabella        75-82 Fluid movement             Lyman H…\n 3 Sept. 28 Davitt Moroney             124   &lt;NA&gt;                       Little …\n 4 Oct. 4   Millennium Consort Singers 250   &lt;NA&gt;                       Little …\n 5 Oct. 11  Pomona College Orchestra   245   &lt;NA&gt;                       Little …\n 6 Oct. 12  Pomona College Orchestra   282   &lt;NA&gt;                       Little …\n 7 Oct. 25  Pelev/Ashcraft             130   &lt;NA&gt;                       Little …\n 8 Oct. 29  Student Recital            80    Fluid movement             Lyman H…\n 9 Nov. 2   William Peterson           120   by Graydon in audience     Little …\n10 Nov. 3   Amir ElSaffar Lecture/Demo 15    Monday after Halloween/fi… Lyman H…\n# ℹ 13 more rows"
-  },
-  {
-    "objectID": "dataviz/Project6_Pres.html",
-    "href": "dataviz/Project6_Pres.html",
-    "title": "My Process of Building a Digital Art Archive",
-    "section": "",
-    "text": "General Overview of Site-Building Process\n\nspecifically interactive elements\n\nExplanation of My Intentions\nIndependent Project (housed on site) Overview\nPlans Moving Forward"
-  },
-  {
-    "objectID": "dataviz/MUSDSPROJECT.html#cleaning-the-data",
-    "href": "dataviz/MUSDSPROJECT.html#cleaning-the-data",
-    "title": "Concert Attendance Project",
-    "section": "",
-    "text": "y1 &lt;- all_years_data[[\"2008Fall.csv\"]] |&gt;\n  mutate(\n    Date = Date |&gt;\n      str_remove(\"\\\\.\") |&gt;\n      str_replace(\"$\", \" 2008\") |&gt;\n      mdy()\n  )\n\n  \ny1\n\n# A tibble: 23 × 5\n   Date       Event                      Count Notes                    Location\n   &lt;date&gt;     &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                    &lt;chr&gt;   \n 1 2008-09-21 Celliola                   150   &lt;NA&gt;                     Little …\n 2 2008-09-24 Francisco Aguabella        75-82 Fluid movement           Lyman H…\n 3 2008-09-28 Davitt Moroney             124   &lt;NA&gt;                     Little …\n 4 2008-10-04 Millennium Consort Singers 250   &lt;NA&gt;                     Little …\n 5 2008-10-11 Pomona College Orchestra   245   &lt;NA&gt;                     Little …\n 6 2008-10-12 Pomona College Orchestra   282   &lt;NA&gt;                     Little …\n 7 2008-10-25 Pelev/Ashcraft             130   &lt;NA&gt;                     Little …\n 8 2008-10-29 Student Recital            80    Fluid movement           Lyman H…\n 9 2008-11-02 William Peterson           120   by Graydon in audience   Little …\n10 2008-11-03 Amir ElSaffar Lecture/Demo 15    Monday after Halloween/… Lyman H…\n# ℹ 13 more rows\n\n# switch to mm/dd/yyyy format for date\n\n\n\n\n\ny2 &lt;- all_years_data[[\"2009-10.csv\"]] \n\ny2\n\nNULL"
   }
 ]
