@@ -28,7 +28,7 @@ all_years_data <- setNames(
   lapply(all_years_files, read_csv),
   basename(all_years_files))
 
-head(all_years_data, 1)
+head(all_years_data, 4)
 ```
 
 ## Cleaning the Data
