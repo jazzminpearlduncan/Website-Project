@@ -39,7 +39,6 @@ head(all_years_data, 1)
 ```{r}
 
 y1 <- all_years_data[["2008Fall.csv"]] |>
-  print(y1) |>
   mutate(
     Date = Date |>
       str_remove("\\.") |>
