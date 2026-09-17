@@ -141,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>  
         <li>
     <a class="dropdown-item" href="../multi/Hi-De-Ho.html">
- <span class="dropdown-text">Mini Video Projects</span></a>
+ <span class="dropdown-text">Video Doodles</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../multi/astro/Arbistrology.html">
@@ -181,11 +181,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#loading-files-and-reading-the-data" id="toc-loading-files-and-reading-the-data" class="nav-link active" data-scroll-target="#loading-files-and-reading-the-data">Loading files and reading the data</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -194,7 +200,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -206,8 +212,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="loading-files-and-reading-the-data" class="level2">
+<h2 class="anchored" data-anchor-id="loading-files-and-reading-the-data">Loading files and reading the data</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -223,65 +232,410 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Load data</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>attend <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"fulllog.csv"</span>, <span class="at">col_types =</span> <span class="fu">cols</span>())</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>clean_attend <span class="ot">&lt;-</span> attend <span class="sc">%&gt;%</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Clean Total Count ---</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Total Count</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">parse_number</span>(<span class="st">`</span><span class="at">Total Count</span><span class="st">`</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Keep only rows with valid total counts</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Total Count</span><span class="st">`</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Standardize Date ---</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">`</span><span class="at">Day/Date</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">parse_date_time</span>(</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>      <span class="st">`</span><span class="at">Day/Date</span><span class="st">`</span>,</span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">"mdy"</span>, <span class="st">"m/d/y"</span>, <span class="st">"m/d/Y"</span>),</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">exact =</span> <span class="cn">FALSE</span></span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span> <span class="fu">as.Date</span>()</span>
-<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- Standardize Time ---</span></span>
-<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">Time =</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">is.na</span>(Time) <span class="sc">~</span> <span class="cn">NA_character_</span>,</span>
-<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(Time, <span class="st">"^</span><span class="sc">\\</span><span class="st">d{1,2}:</span><span class="sc">\\</span><span class="st">d{2}"</span>) <span class="sc">~</span></span>
-<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>        <span class="fu">format</span>(<span class="fu">parse_date_time</span>(Time, <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">"H:M"</span>, <span class="st">"I:M p"</span>)), <span class="st">"%H:%M"</span>),</span>
-<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>      <span class="fu">str_detect</span>(Time, <span class="st">"^</span><span class="sc">\\</span><span class="st">d{1,2}</span><span class="sc">\\</span><span class="st">s*(AM|PM|am|pm)$"</span>) <span class="sc">~</span></span>
-<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>        <span class="fu">format</span>(<span class="fu">parse_date_time</span>(Time, <span class="at">orders =</span> <span class="fu">c</span>(<span class="st">"I p"</span>)), <span class="st">"%H:%M"</span>),</span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span>  <span class="co"># junk values removed</span></span>
-<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Read csv files contianing the attendance data</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>all_years_files <span class="ot">&lt;-</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list.files</span>(</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">path =</span> <span class="st">"MDSDATA"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="co"># see regular expressions</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">pattern =</span> <span class="st">".csv$"</span> ,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">full.names =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>all_years_data <span class="ot">&lt;-</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(all_years_files, read_csv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `Total Count = parse_number(`Total Count`)`.
-Caused by warning:
-! 2 parsing failures.
-row col expected      actual
-  7  -- a number ?          
- 33  -- a number Total Count</code></pre>
+<pre><code>Rows: 65 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Date, Event, Count, Notes, Location
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 76 Columns: 5
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (5): Date, Event, Count, Notes, Location
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 61 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): Day/Date, Event, Count, Notes, Location
+time (1): Time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 62 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): Day/Date, Event, Count, Notes, Location
+time (1): Time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 71 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (5): Day/Date, Event, Count, Notes, Location
+time (1): Time
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 58 Columns: 6
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): Day/Date, Time, Event, Count, Notes, Location
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+New names:
+Rows: 68 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, ...7
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 66 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 97 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+New names:
+Rows: 104 Columns: 256
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr   (6): Day/Date, Time, Event, Count, Notes, Location
+lgl (250): Reception Notes, ...8, ...9, ...10, ...11, ...12, ...13, ...14, ....
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 100 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 94 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): Day/Date, Time, Event, Count, Notes, Location
+lgl (1): Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 88 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): Day/Date, Time, Event, Count, Notes, Location
+lgl (1): Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 101 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 100 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (7): Day/Date, Time, Event, Count, Notes, Location, Reception Notes
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+Rows: 101 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (8): Day/Date, Time, Event, Total Count, Students, Notes, Location, Rece...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># View cleaned data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(clean_attend)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>all_years_data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 60
-Columns: 8
-$ `Day/Date`        &lt;date&gt; 2024-08-27, 2024-09-14, 2024-09-15, 2024-09-21, 202…
-$ Time              &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Event             &lt;chr&gt; "Opening Convocation", "Two Pianos", "Celliola &amp; Fri…
-$ `Total Count`     &lt;dbl&gt; 10, 202, 136, 292, 158, 29, 250, 300, 352, 82, 135, …
-$ Students          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Notes             &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, …
-$ Location          &lt;chr&gt; "Bridges Hall of Music", "Bridges Hall of Music", "B…
-$ `Reception Notes` &lt;chr&gt; "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/a", "n/…</code></pre>
+<pre><code>[[1]]
+# A tibble: 65 × 5
+   Date     Event                      Count Notes                      Location
+   &lt;chr&gt;    &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;                      &lt;chr&gt;   
+ 1 Sept. 21 Celliola                   150   &lt;NA&gt;                       Little …
+ 2 Sept. 24 Francisco Aguabella        75-82 Fluid movement             Lyman H…
+ 3 Sept. 28 Davitt Moroney             124   &lt;NA&gt;                       Little …
+ 4 Oct. 4   Millennium Consort Singers 250   &lt;NA&gt;                       Little …
+ 5 Oct. 11  Pomona College Orchestra   245   &lt;NA&gt;                       Little …
+ 6 Oct. 12  Pomona College Orchestra   282   &lt;NA&gt;                       Little …
+ 7 Oct. 25  Pelev/Ashcraft             130   &lt;NA&gt;                       Little …
+ 8 Oct. 29  Student Recital            80    Fluid movement             Lyman H…
+ 9 Nov. 2   William Peterson           120   by Graydon in audience     Little …
+10 Nov. 3   Amir ElSaffar Lecture/Demo 15    Monday after Halloween/fi… Lyman H…
+# ℹ 55 more rows
+
+[[2]]
+# A tibble: 76 × 5
+   Date     Event                 Count Notes Location      
+   &lt;chr&gt;    &lt;chr&gt;                 &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;         
+ 1 Sept. 20 Celliola              184   &lt;NA&gt;  Little Bridges
+ 2 Oct. 3   G. Lee                189   &lt;NA&gt;  Little Bridges
+ 3 Oct. 10  Orchestra             273   &lt;NA&gt;  Little Bridges
+ 4 Oct. 11  Orchestra             266   &lt;NA&gt;  Little Bridges
+ 5 Oct. 28  Student Recital       50    &lt;NA&gt;  Lyman Hall    
+ 6 Nov. 1   Baroque Recital       176+  &lt;NA&gt;  Little Bridges
+ 7 Nov. 1   EnsembleGREEN         70    &lt;NA&gt;  Little Bridges
+ 8 Nov. 8   Sanders &amp; Friends     172   &lt;NA&gt;  Little Bridges
+ 9 Nov. 13  PC Band               142   &lt;NA&gt;  Little Bridges
+10 Nov. 14  Millennium Consort S. 196   &lt;NA&gt;  Little Bridges
+# ℹ 66 more rows
+
+[[3]]
+# A tibble: 61 × 6
+   `Day/Date`    Time   Event                        Count Notes        Location
+   &lt;chr&gt;         &lt;time&gt; &lt;chr&gt;                        &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;   
+ 1 Sun Sept 19   15:00  Celliola                     167   ran out of … Little …
+ 2 Sat. Sept. 25 16:00  D. Alexander Memorial        306   &lt;NA&gt;         Little …
+ 3 Sun. Sept 26  15:00  Cornucopia                   135   107º outside Little …
+ 4 Sat. Oct 2    20:00  G. Lee                       209   &lt;NA&gt;         Little …
+ 5 Sun. Oct 3    15:00  Pelev, Ko, Ashcraft          154   time confus… Little …
+ 6 Sat. Oct. 9   20:00  PC Orch w/J. Sanders         328   &lt;NA&gt;         Little …
+ 7 Sun. Oct 10   15:00  PC Orch w/J. Sanders         231   time confus… Little …
+ 8 Tues. Oct. 12 20:00  Anonymous 4                  415   count appro… Little …
+ 9 Wed. Oct 27   20:15  Student Recital              60    approx. cou… Lyman H…
+10 Sat. Oct. 30  20:00  Hogle Brown, Graff, Kirchner 154   ran out of … Little …
+# ℹ 51 more rows
+
+[[4]]
+# A tibble: 62 × 6
+   `Day/Date`    Time   Event                               Count Notes Location
+   &lt;chr&gt;         &lt;time&gt; &lt;chr&gt;                               &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   
+ 1 Sun Sept 11   15:00  Celliola                            198?  &lt;NA&gt;  Little …
+ 2 Fri. Sept. 16 20:00  Hampson                             455   &lt;NA&gt;  Little …
+ 3 Sun. Sept. 25 15:00  Peterson Lec/Rec                    124   Gard… Little …
+ 4 Fri. Sept. 30 20:00  Pelev &amp; Lebow                       180   &lt;NA&gt;  Little …
+ 5 Sat. Oct. 1   20:00  Lee - solo rec.                     181   &lt;NA&gt;  Little …
+ 6 Sat. Oct. 8   20:00  Orchestra                           281   Yom … Little …
+ 7 Sun. Oct. 9   15:00  Orchestra                           275   556   Little …
+ 8 Wed. Nov. 2   20:15  Student Recital                     c. 65 &lt;NA&gt;  Lyman H…
+ 9 Sat. Nov. 5   20:00  Cornucopia                          163   &lt;NA&gt;  Little …
+10 Sun. Nov. 6   15:00  Hammers &amp; Sticks  Piano &amp; Percussi… 146   Cold… Little …
+# ℹ 52 more rows
+
+[[5]]
+# A tibble: 71 × 6
+   `Day/Date` Time   Event              Count     Notes                 Location
+   &lt;chr&gt;      &lt;time&gt; &lt;chr&gt;              &lt;chr&gt;     &lt;chr&gt;                 &lt;chr&gt;   
+ 1 9/16/12    15:00  Celliola           100       HOT                   Little …
+ 2 9/22/12    20:00  Lee - Keyboard Kal 152       looked like better a… Little …
+ 3 9/28/12    20:00  Kleinecke-Boyer    187-plus  unable to get good o… Little …
+ 4 9/30/12    15:00  Peterson           Cancelled &lt;NA&gt;                  &lt;NA&gt;    
+ 5 10/6/12    20:00  Wright/Moss        142       ran out of programs   Little …
+ 6 10/7/12    15:00  Calambache         160       &lt;NA&gt;                  Little …
+ 7 10/13/12   10:30  Benjamin Memorial  194       &lt;NA&gt;                  Little …
+ 8 10/13/12   20:00  PCO                309       &lt;NA&gt;                  Little …
+ 9 10/14/12   15:00  PCO                355       Founders Day celebra… Little …
+10 10/26/12   20:00  Cornucopia         143       &lt;NA&gt;                  Little …
+# ℹ 61 more rows
+
+[[6]]
+# A tibble: 58 × 6
+   `Day/Date`   Time   Event                        Count        Notes  Location
+   &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;                        &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;   
+ 1 Sun. 9-15    3pm    Celliola                     125          &lt;NA&gt;   Little …
+ 2 Sat. 9-21    8pm    Lee - solo                   225          &lt;NA&gt;   Little …
+ 3 Sun. 9-29    3pm    D. Cleveland, guest organist 142          (40@r… Little …
+ 4 Sat. Oct. 5  8pm    Garth Newel Quartet          129          c. 45… Little …
+ 5 Sat. Oct. 12 8pm    Orchestra w/G. Lytle         294          &lt;NA&gt;   Little …
+ 6 Sun. Oct. 13 3pm    Orchestra w/G. Lytle         261          555    Little …
+ 7 Fri. Oct. 25 8pm    Baroque Masters Kim &amp; Lee    189          c. 52… Little …
+ 8 Sun. Oct. 27 8pm    Millennium Consort Singers   212 + PCC 65 c. 10… Little …
+ 9 Wed. Oct 30  8:15pm Student Recital              71           &lt;NA&gt;   Lyman H…
+10 Sat. Nov. 2  8pm    Middle East Ensemble         252          &lt;NA&gt;   Little …
+# ℹ 48 more rows
+
+[[7]]
+# A tibble: 68 × 7
+   `Day/Date`    Time   Event                         Count Notes Location ...7 
+   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt;                         &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;
+ 1 Sun. Sept. 14 3pm    Celliola                      112   HOT   Little … &lt;NA&gt; 
+ 2 Fri. Sept. 19 8pm    LA Guitar Quartet             557   KUSC… Little … Seym…
+ 3 Sat. Sept. 27 8pm    Mojave Trio                   184   Larg… Little … &lt;NA&gt; 
+ 4 Sun. Sept. 28 3pm    Bew B'ak'tun                  97    &lt;NA&gt;  Little … &lt;NA&gt; 
+ 5 Sat. Oct. 11  8pm    PC Orchestra                  320   Foun… Little … &lt;NA&gt; 
+ 6 Sun. Oct. 12  3pm    PC Orchestra                  242   &lt;NA&gt;  Little … &lt;NA&gt; 
+ 7 Sat. Oct. 25  8pm    Beethoven Cello Sonatas I     255   &lt;NA&gt;  Little … &lt;NA&gt; 
+ 8 Sun. Oct. 26  3pm    Looking For Answers - T. Fla… 64    &lt;NA&gt;  Little … &lt;NA&gt; 
+ 9 Wed. Oct. 29  8:15pm Student Recital               &lt;NA&gt;  &lt;NA&gt;  Lyman H… &lt;NA&gt; 
+10 Sat. Nov. 1   8pm    Beethoven Cello Sonatas 2     234   &lt;NA&gt;  Little … just…
+# ℹ 58 more rows
+
+[[8]]
+# A tibble: 66 × 7
+   `Day/Date`    Time  Event              Count Notes Location `Reception Notes`
+   &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;            
+ 1 Sun. Sept. 13 3pm   Celliola           155   hot   Little … &lt;NA&gt;             
+ 2 Sat. Sept. 26 8pm   Music of RC Seeger 154   &lt;NA&gt;  Little … Perfect receptio…
+ 3 Sun. Sept. 27 3pm   Chamber Music Ext… 249   &lt;NA&gt;  Little … Perfect receptio…
+ 4 Sat. Oct. 2   8pm   PC Orchestra       203   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 5 Sun. Oct. 4   3pm   PC Orchestra       268   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 6 Sat. Oct. 10  8pm   Chalifour          380   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 7 Sun. Nov. 1   3pm   Beethoven Sonatas… 282   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 8 Fri. Nov. 6   8pm   Senior Recital - … 116   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 9 Sun. Nov. 8   3pm   Trio Fugu          137   &lt;NA&gt;  Little … &lt;NA&gt;             
+10 Fri. Nov. 13  8pm   Band               86    [att… Little … &lt;NA&gt;             
+# ℹ 56 more rows
+
+[[9]]
+# A tibble: 97 × 7
+   `Day/Date`    Time     Event           Count Notes Location `Reception Notes`
+   &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt;           &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;            
+ 1 Sun. Aug. 28  evening  First Yr Book   630   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 2 Tues. Aug. 30 11:00 AM Convocation     664   FULL… Little … &lt;NA&gt;             
+ 3 Sun. Sept. 11 3pm      Celliola        179   &lt;NA&gt;  Little … home reception   
+ 4 Fri. Sept. 23 8pm      Brentano        289   &lt;NA&gt;  Little … Reception w/c.85…
+ 5 Sun. Sept. 25 3pm      Chamber Music … 238   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 6 Sat. Oct. 1   10:30am  Lee Children's… 21/28 20 c… Little … &lt;NA&gt;             
+ 7 Sat. Oct. 1   8pm      Lee Recital     242   &lt;NA&gt;  Little … Reception - extr…
+ 8 Fri. Oct. 7   8pm      PCO             262   coun… Little … &lt;NA&gt;             
+ 9 Sat. Oct. 8   3pm      Kwok Memorial   513   coun… Little … &lt;NA&gt;             
+10 Sun. Oct. 9   3pm      PCO             340   coun… Little … &lt;NA&gt;             
+# ℹ 87 more rows
+
+[[10]]
+# A tibble: 104 × 256
+   `Day/Date`    Time   Event Count Notes Location `Reception Notes` ...8  ...9 
+   &lt;chr&gt;         &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;lgl&gt;             &lt;lgl&gt; &lt;lgl&gt;
+ 1 Tues. Sept. 5 11:00… "Con… 600+… over… Little … NA                NA    NA   
+ 2 Fri. Sept. 8  4pm    "Wal… &lt;NA&gt;  &lt;NA&gt;  Lyman H… NA                NA    NA   
+ 3 Sun. Sept. 10 3pm    "Cel… 156   &lt;NA&gt;  Little … NA                NA    NA   
+ 4 Wed. 9/13     eve    "Boo… 214   &lt;NA&gt;  Little … NA                NA    NA   
+ 5 Fri. Sept. 15 8pm    "Jun… 129   &lt;NA&gt;  Little … NA                NA    NA   
+ 6 Sun. Sept. 17 3pm    "Möl… 208   &lt;NA&gt;  Little … NA                NA    NA   
+ 7 Sat. Sept. 23 8pm    "N. … 302   &lt;NA&gt;  Little … NA                NA    NA   
+ 8 Sat. Sept. 30 8pm    "Lee… 129   &lt;NA&gt;  Little … NA                NA    NA   
+ 9 Sun. Oct. 1   2pm    "Mem… 83    &lt;NA&gt;  Little … NA                NA    NA   
+10 Fri. Oct. 6   8pm    "PCO" 285   &lt;NA&gt;  Little … NA                NA    NA   
+# ℹ 94 more rows
+# ℹ 247 more variables: ...10 &lt;lgl&gt;, ...11 &lt;lgl&gt;, ...12 &lt;lgl&gt;, ...13 &lt;lgl&gt;,
+#   ...14 &lt;lgl&gt;, ...15 &lt;lgl&gt;, ...16 &lt;lgl&gt;, ...17 &lt;lgl&gt;, ...18 &lt;lgl&gt;,
+#   ...19 &lt;lgl&gt;, ...20 &lt;lgl&gt;, ...21 &lt;lgl&gt;, ...22 &lt;lgl&gt;, ...23 &lt;lgl&gt;,
+#   ...24 &lt;lgl&gt;, ...25 &lt;lgl&gt;, ...26 &lt;lgl&gt;, ...27 &lt;lgl&gt;, ...28 &lt;lgl&gt;,
+#   ...29 &lt;lgl&gt;, ...30 &lt;lgl&gt;, ...31 &lt;lgl&gt;, ...32 &lt;lgl&gt;, ...33 &lt;lgl&gt;,
+#   ...34 &lt;lgl&gt;, ...35 &lt;lgl&gt;, ...36 &lt;lgl&gt;, ...37 &lt;lgl&gt;, ...38 &lt;lgl&gt;, …
+
+[[11]]
+# A tibble: 100 × 7
+   `Day/Date` Time     Event              Count Notes Location `Reception Notes`
+   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;            
+ 1 9/4/18     11:00 AM "Convocation"      558   full… Little … &lt;NA&gt;             
+ 2 9/17/18    3pm      "Celliola"         158   &lt;NA&gt;  Little … held his own at …
+ 3 &lt;NA&gt;       eve      "Book lecture"     x     &lt;NA&gt;  Little … &lt;NA&gt;             
+ 4 9/26/18    4:15pm   "M. Chingodza"     &lt;NA&gt;  &lt;NA&gt;  Lyman H… &lt;NA&gt;             
+ 5 9/27/18    4:15pm   "Chen - Improv Wk… &lt;NA&gt;  &lt;NA&gt;  Lyman H… &lt;NA&gt;             
+ 6 9/28/18    8pm      "Cage \"Electroni… 239   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 7 10/7/18    3pm      "Chamber Music Ex… 244   &lt;NA&gt;  Little … &lt;NA&gt;             
+ 8 10/12/18   12:15pm  "FNC-Lee&amp;Parkins"  191   &lt;NA&gt;  Lyman H… &lt;NA&gt;             
+ 9 10/12/18   8pm      "PCO"              306   &lt;NA&gt;  Little … &lt;NA&gt;             
+10 10/14/18   3pm      "PCO"              274   &lt;NA&gt;  Little … &lt;NA&gt;             
+# ℹ 90 more rows
+
+[[12]]
+# A tibble: 94 × 7
+   `Day/Date` Time     Event              Count Notes Location `Reception Notes`
+   &lt;chr&gt;      &lt;chr&gt;    &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;lgl&gt;            
+ 1 9/4/18     11:00 AM Convocation        767   &lt;NA&gt;  Little … NA               
+ 2 9/15/19    3pm      Celliola           215   &lt;NA&gt;  Little … NA               
+ 3 9/29/19    3pm      Jeng and Dai (vio… 181   &lt;NA&gt;  Little … NA               
+ 4 10/2/19    4:15pm   Pakaraguian KE     132   &lt;NA&gt;  Lyman H… NA               
+ 5 10/3/19    4:15pm   Althea Waites      65    &lt;NA&gt;  Lyman H… NA               
+ 6 10/5/19    8pm      Lee Recital        canc… &lt;NA&gt;  Little … NA               
+ 7 10/11/19   8pm      PCO                293   &lt;NA&gt;  Little … NA               
+ 8 10/13/19   3pm      PCO                349   &lt;NA&gt;  Little … NA               
+ 9 10/16/19   8:15pm   Student Recital    27    &lt;NA&gt;  Lyman H… NA               
+10 10/25/19   8pm      Dubon Sr. Recital  63    &lt;NA&gt;  Lyman H… NA               
+# ℹ 84 more rows
+
+[[13]]
+# A tibble: 88 × 7
+   `Day/Date` Time   Event                Count Notes Location `Reception Notes`
+   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;lgl&gt;            
+ 1 9/19/21    3pm    Celliola             CANC… COVI… Bridges… NA               
+ 2 9/25/21    8pm    Plucked on Bach-J. … 250   &lt;NA&gt;  Bridges… NA               
+ 3 10/2/21    8pm    Genevieve Lee        147   &lt;NA&gt;  Bridges… NA               
+ 4 10/8/21    8pm    PCO                  286   &lt;NA&gt;  Bridges… NA               
+ 5 10/9/21    8pm    Sr. Lecture-Recital… 57    &lt;NA&gt;  Lyman H… NA               
+ 6 10/10/21   3pm    PCO                  252   &lt;NA&gt;  Bridges… NA               
+ 7 10/13/21   7:30pm Student Recital      56    &lt;NA&gt;  Lyman H… NA               
+ 8 10/29/19   4pm    Student Recital      42    &lt;NA&gt;  Lyman H… NA               
+ 9 10/30/21   12-3pm Fête musicale        100   &lt;NA&gt;  Bridges… NA               
+10 11/3/21    8:15pm Student Recital      23    &lt;NA&gt;  Lyman H… NA               
+# ℹ 78 more rows
+
+[[14]]
+# A tibble: 101 × 7
+   `Day/Date` Time   Event              Count Notes   Location `Reception Notes`
+   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;              &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;    &lt;chr&gt;            
+ 1 9/11/22    3pm    Celliola           132   &lt;NA&gt;    Bridges… n/a              
+ 2 9/18/22    3pm    Fête musicale      97    &lt;NA&gt;    Bridges… n/a              
+ 3 9/24/22    8pm    Manzanita          155   &lt;NA&gt;    Bridges… n/a              
+ 4 10/2/22    3pm    Lee &amp; Friends      176   &lt;NA&gt;    Bridges… n/a              
+ 5 10/7/22    8pm    Orchestra          223   &lt;NA&gt;    Bridges… n/a              
+ 6 10/9/22    3pm    Orchestra          244   &lt;NA&gt;    Bridges… n/a              
+ 7 10/12/22   7:30pm Student Recital    --    cancel… Lyman H… n/a              
+ 8 10/19/22   4:30pm Adean Ayamara Band 54    in con… Lyman H… they handled out…
+ 9 10/21/22   8pm    Givens &amp; Cheng     94    &lt;NA&gt;    Bridges… n/a              
+10 10/23/22   3pm    Ciaramella         179   &lt;NA&gt;    Bridges… n/a              
+# ℹ 91 more rows
+
+[[15]]
+# A tibble: 100 × 7
+   `Day/Date` Time   Event                Count Notes Location `Reception Notes`
+   &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;                &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt;            
+ 1 9/10/23    3pm    Celliola             149   &lt;NA&gt;  Bridges… n/a              
+ 2 9/17/23    3pm    Fête musicale        140   &lt;NA&gt;  Bridges… n/a              
+ 3 9/24/22    3pm    Cornucopia           185   &lt;NA&gt;  Bridges… n/a              
+ 4 9/30/23    8pm    Lee Beethoven IV (C… 293   &lt;NA&gt;  Bridges… n/a              
+ 5 10/5/23    8pm    Orchestra            265   &lt;NA&gt;  Bridges… n/a              
+ 6 10/8/23    3pm    Orchestra            238   &lt;NA&gt;  Bridges… n/a              
+ 7 10/11/23   7:30pm Student Recital      9     &lt;NA&gt;  Lyman H… n/a              
+ 8 10/20/23   8pm    Lee &amp; deMaine        209   &lt;NA&gt;  Lyman H… &lt;NA&gt;             
+ 9 10/22/23   3pm    Artifex Consort      172   &lt;NA&gt;  Bridges… n/a              
+10 10/28/23   8pm    Lee Beethoven V (Ge… 167   &lt;NA&gt;  Bridges… n/a              
+# ℹ 90 more rows
+
+[[16]]
+# A tibble: 101 × 8
+   `Day/Date` Time  Event                  `Total Count` Students Notes Location
+   &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;                  &lt;chr&gt;         &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;   
+ 1 8/27/24    &lt;NA&gt;  Opening Convocation    10            &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 2 9/14/24    &lt;NA&gt;  Two Pianos             202           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 3 9/15/24    &lt;NA&gt;  Celliola &amp; Friends     136           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 4 9/21/24    &lt;NA&gt;  Rachmaninoff Piano Du… 292           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 5 9/22/24    &lt;NA&gt;  Fête musicale          158           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 6 9/25/24    &lt;NA&gt;  Student Recital        29            &lt;NA&gt;     &lt;NA&gt;  Lyman H…
+ 7 9/27/24    &lt;NA&gt;  FNC: Cornucopia        ?             &lt;NA&gt;     &lt;NA&gt;  Lyman H…
+ 8 9/29/24    &lt;NA&gt;  Wm Peterson Organ Con… 250           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+ 9 10/4/24    &lt;NA&gt;  Orchestra              300           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+10 10/6/24    &lt;NA&gt;  Orchestra              352           &lt;NA&gt;     &lt;NA&gt;  Bridges…
+# ℹ 91 more rows
+# ℹ 1 more variable: `Reception Notes` &lt;chr&gt;</code></pre>
 </div>
 </div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
