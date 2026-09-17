@@ -24,7 +24,6 @@ all_years_files <-
     full.names = TRUE
   )
 
-
 all_years_data <- setNames(
   lapply(all_years_files, read_csv),
   basename(all_years_files))
