@@ -25,7 +25,7 @@
         "\n",
         "*Your location has already been collected via GPS Tracking.*\n"
       ],
-      "id": "5e134659"
+      "id": "c9b90f7d"
     },
     {
       "cell_type": "code",
@@ -741,7 +741,7 @@
         "# Display the HTML\n",
         "display(HTML(html_content))"
       ],
-      "id": "1388b492",
+      "id": "c99d447c",
       "execution_count": null,
       "outputs": []
     }
