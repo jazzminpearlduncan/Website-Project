@@ -37,28 +37,26 @@ head(all_years_data, 4)
 
 ```{r}
 
-y1 <- all_years_data[["2008Fall.csv"]] |>
-  mutate(
-    Date = Date |>
-      str_remove("\\.") |>
-      str_replace("$", " 2008") |>
-      mdy()
-  )
+# Fall
+F_2008 <- all_years_data[["2008Fall.csv"]] |>
+  mutate(Date = 
+           Date |>
+           str_remove("\\.") |>
+           str_replace("$", " 2008") |>
+           mdy())
 
-  
-y1
+# Spring
+S_2008 <- all_years_data[["2009Spring.csv"]] |>
+  mutate(Date = 
+           Date |>
+           str_remove("\\.") |>
+           str_replace("$", " 2009") |>
+           mdy())
 
-# switch to mm/dd/yyyy format for date
 
+F_2008
+S_2008
 
-```
-
-### 2009-2010
-
-```{r}
-y2 <- all_years_data[["2009-10.csv"]] 
-
-y2
 ```
 
 ### 2010-2011
