@@ -3,8 +3,11 @@ title: "Concert Attendance Project"
 format: html
 ---
 
+# Learning the Data
+
 ## Loading files and reading the data
-```{r}
+
+```{r, message=FALSE}
 # Load libraries
 library(tidyverse)
 library(lubridate)
@@ -13,17 +16,71 @@ library(readr)
 
 # Read csv files contianing the attendance data
 all_years_files <- 
+  # rules for how to search the folder
   list.files(
     path = "MDSDATA",
-    # see regular expressions
+    # see: regular expressions
     pattern = ".csv$" ,
     full.names = TRUE
   )
 
 
-all_years_data <-
-  lapply(all_years_files, read_csv)
+all_years_data <- setNames(
+  lapply(all_years_files, read_csv),
+  basename(all_years_files))
 
 all_years_data
 ```
 
+## Cleaning the Data
+
+### 2008-2009
+
+```{r}
+
+y1 <- all_years_data[["2008-09.csv"]] 
+
+
+```
+
+### 2009-2010
+
+```{r}
+
+
+```
+
+### 2010-2011
+
+```{r}
+
+
+```
+
+### 2011-2012
+
+```{r}
+
+
+```
+
+### 2012-2013
+
+```{r}
+
+
+```
+
+### 2013-2014
+
+```{r}
+
+
+```
+
+### 2011-2012
+
+```{r}
+
+
+```
